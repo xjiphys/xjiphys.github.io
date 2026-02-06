@@ -241,6 +241,16 @@
       .pub-page .pub-tools{ width: 100%; }
       .pub-page .pub-top{ align-items: stretch; flex-direction: column; }
     }
+
+    .pub-page .pub-title-link{
+  color: var(--pub-title-color);
+  text-decoration: none;
+  border-bottom: 2px solid var(--surface); /* 用你的主题色淡线 */
+}
+.pub-page .pub-title-link:hover{
+  border-bottom-color: var(--primary-600);
+}
+
   </style>
 </head>
 
@@ -336,52 +346,89 @@
         authors: "Z Cui, Z Zhu, X Duan, B Hao, X Chen, J Zhang, T Zhou",
         venue: "Preprint (2026)",
         badges: [],
+        paperUrl:"",
         links: []
       },
       {
-        year: 2026,
+        year: 2025,
         title: "One-Dimensional Hydrogen Chains in Li-Hf-H System: A Pathway to High Superconductivity Under High Pressure",
         authors: "K Yang, W Cui, T Yang, S Ding, P Lai, K Gao, J Shi, M Yang, T Zhou*",
         venue: "Advanced Science, e14126 (2026)",
         badges: [],
+        paperUrl:"",
         links: []
       },
 
       /* ---- Unknown year in your file (keep, avoid wrong grouping) ---- */
+      // {
+      //   year: null,
+      //   title: "Tunable Topological Edge States in Sb Monolayer-based Heterostructures",
+      //   authors: "T Zhou, J Zhang, Y Xue, B Zhao, H Zhang, H Jiang, Z Yang",
+      //   venue: "(Year not specified in your list)",
+      //   badges: [],
+      //   paperUrl:"",
+      //   links: []
+      // },
+
+      /* ---- 2025 (Full list #52) ---- */
       {
-        year: null,
-        title: "Tunable Topological Edge States in Sb Monolayer-based Heterostructures",
-        authors: "T Zhou, J Zhang, Y Xue, B Zhao, H Zhang, H Jiang, Z Yang",
-        venue: "(Year not specified in your list)",
+        year: 2025,
+        title: "Two-Dimensional Ferroelectric Altermagnets: From Model to Material Realization",
+        authors: "Ziye ZhuXunkai DuanJiayong ZhangBowen HaoIgor ŽutićTong Zhou*",
+        venue: "Nano Lett. 2025, 25, 23, 9456–9462",
         badges: [],
+        paperUrl:"",
         links: []
       },
 
-      /* ---- 2025 (Full list #52) ---- */
+       {
+        year: 2025,
+        title: "Ferroelectric control of valleytronic nonvolatile storage in HfCl2/Sc2CO2 heterostructure",
+        authors: "Zhou Cui, Xunkai Duan, Jiansen Wen, Ziye Zhu, Jiayong Zhang, Jiajie Pei, Cuilian Wen, Tong Zhou*, Bo Wu, Baisheng Sa",
+        venue: "Appl. Phys. Lett. 126, 122902 (2025)",
+        badges: [],
+        paperUrl:"https://pubs.aip.org/aip/apl/article-abstract/126/12/122902/3340392/Ferroelectric-control-of-valleytronic-nonvolatile?redirectedFrom=fulltext",
+        links: []
+      },
+
+      {
+        year: 2025,
+        title: "Antiferroelectric altermagnets: Antiferroelectricity alters magnets",
+        authors: "Xunkai Duan, Jiayong Zhang, Ziye Zhu, Yuntian Liu, Zhenyu Zhang, Igor Žutić, Tong Zhou*",
+        venue: "Phys. Rev. Lett. 134, 106801",
+        badges: [],
+        paperUrl:"https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.106801",
+        links: []
+      },
+
+
       {
         year: 2025,
         title: "Ultrafast Laser-Induced Spin Dynamics in All-Semiconductor Ferromagnetic CrSBr–Phosphorene Heterostructures",
         authors: "Y. Huo, S. Li, L. Yan, N. Li, J. Zou, J. He, T. Zhou, T. Frauenheim, S. Tretiak, L. Zhou",
         venue: "The Journal of Physical Chemistry Letters 16, 782–788 (2025)",
         badges: [],
+        paperUrl:"https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.4c03279",
         links: []
       },
 
       /* ---- 2024 (Full list #51-46) ---- */
-      {
-        year: 2024,
-        title: "Antiferroelectric Altermagnets: Antiferroelectricity Alters Magnets",
-        authors: "X. Duan, J. Zhang, Z. Zhu, Y. Liu, Z. Zhang, I. Žutić, T. Zhou*",
-        venue: "arXiv:2410.06071 (2024), Accepted in Phys. Rev. Lett.",
-        badges: ["PRL in press"],
-        links: []
-      },
+      // {
+      //   year: 2024,
+      //   title: "Antiferroelectric Altermagnets: Antiferroelectricity Alters Magnets",
+      //   authors: "X. Duan, J. Zhang, Z. Zhu, Y. Liu, Z. Zhang, I. Žutić, T. Zhou*",
+      //   venue: "arXiv:2410.06071 (2024), Accepted in Phys. Rev. Lett.",
+      //   badges: ["PRL in press"],
+      //   paperUrl:"",
+      //   links: []
+      // },
       {
         year: 2024,
         title: "Large-gap non-Dirac quantum anomalous Hall effect in nitrided TlSb monolayers on nonmagnetic substrates",
         authors: "J Shen, J Li, J Qian, X Duan, C Ma, T Zhou*, J Zhang*",
         venue: "Phys. Rev. B 110, 155423 (2024)",
         badges: [],
+        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.110.155423",
         links: []
       },
       {
@@ -390,6 +437,7 @@
         authors: "K Yang, K Yang, T Yang, J He, M Yang*, T Zhou*",
         venue: "Phys. Rev. B 110, 054108 (2024)",
         badges: [],
+        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.110.054108",
         links: []
       },
       {
@@ -398,6 +446,7 @@
         authors: "B Pekerten, D Brandão, BH Elfeky, T Zhou, JE Han, J Shabani, I Žutić",
         venue: "Phys. Rev. B 110, L060513 (2024)",
         badges: [],
+        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.110.L060513",
         links: []
       },
       {
@@ -406,6 +455,7 @@
         authors: "D Monroe, C Shen, D Tringali, M Alidoust, T Zhou, I Žutić",
         venue: "Appl. Phys. Lett. 125, 012601 (2024)",
         badges: [],
+        paperUrl:"https://pubs.aip.org/aip/apl/article-abstract/125/1/012601/3300566/Phase-jumps-in-Josephson-junctions-with-time?redirectedFrom=fulltext",
         links: []
       },
       {
@@ -414,6 +464,7 @@
         authors: "B Pekerten, D. S Brandão, B Bussiere, D Monroe, T Zhou, J E Han, J Shabani, A Matos-Abiague, I Žutić",
         venue: "Applied Physics Letters 124, 252602 (2024)",
         badges: [],
+        paperUrl:"https://pubs.aip.org/aip/apl/article-abstract/124/25/252602/3299162/Beyond-the-standard-model-of-topological-Josephson?redirectedFrom=fulltext",
         links: []
       },
       {
@@ -422,6 +473,7 @@
         authors: "T Xie, S Liang, S Deitemyer, Q Wang, T Zhou, I Žutić, X Zhang, D Yuan, X Zhang, C Gong",
         venue: "Materials Today Electronics 7, 100081 (2024)",
         badges: [],
+        paperUrl:"https://www.sciencedirect.com/science/article/pii/S2772949423000578",
         links: []
       },
 
@@ -432,6 +484,7 @@
         authors: "W Zhu, Y Zhu, T Zhou, X Zhang, H Lin, Q Cui, F Yan, Z Wang, Y Deng, H Yang, L Zhao, I Žutić, KD Belashchenko, K Wang",
         venue: "Nature Communications 14, 5371 (2023)",
         badges: [],
+        paperUrl:"https://www.nature.com/articles/s41467-023-41077-0",
         links: []
       },
       {
@@ -440,6 +493,7 @@
         authors: "Y Xue, T Zhou, W Xu, B Zhao, I Žutić, Z Yang",
         venue: "Phys. Rev. B 108 (16), L161110 (2023)",
         badges: [],
+        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.108.L161110",
         links: []
       },
       {
@@ -448,6 +502,7 @@
         authors: "S Cheng, M Nrisimhamurty, T Zhou, N Bagués, W Zhou, AJ Bishop, I Lyalin, C Jozwiak, A Bostwick, E Rotenberg, DW McComb, I Žutić, RK Kawakami",
         venue: "Nano Letters 23, 7107–7113 (2023)",
         badges: [],
+        paperUrl:"https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.3c01961",
         links: []
       },
       {
@@ -456,6 +511,7 @@
         authors: "H Bao, B Zhao, J Zhang, Y Xue, T Zhou, Z Yang",
         venue: "2D Materials 10, 035004 (2023)",
         badges: [],
+        paperUrl:"https://iopscience.iop.org/article/10.1088/2053-1583/accbd0/meta",
         links: []
       },
       {
@@ -464,6 +520,7 @@
         authors: "S Liang, T Xie, NA Blumenschein, T Zhou, T Ersevim, Z Song, J Liang, MA Susner, BS Conner, SJ Gong, JP Wang, M Ouyang, I Žutić, AL Friedman, X Zhang, C Gong",
         venue: "Nature Electronics 6, 199–205 (2023)",
         badges: [],
+        paperUrl:"https://www.nature.com/articles/s41928-023-00931-1",
         links: []
       },
       {
@@ -472,6 +529,7 @@
         authors: "T Zhou*, I Žutić*",
         venue: "Nat. Mater. 22, 284 (2023)",
         badges: [],
+        paperUrl:"https://www.nature.com/articles/s41563-022-01466-0",
         links: [
           /* put your real links here */
           /* { label: "PDF", href: "pdf/asymmetry_2023.pdf" } */
@@ -485,6 +543,7 @@
         authors: "T Zhou*, MC Dartiailh, K Sardashti, JE Han, A Matos-Abiague, J Shabani, I Žutić",
         venue: "Nat. Commun. 13, 1738 (2022)",
         badges: [],
+        paperUrl:"https://www.nature.com/articles/s41467-022-29463-6",
         links: [
           /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." }, { label: "gif", href: "..." } */
         ]
@@ -495,6 +554,7 @@
         authors: "Z Tu, T Zhou, T Ersevim, HS Arachchige, AT Hanbicki, AL Friedman, D Mandrus, M Ouyang, I Žutić, C Gong",
         venue: "Applied Physics Letters 120 (4) (2022)",
         badges: [],
+        paperUrl:"https://pubs.aip.org/aip/apl/article/120/4/043102/2832911",
         links: []
       },
 
@@ -505,6 +565,7 @@
         authors: "W Zhu, H Lin, F Yan, C Hu, Z Wang, L Zhao, Y Deng, ZR Kudrynskyi, T Zhou, ZD Kovalyuk, Y Zheng, A Patanè, I Žutić, S Li, H Zheng, K Wang",
         venue: "Advanced Materials 33, 2104658 (2021)",
         badges: [],
+        paperUrl:"https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/adma.202104658",
         links: []
       },
       {
@@ -513,6 +574,7 @@
         authors: "T Zhou*, S Cheng, M Schleenvoigt, P Schüffelgen, H Jiang, Z Yang, I Žutić*",
         venue: "Phys. Rev. Lett. 127, 116402 (2021)",
         badges: [],
+        paperUrl:"https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.127.116402",
         links: [
           /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." } */
         ]
@@ -523,6 +585,7 @@
         authors: "K Chen#, K Qi#, T Zhou#, T Yang#, Y Zhang*, Z Guo, CK Lim, J Zhang, I Žutić, H Zhang*, PN Prasad*",
         venue: "Nano-Micro Letters 13, 172–184 (2021)",
         badges: [],
+        paperUrl:"https://link.springer.com/article/10.1007/s40820-021-00690-8",
         links: []
       },
       {
@@ -531,6 +594,7 @@
         authors: "T Zhou, MC Dartiailh, K Sardashti, JE Han, A Matos-Abiague, J Shabani, I Žutić",
         venue: "Spintronics XIV 11805, 118050B (2021)",
         badges: [],
+        paperUrl:"https://www.spiedigitallibrary.org/conference-proceedings-of-spie/11805/118050B/Towards-non-Abelian-statistics-in-topological-planar-Josephson-junctions/10.1117/12.2596241.short?SSO=1",
         links: []
       },
       {
@@ -539,6 +603,7 @@
         authors: "T Zhu, AJ Bishop, T Zhou, M Zhu, DJ O’Hara, AA Baker, S Cheng, RC Walko, JJ Repicky, T Liu, JA Gupta, CM Jozwiak, E Rotenberg, J Hwang, I Žutić, RK Kawakami",
         venue: "Nano Letters 21, 5083–5090 (2021)",
         badges: [],
+        paperUrl:"https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c00141",
         links: []
       },
 
@@ -549,6 +614,7 @@
         authors: "G Xu, T Zhou*, B Scharf, I Žutić",
         venue: "Phys. Rev. Lett. 125, 157402 (2020)",
         badges: [],
+        paperUrl:"https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.157402",
         links: [
           /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." } */
         ]
@@ -559,6 +625,7 @@
         authors: "J Joshi, T Zhou, S Krylyuk, AV Davydov, I Žutić, PM Vora*",
         venue: "ACS Nano 14, 8528–8538 (2020)",
         badges: [],
+        paperUrl:"https://pubs.acs.org/doi/abs/10.1021/acsnano.0c02803",
         links: []
       },
       {
@@ -567,6 +634,7 @@
         authors: "T Zhou*, MC Dartiailh, W Mayer, JE Han, A Matos-Abiague, J Shabani, I Žutić",
         venue: "Phys. Rev. Lett. 124, 137001 (2020)",
         badges: [],
+        paperUrl:"https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.124.137001",
         links: [
           /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." }, { label: "gif1", href: "..." }, { label: "gif2", href: "..." } */
         ]
@@ -579,6 +647,7 @@
         authors: "N Mohanta, T Zhou, JW Xu, JE Han, AD Kent, J Shabani, I Žutić, A Matos-Abiague",
         venue: "Phys. Rev. Applied 12, 034048 (2019)",
         badges: [],
+        paperUrl:"https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.12.034048",
         links: []
       },
       {
@@ -587,6 +656,7 @@
         authors: "J Zhou#, T Zhou#, S Cheng, H Jiang, Z Yang",
         venue: "Phys. Rev. B 99, 195422 (2019)",
         badges: [],
+        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.99.195422",
         links: []
       },
       {
@@ -595,6 +665,7 @@
         authors: "I Žutić, A Matos-Abiague, B Scharf, T Zhou, H Dery, K Belashchenko",
         venue: "Solid-State Electronics 155, 93–98 (2019)",
         badges: [],
+        paperUrl:"https://www.sciencedirect.com/science/article/abs/pii/S0038110118306865",
         links: []
       },
       {
@@ -603,6 +674,7 @@
         authors: "T Zhou*, N Mohanta, JE Han, A Matos-Abiague, I Žutić",
         venue: "Phys. Rev. B 99, 134505 (2019)",
         badges: [],
+        paperUrl:"https://doi.org/10.1103/PhysRevB.99.134505",
         links: [
           /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." } */
         ]
@@ -613,6 +685,7 @@
         authors: "YS Mu, Y Xue, T Zhou, ZQ Yang",
         venue: "New Journal of Physics 21, 023010 (2019)",
         badges: [],
+        paperUrl:"https://iopscience.iop.org/article/10.1088/1367-2630/ab0454/meta",
         links: []
       },
       {
@@ -621,6 +694,7 @@
         authors: "J Zhang, B Zhao, T Zhou, Y Xue, Y Fang, C Ma, Z Yang",
         venue: "Phys. Rev. B 99, 035409 (2019)",
         badges: [],
+        paperUrl:"https://doi.org/10.1103/PhysRevB.99.035409",
         links: []
       },
 
@@ -631,6 +705,7 @@
         authors: "T Zhou, G Xu, A Matos-Abiague, B Scharf, I Žutić",
         venue: "Spintronics XI 10732, 1073221 (2018)",
         badges: [],
+        paperUrl:"https://doi.org/10.1117/12.2323160",
         links: []
       },
       {
@@ -639,6 +714,7 @@
         authors: "T Zhou, J Zhang, H Jiang, I Žutić, Z Yang*",
         venue: "npj Quantum Mater. 3, 39 (2018)",
         badges: [],
+        paperUrl:"https://www.nature.com/articles/s41535-018-0113-4",
         links: [
           /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." } */
         ]
@@ -649,14 +725,16 @@
         authors: "I Žutić, T Zhou",
         venue: "Science China Physics, Mechanics & Astronomy 61, 1–3 (2018)",
         badges: [],
+        paperUrl:" https://doi.org/10.1007/s11433-018-9191-0",
         links: []
       },
       {
         year: 2018,
         title: "Coupling effect of topological states and Chern insulators in two-dimensional triangular lattices",
-        authors: "J Zhang, B Zhao, Y Xue, T Zhou, Z Yang",
+        authors: "J Zhang, B Zhao, Y Xue, T Zhou, Z Yang*",
         venue: "Phys. Rev. B 97, 125430 (2018)",
         badges: [],
+        paperUrl:"https://doi.org/10.1103/PhysRevB.97.125430",
         links: []
       },
       {
@@ -665,6 +743,7 @@
         authors: "Y Xue, B Zhao, Y Zhu, T Zhou, J Zhang, N Li, H Jiang, Z Yang",
         venue: "NPG Asia Materials 10, e467–e467 (2018)",
         badges: [],
+        paperUrl:"https://www.nature.com/articles/am2017240",
         links: []
       },
       {
@@ -673,14 +752,16 @@
         authors: "J Zhang, B Zhao, T Zhou, Y Xue, C Ma, Z Yang",
         venue: "Phys. Rev. B 97, 085401 (2018)",
         badges: [],
+        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.97.085401",
         links: []
       },
       {
         year: 2018,
         title: "Large valley polarization in monolayer MoTe2 on a magnetic substrate",
-        authors: "N Li, J Zhang, Y Xue, T Zhou, Z Yang",
+        authors: "N Li, J Zhang, Y Xue, T Zhou, Z Yang*",
         venue: "PCCP 20, 3805–3812 (2018)",
         badges: [],
+        paperUrl:"https://pubs.rsc.org/en/content/articlelanding/2018/cp/c7cp07610j/unauth",
         links: []
       },
 
@@ -688,9 +769,10 @@
       {
         year: 2017,
         title: "Li2TiSiO5: a low potential and large capacity Ti-based anode material for Li-ion batteries",
-        authors: "J Liu, WK Pang, T Zhou, L Chen, Y Wang, VK Peterson, Z Yang, Z Guo, Y Xia",
+        authors: "J Liu, WK Pang, T Zhou, L Chen, Y Wang, VK Peterson*, Z Yang*, Z Guo, Y Xia*",
         venue: "Energy & Environmental Science 10, 1456–1464 (2017)",
         badges: [],
+        paperUrl:"https://pubs.rsc.org/en/content/articlelanding/2017/ee/c7ee00763a/unauth",
         links: []
       },
 
@@ -701,6 +783,7 @@
         authors: "T Zhou, J Zhang, Y Xue, B Zhao, H Zhang, H Jiang, Z Yang*",
         venue: "Phys. Rev. B 94, 235449 (2016)",
         badges: [],
+        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.94.235449",
         links: [
           /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." } */
         ]
@@ -708,9 +791,10 @@
       {
         year: 2016,
         title: "Quantum anomalous Hall effect in stanene on a nonmagnetic substrate",
-        authors: "H Zhang, T Zhou, J Zhang, B Zhao, Y Yao, Z Yang",
+        authors: "H Zhang, T Zhou, J Zhang, B Zhao, Y Yao, Z Yang*",
         venue: "Phys. Rev. B 94, 235409 (2016)",
         badges: [],
+        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.94.235409",
         links: []
       },
       {
@@ -719,6 +803,7 @@
         authors: "J Zhang, B Zhao, T Zhou, Z Yang",
         venue: "Chinese Physics B 25, 117308 (2016)",
         badges: [],
+        paperUrl:"https://iopscience.iop.org/article/10.1088/1674-1056/25/11/117308/meta",
         links: []
       },
       {
@@ -727,6 +812,7 @@
         authors: "T Zhou, C Zhang, H Zhang, F Xiu, Z Yang",
         venue: "Inorganic Chemistry Frontiers 3, 1637–1643 (2016)",
         badges: [],
+        paperUrl:"https://pubs.rsc.org/en/content/articlehtml/2017/qi/c6qi00383d",
         links: []
       },
       {
@@ -735,6 +821,7 @@
         authors: "H Zhang, J Zhang, B Zhao, T Zhou, Z Yang",
         venue: "Applied Physics Letters 108 (8) (2016)",
         badges: [],
+        paperUrl:"https://pubs.aip.org/aip/apl/article-abstract/108/8/082104/31654/Quantum-anomalous-Hall-effect-in-stable-dumbbell?redirectedFrom=fulltext",
         links: []
       },
 
@@ -745,6 +832,7 @@
         authors: "C Zhang, T Zhou, S Liang, J Cao, X Yuan, Y Liu, Y Shen, Q Wang, J Zhao, Z Yang, F Xiu",
         venue: "Chinese Physics B 25, 017202 (2015)",
         badges: [],
+        paperUrl:"https://iopscience.iop.org/article/10.1088/1674-1056/25/1/017202/meta",
         links: []
       },
       {
@@ -753,6 +841,7 @@
         authors: "J Li, Y Wang, T Zhou, H Zhang, X Sun, J Tang, L Zhang, AM Al-Enizi, …",
         venue: "J. Am. Chem. Soc. 137, 14305–14312 (2015)",
         badges: [],
+        paperUrl:"https://pubs.acs.org/doi/abs/10.1021/jacs.5b07756",
         links: []
       },
       {
@@ -761,6 +850,7 @@
         authors: "T Zhou, J Zhang, B Zhao, H Zhang, Z Yang*",
         venue: "Nano Letters 15, 5149–5155 (2015)",
         badges: [],
+        paperUrl:"https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.5b01373",
         links: [
           /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." } */
         ]
@@ -768,10 +858,10 @@
       {
         year: 2015,
         title: "Bio‐Inspired Leaf‐Mimicking Nanosheet/Nanotube Heterostructure as a Highly Efficient Oxygen Evolution Catalyst",
-        authors: "Y Wang, K Jiang, H Zhang, T Zhou, J Wang, W Wei, Z Yang, X Sun, …",
+        authors: "Yongcheng Wang, Kun Jiang, Hui Zhang, Tong Zhou, Jiwei Wang, Wei Wei, Zhongqin Yang, Xuhui Sun, Wen-Bin Cai, Gengfeng Zheng",
         venue: "Advanced Science 2, 1500003 (2015)",
         badges: [],
-        links: []
+        paperUrl:"https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.201500003"
       },
 
       /* ---- 2014 (Full list #5-2) ---- */
@@ -781,15 +871,17 @@
         authors: "Y Wang#, J Tang#, T Zhou#, P Da, J Li, B Kong, Z Yang, G Zheng",
         venue: "Small 10, 4967–4974 (2014)",
         badges: [],
-        links: []
+        paperUrl:"https://onlinelibrary.wiley.com/doi/full/10.1002/smll.201401059",
+        links:[]
       },
+
       {
         year: 2014,
         title: "Electrocatalysis: Reduced Mesoporous Co3O4 Nanowires as Efficient Water Oxidation Electrocatalysts and Supercapacitor Electrodes (Adv. Energy Mater. 16/2014)",
-        authors: "Y Wang, T Zhou, K Jiang, P Da, Z Peng, J Tang, B Kong, WB Cai, Z Yang, G Zheng",
+        authors: "Yongcheng Wang, Tong Zhou, Kun Jiang, Peimei Da, Zheng Peng, Jing Tang, Biao Kong, Wen-Bin Cai, Zhongqin Yang, Gengfeng Zheng",
         venue: "Advanced Energy Materials 4 (16) (2014)",
         badges: [],
-        links: []
+        paperUrl:"https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/aenm.201470082"
       },
       {
         year: 2014,
@@ -797,15 +889,7 @@
         authors: "Y Wang, T Zhou, K Jiang, P Da, Z Peng, J Tang, B Kong, WB Cai, Z Yang, G Zheng",
         venue: "Advanced Energy Materials 4 (16), 1400696 (2014)",
         badges: [],
-        links: []
-      },
-      {
-        year: 2014,
-        title: "Thermal transport in folded zigzag and armchair graphene nanoribbons",
-        authors: "H Zhang, T Zhou, G Xie, J Cao, Z Yang",
-        venue: "Applied Physics Letters 104 (24) (2014)",
-        badges: [],
-        links: []
+        paperUrl:"https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aenm.201400696"
       },
 
       /* ---- 2012 (Full list #1) ---- */
@@ -815,7 +899,8 @@
         authors: "CL Ma, T Zhou",
         venue: "Physica B: Condensed Matter 407, 218–221 (2012)",
         badges: [],
-        links: []
+        // links: [{ label: "link", href: "https://www.sciencedirect.com/science/article/abs/pii/S0921452611010854" }],
+         paperUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0921452611010854",
       }
     ];
 
@@ -940,7 +1025,13 @@
             <li class="pub-item" data-text="${escapeHTML(dataText)}">
               <div class="pub-no"></div>
               <div>
-                <p class="pub-title">${escapeHTML(p.title)}</p>
+                <p class="pub-title">
+  ${p.paperUrl
+    ? `<a class="pub-title-link" href="${escapeHTML(p.paperUrl)}" target="_blank" rel="noopener">${escapeHTML(p.title)}</a>`
+    : `${escapeHTML(p.title)}`
+  }
+</p>
+                
                 ${p.authors ? `<div class="pub-authors">${escapeHTML(p.authors)}</div>` : ""}
                 ${p.venue ? `<div class="pub-venue">${escapeHTML(p.venue)}</div>` : ""}
                 ${badgesHTML}

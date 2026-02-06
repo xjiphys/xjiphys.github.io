@@ -719,9 +719,9 @@ k {
 
 }
 .Renyuan {
-	width:1400px;
-	height:5180px;
-	margin: 40px auto;
+	/* width:1400px; */
+	/* height:5180px; */
+	margin: 40px 0 0 0;
 }
 .Leader {
 	width:1300px;
@@ -731,8 +731,8 @@ k {
 	color: var(--primary);
 	font-weight: bold;
 	border-bottom-style: solid;
-	border-bottom-color: var(--border);
-	border-bottom-width: 4px;
+	border-bottom-color: var(--accent);
+	border-bottom-width: 3px;
 }
 .Leaderphoto {
 	width:1300px;

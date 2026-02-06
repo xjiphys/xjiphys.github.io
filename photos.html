@@ -63,7 +63,7 @@
       gap: 12px;
       flex-wrap: wrap;
       padding-bottom: 12px;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      border-bottom: 2px solid rgba(0,0,0,0.08);
       margin-bottom: 12px;
     }
     main.photos-page h1{
@@ -126,7 +126,7 @@
       gap: 10px;
       padding-bottom: 10px;
       margin-bottom: 10px;
-      border-bottom: 2px solid rgba(253,184,55,0.9);
+      border-bottom: 2.5px solid rgba(253,184,55,0.9);
     }
     main.photos-page h2{
       margin:0;
@@ -281,136 +281,141 @@
     <div class="layout">
       <!-- LEFT: CONTENT -->
       <div>
-        <section class="hero">
+        <section >
           <div class="hero-top">
             <div>
               <h1>Photos</h1>
-              <p class="sub">Meetings, Dining, and Life. (Captions are intentionally left blank — you can fill one sentence later.)</p>
-            </div>
+              <!-- <p class="sub">Academic, Social, and Vigor. (Captions are intentionally left blank — you can fill one sentence later.)</p> -->
+            <!-- </div>
             <div class="filters" aria-label="Filter photos">
               <button class="pill is-active" data-filter="all" type="button">All</button>
-              <button class="pill" data-filter="meetings" type="button">Meetings</button>
-              <button class="pill" data-filter="dining" type="button">Dining</button>
-              <button class="pill" data-filter="life" type="button">Life</button>
+              <button class="pill" data-filter="academic" type="button">Academic</button>
+              <button class="pill" data-filter="social" type="button">Social</button>
+              <button class="pill" data-filter="Vigor" type="button">Vigor</button>
             </div>
-          </div>
+          </div> -->
           <p class="sub"><span id="photoCount">0</span> items shown</p>
         </section>
 
-        <!-- Meetings -->
-        <section class="section" id="meetings">
+        <!-- Academic -->
+        <section class="section" id="Academic">
           <div class="section-head">
-            <h2>Meetings</h2>
-            <div class="sec-note">seminars · group meeting</div>
+            <h2>Academic</h2>
+            <div class="sec-note">Meetings, Conferences, Talkss</div>
           </div>
           <div class="grid">
-            <article class="photo" data-cat="meetings">
+            <article class="photo" data-cat="academic">
               <div class="media">
-                <img src="image/photos/20260131_1.jpg" alt="Meetings photo" loading="lazy">
+                <img src="image/photos/academic/2025a1.jpg" alt="academic photo" loading="lazy">
               </div>
               <p class="cap"></p>
             </article>
 
-            <article class="photo" data-cat="meetings">
+            <article class="photo" data-cat="academic">
               <div class="media">
-                <img src="image/photos/20260131_2.jpg" alt="Meetings photo" loading="lazy">
+                <img src="image/photos/academic/20260131_2.jpg" alt="academic photo" loading="lazy">
               </div>
               <p class="cap"></p>
             </article>
 
-            <article class="photo" data-cat="meetings">
+            <article class="photo" data-cat="academic">
               <div class="media">
-                <img src="image/photos/20250827.jpg" alt="Meetings photo" loading="lazy">
+                <img src="image/photos/academic/a3.jpg" alt="academic photo" loading="lazy">
               </div>
               <p class="cap"></p>
             </article>
 
-            <article class="photo" data-cat="meetings">
+            <!-- <article class="photo" data-cat="academic">
               <div class="media">
-                <img src="image/photos/20250817a.jpg" alt="Meetings photo" loading="lazy">
+                <img src="image/photos/20250817a.jpg" alt="academic photo" loading="lazy">
+              </div>
+              <p class="cap"></p>
+            </article> -->
+          </div>
+        </section>
+
+        <!-- social -->
+        <section class="section" id="social">
+          <div class="section-head">
+            <h2>Social</h2>
+            <div class="sec-note">Group Photos, Dining, Celebrations</div>
+          </div>
+          <div class="grid">
+            <article class="photo" data-cat="social">
+              <div class="media">
+                <img src="image/photos/social/2025a2.jpg" alt="Social photo" loading="lazy">
+              </div>
+              <p class="cap"></p>
+            </article>
+
+            <article class="photo" data-cat="social">
+              <div class="media">
+                <img src="image/photos/social/20260131_1.jpg" alt="Social photo" loading="lazy">
+              </div>
+              <p class="cap"></p>
+            </article>
+            <article class="photo" data-cat="social">
+              <div class="media">
+                <img src="image/photos/social/a1.jpg" alt="Social photo" loading="lazy">
               </div>
               <p class="cap"></p>
             </article>
           </div>
         </section>
 
-        <!-- Dining -->
-        <section class="section" id="dining">
+        <!-- vigor -->
+        <section class="section" id="vigor">
           <div class="section-head">
-            <h2>Dining</h2>
-            <div class="sec-note">dinners · celebrations</div>
+            <h2>Vigor</h2>
+            <div class="sec-note">Sports, Outdoors</div>
           </div>
           <div class="grid">
-            <article class="photo" data-cat="dining">
+            <article class="photo" data-cat="vigor">
               <div class="media">
-                <img src="image/photos/2025a1.jpg" alt="Dining photo" loading="lazy">
+                <img src="image/photos/vigor/20250817a.jpg" alt="Vigor photo" loading="lazy">
               </div>
               <p class="cap"></p>
             </article>
 
-            <article class="photo" data-cat="dining">
+            <article class="photo" data-cat="vigor">
               <div class="media">
-                <img src="image/photos/2025a2.jpg" alt="Dining photo" loading="lazy">
-              </div>
-              <p class="cap"></p>
-            </article>
-          </div>
-        </section>
-
-        <!-- Life -->
-        <section class="section" id="life">
-          <div class="section-head">
-            <h2>Life</h2>
-            <div class="sec-note">daily moments</div>
-          </div>
-          <div class="grid">
-            <article class="photo" data-cat="life">
-              <div class="media">
-                <img src="image/photos/a3.jpg" alt="Life photo" loading="lazy">
+                <img src="image/photos/vigor/20250827.jpg" alt="Vigor photo" loading="lazy">
               </div>
               <p class="cap"></p>
             </article>
 
-            <article class="photo" data-cat="life">
+            <article class="photo" data-cat="vigor">
               <div class="media">
-                <img src="image/photos/a2.jpg" alt="Life photo" loading="lazy">
+                <img src="image/photos/vigor/tour-1.jpg" alt="Vigor photo" loading="lazy">
               </div>
               <p class="cap"></p>
             </article>
 
-            <article class="photo" data-cat="life">
+            <!-- <article class="photo" data-cat="vigor">
               <div class="media">
-                <img src="image/photos/a1.jpg" alt="Life photo" loading="lazy">
+                <img src="image/photos/a4" alt="Vigor photo" loading="lazy">
               </div>
               <p class="cap"></p>
-            </article>
-
-            <article class="photo" data-cat="life">
-              <div class="media">
-                <!-- NOTE: your original path has no extension; fix if needed (e.g., a4.jpg) -->
-                <img src="image/photos/a4" alt="Life photo" loading="lazy">
-              </div>
-              <p class="cap"></p>
-            </article>
+            </article> -->
           </div>
         </section>
       </div>
 
       <!-- RIGHT: TOOLBAR -->
       <aside class="toolbar" aria-label="Floating navigation">
-        <h3>Navigate</h3>
+        <!-- <h3>Navigate</h3>
         <div class="tool">
-          <a href="#meetings">Meetings</a>
-          <a href="#dining">Dining</a>
-          <a href="#life">Life</a>
-        </div>
+          <a href="#academic">Academic</a>
+          <a href="#social">Social</a>
+          <a href="#vigor">Vigor</a>
+        </div> -->
 
         <h3>Filter</h3>
         <div class="tool">
           <a href="#" data-filter-link="all">Show all</a>
-          <a href="#" data-filter-link="meetings">Meetings</a>
-          <a href="#" data-filter-link="dining">Dining</a>
-          <a href="#" data-filter-link="life">Life</a>
+          <a href="#" data-filter-link="academic">Academic</a>
+          <a href="#" data-filter-link="social">Social</a>
+          <a href="#" data-filter-link="vigor">Vigor</a>
         </div>
 
         <div class="tool">
