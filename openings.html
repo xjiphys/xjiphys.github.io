@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Positions | Zhou Group</title>
+
+  <!-- Global site style -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Page-only style (scoped): will NOT affect other pages -->
+  <style>
+    /* ===============================
+       Openings page (scoped)
+       =============================== */
+    main.open-page{
+      width:1300px;
+      margin:0 auto;
+      padding:15px 0 64px;
+
+      --op-surface: var(--surface);
+      --op-text: var(--text);
+      --op-muted: var(--muted);
+      --op-primary: var(--primary);
+      --op-primary-600: var(--primary-600);
+      --op-accent: var(--accent);
+
+      --op-border: rgba(0,0,0,0.08);
+      --op-shadow: 0px 8px 16px rgba(0,0,0,0.06);
+
+      --op-body: #2b2f36;
+      --op-body-muted: rgba(43,47,54,0.72);
+
+      --op-radius: 14px;
+      --op-h1: 34px;
+      --op-h2: 20px;
+      --op-h3: 16px;
+      --op-p: 16px;
+      --op-lh: 1.75;
+    }
+
+    @media (max-width: 1320px){
+      main.open-page{ width: calc(100% - 36px); }
+    }
+    @media (max-width: 900px){
+      main.open-page{ --op-h1: 30px; }
+    }
+
+    /* ===============================
+       KEY CHANGE: Two-column shell
+       Left: hero + cards (same width)
+       Right: TOC (sticks next to cards)
+       =============================== */
+    main.open-page .open-shell{
+      display: grid;
+      grid-template-columns: 1fr 230px; /* 右侧更窄，贴着正文 */
+      gap: 12px;                        /* “贴着”正文 box */
+      align-items: start;
+    }
+
+    /* Make main column consistent */
+    main.open-page .open-main{
+      min-width: 0;
+    }
+
+    /* Right column: always inside page, sticky follow */
+    main.open-page .open-aside{
+      position: sticky;
+      top: 16px; 
+      align-self: start;
+      max-height: calc(100vh - 32px);
+      overflow: auto;
+      padding-right: 2px; /* 给滚动条一点空间 */
+    }
+
+    /* Mobile: stack vertically (TOC goes under hero or at top) */
+    @media (max-width: 980px){
+      main.open-page .open-shell{
+        grid-template-columns: 1fr;
+      }
+      main.open-page .open-aside{
+        position: relative;
+        top: auto;
+        max-height: none;
+        overflow: visible;
+      }
+    }
+
+    /* Hero card (align with other cards) */
+    main.open-page .hero{
+      background: var(--op-surface);
+      border: 1px solid var(--op-border);
+      border-radius: var(--op-radius);
+      box-shadow: var(--op-shadow);
+      padding: 22px 24px 18px;
+    }
+    @media (max-width: 900px){
+      main.open-page .hero{ padding: 18px 16px; }
+    }
+
+    main.open-page .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:13px;
+      letter-spacing:0.6px;
+      text-transform:uppercase;
+      color: var(--op-muted);
+      margin:0 0 10px;
+    }
+    main.open-page .kicker::before{
+      content:"";
+      width:10px;height:10px;border-radius:999px;
+      background: var(--op-accent);
+      box-shadow: 0 0 0 3px rgba(253,184,55,0.25);
+    }
+
+    main.open-page h1{
+      margin:0;
+      font-size: var(--op-h1);
+      line-height:1.2;
+      font-family: var(--font-heading);
+      letter-spacing:0.2px;
+      color: var(--op-primary-600);
+    }
+
+    main.open-page .lead{
+      margin:12px 0 0;
+      font-size: var(--op-p);
+      line-height: var(--op-lh);
+      color: var(--op-body);
+    }
+
+    /* Stack cards */
+    main.open-page .stack{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    main.open-page .card{
+      background: var(--op-surface);
+      border: 1px solid var(--op-border);
+      border-radius: var(--op-radius);
+      box-shadow: var(--op-shadow);
+      padding: 18px 24px;
+    }
+    @media (max-width: 900px){
+      main.open-page .card{ padding: 16px 16px; }
+    }
+
+    main.open-page .card-header{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:14px;
+      padding-bottom:10px;
+      margin-bottom:12px;
+      border-bottom: 2.5px solid var(--accent);
+      /* border-bottom: 2.5px solid rgba(146,7,28,0.18); */
+    }
+
+    main.open-page h2{
+      margin:0;
+      font-size: var(--op-h2);
+      font-family: var(--font-heading);
+      letter-spacing:0.2px;
+      color: var(--op-primary-600);
+    }
+    main.open-page h3{
+      margin:16px 0 8px;
+      font-size: var(--op-h3);
+      font-family: var(--font-heading);
+      color: var(--op-primary-600);
+    }
+
+    main.open-page p{
+      margin:10px 0 0;
+      font-size: var(--op-p);
+      line-height: var(--op-lh);
+      color: var(--op-body);
+    }
+    main.open-page ul, main.open-page ol{
+      margin:10px 0 0;
+      padding-left: 18px;
+      font-size: var(--op-p);
+      line-height: var(--op-lh);
+      color: var(--op-body);
+    }
+    main.open-page li{ margin: 6px 0; }
+
+    main.open-page strong{
+      color: var(--op-primary);
+      font-weight: 800;
+    }
+
+    main.open-page .callout{
+      margin-top: 12px;
+      border-left: 4px solid var(--op-accent);
+      background: rgba(253,184,55,0.10);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    main.open-page .callout p{ margin:0; }
+
+    main.open-page .contact{
+      margin-top: 12px;
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 14px;
+      padding: 16px;
+      background: rgba(146,7,28,0.03);
+    }
+    main.open-page .email{
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: 0.2px;
+      margin-top: 8px;
+    }
+
+    main.open-page a{
+      color: var(--op-primary);
+      text-decoration: underline;
+      background: transparent;
+    }
+    main.open-page a:hover{
+      color: var(--op-primary-600);
+      background: transparent;
+    }
+
+    /* ===============================
+       TOC: lightweight floating toolbar
+       now "attached" to the content box (right column)
+       =============================== */
+    main.open-page .toc{
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.70);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0,0,0,0.10);
+      box-shadow:
+        0 14px 40px rgba(0,0,0,0.12),
+        0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    main.open-page .toc-title{
+      margin: 0 0 8px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: rgba(43,47,54,0.72);
+      font-family: var(--font-heading);
+    }
+
+    main.open-page .toc ol{
+      margin: 0;
+      padding-left: 16px;
+    }
+    main.open-page .toc li{
+      margin: 6px 0;
+    }
+
+    main.open-page .toc a{
+      color: rgba(43,47,54,0.86);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(43,47,54,0.18);
+    }
+    main.open-page .toc a:hover{
+      color: var(--op-primary);
+      border-bottom-color: rgba(146,7,28,0.35);
+      background: transparent;
+    }
+
+    /* TOC scroll aesthetics */
+    main.open-page .open-aside::-webkit-scrollbar{ width: 10px; }
+    main.open-page .open-aside::-webkit-scrollbar-thumb{
+      background: rgba(31,35,40,0.14);
+      border-radius: 999px;
+      border: 3px solid transparent;
+      background-clip: content-box;
+    }
+
+    /* On small screens: make TOC a normal card above content */
+    @media (max-width: 980px){
+      main.open-page .toc{
+        box-shadow: var(--op-shadow);
+        background: rgba(255,255,255,0.92);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="top-accent" aria-hidden="true"></div>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="logo logo--left" href="index.html">
+        <img src="image/base/logo3a.png" height="40" alt="EIT">
+      </a>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="news.html">News</a></li>
+        <li class="nav-item"><a href="research.html">Research</a></li>
+        <li class="nav-item"><a href="publications.html">Publications</a></li>
+        <li class="nav-item"><a href="people.html">People</a></li>
+        <li class="nav-item"><a href="photos.html">Photos</a></li>
+        <li class="nav-item nav-item--active"><a href="openings.html">Openings</a></li>
+      </ul>
+      <a class="logo logo--right" href="https://www.eitech.edu.cn/">
+        <img src="image/base/logo3.png" height="40" alt="Zhou Lab">
+      </a>
+    </nav>
+  </header>
+
+  <main class="open-page">
+
+    <div class="open-shell">
+      <!-- Main content -->
+      <div class="open-main">
+        <!-- <section class="hero" aria-label="Open positions overview"> -->
+          <section class="card" id="sec1" aria-label="Openings">
+          <p class="kicker">Openings</p>
+          <h1>Open-positions</h1>
+          <p class="lead">
+            周通课题组长期招聘研究助理教授、博士后（颁发中国科学技术大学证书）、博士研究生（授予上海交通大学/中国科学技术大学/香港理工大学博士学位）、科研助理、实习生等，提供高质量的科研条件、极具竞争力的薪资待遇以及大量出国学术交流的机会；
+            同时也欢迎海内外科研机构的访问学者与交换生。
+          </p>
+        </section>
+
+        <div class="stack">
+          <!-- 1 -->
+          <section class="card" id="sec1" aria-label="Group introduction">
+            <div class="card-header">
+              <h2>一、课题组介绍</h2>
+            </div>
+
+            <h3>1. 导师简介：周通</h3>
+            <p>
+              宁波东方理工大学理学部副教授（研究员、博导），上海交通大学、中国科学技术大学兼职博导；入选国家级高层次人才、浙江省杰青、浙江省领军型双创团队负责人、宁波市特优人才，主持国家自然科学基金委面上、浙江省尖兵（子课题负责人）、甬江人才工程青年创新人才等项目。2017年博士毕业于复旦大学，之后在美国纽约州立大学布法罗分校历任博士后研究员、研究科学家、研究助理教授，2023年加入东方理工。目前主要从事拓扑物态、量子材料与量子计算等研究，已发表SCI论文60余篇，其中一作/通讯作者论文20余篇，包括4篇Phys. Rev. Lett.，1篇Nat. Mater., 2篇 Nat. Commun. 等, 谷歌学术引用3700余次，H-index 29；多次受邀在APS March Meeting, SPIE, WINDS等国际知名学术会议上做邀请报告，并担任APS March Meeting分会主席。
+            </p>
+
+            <h3>主要学术成果有：</h3>
+            <ol>
+              <li>将微磁模拟与(含时)BdG方程相结合, 发展了Majorana零能模及其量子比特动力学模拟等方法，为研究Majorana与微磁结构等相互作用及其动力学演化提供了有效工具；</li>
+              <li>基于平面约瑟夫森结设计了Majorana非阿贝尔统计性质验证方案并得到多个实验跟进与支持；</li>
+              <li>提出了利用多重拓扑保护来实现无耗散量子传输及通过光学响应来探测拓扑性质的新思路，所设计的材料实现平台被成功制备。</li>
+              <li>提出反铁电交错磁体、铁电交错磁体、分子铁电交错磁体等新型多天材料，并利用其实现电控磁性和自旋输运的新方式。</li>
+            </ol>
+
+            <p>
+              官网导师介绍：
+              <a href="https://person.eitech.edu.cn/lxb/zt/main.htm" target="_blank" rel="noopener">https://person.eitech.edu.cn/lxb/zt/main.htm</a>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              课题组主页：
+              <a href="https://www.zhouphy.com/" target="_blank" rel="noopener">https://www.zhouphy.com/</a>
+            </p>
+
+            <h3>2. 研究方向：凝聚态物理，目前主要集中于</h3>
+            <ol>
+              <li>拓扑量子计算: Majorana等任意子的产生、编织、融合、非阿贝尔统计性质及其拓扑量子比特的构筑与操控。</li>
+              <li>新奇量子材料（近期主要集中于Altermagnets）的电子结构、磁电、光学、输运、超导等性质及功能导向的材料设计与预测。</li>
+              <li>超导-非超导体界面量子输运: Andreev反射、Josephson效应、超导二极管效应等。</li>
+              <li>拓扑量子物态: 拓扑绝缘体/半金属/超导体中的量子态及其与外场（力热光电磁等）相互作用。</li>
+              <li>非共线磁织构(如Skyrmion)与拓扑电子态(如Majorana) 相互作用及其动力学行为。</li>
+              <li>机器学习在上述研究方向中的应用。</li>
+            </ol>
+
+            <h3>3. 常用研究方法</h3>
+            <p>
+              紧束缚模型、KP模型、散射矩阵、格林函数、(含时) BdG方程、BTK模型、Bethe-Salpeter方程、微磁模拟、第一性原理计算等。熟悉上述方法者优先考虑。
+            </p>
+          </section>
+
+          <!-- 2 -->
+          <section class="card" id="sec2" aria-label="PhD recruitment">
+            <div class="card-header">
+              <h2>二、博士生招生</h2>
+            </div>
+
+            <h3>1. 上海交通大学、中国科学技术大学博士生联培</h3>
+            <p>
+              东方理工自2022年起与上海交通大学（2023年起与中科大）开展联合培养博士生招生，实行双导师制，学生在上海交大（中科大）注册学籍，第一年在上海交大（中科大）进行课程学习，毕业后获得上海交大（中科大）博士学位和毕业证书。本科直博生的基本学习年限为5年，其他博士生的基本学习年限为4年，录取类别为非定向就业，学习形式为全日制。博士生在上海交大（中科大）学习期间，提供与该校博士生同等助研津贴；在东方理工工作期间，将为学生提供非常具有竞争力的助研津贴（相当优厚），特别优秀者将视情况给予额外补助。招生简章请见:
+            </p>
+            <!-- <p>
+              东方理工招生信息网：
+              <a href="https://www.eitech.edu.cn/yjszs_131/list.htm target="_blank" rel="noopener">https://www.eitech.edu.cn/?admission_category=graduate</a>
+              上海交通大学招生简章:
+              <a href="https://yzb.sjtu.edu.cn/post/3354"_blank" rel="noopener">https://yzb.sjtu.edu.cn/post/3354</a>
+
+            </p> -->
+            
+
+            <h3>2. 香港理工大学博士生联培</h3>
+            <p>
+              东方理工自2022年起与香港理工大学开展联合培养博士生招生，实行双导师制，学生前两年在香港理工，后两年在东方理工，毕业后获得香港理工大学博士学位，所获学位与全程在香港理工完成学业的学生完全一致。
+              在香港理工期间，获得与该校博士生同等的奖助学金；在东方理工工作期间，将为学生提供非常具有竞争力的助研津贴（相当优厚），特别优秀者将视情况给予额外补助。
+              <!-- 招生简章请见: -->
+            </p>
+            <!-- <p> -->
+              <!-- <a href="https://www.eitech.edu.cn/?admission_category=graduate" target="_blank" rel="noopener">https://www.eitech.edu.cn/?admission_category=graduate</a> -->
+            <!-- </p> -->
+
+            <p>
+              <embed>
+              详情请见东方理工招生信息网:
+               <a href="https://www.eitech.edu.cn/yjszs_131/list.htm"_blank" rel="noopener">https://www.eitech.edu.cn/yjszs_131/list.htm</a>
+               <br>
+              东方理工将与更多的国内外知名高校开展博士生联合培养招生，请持续关注官网或官微。
+              </embed>
+            </p>
+          </section>
+
+          <!-- 3 -->
+          <section class="card" id="sec3" aria-label="Postdoc recruitment">
+            <div class="card-header">
+              <h2>三、博士后招聘</h2>
+            </div>
+
+            <h3>1. 招聘条件</h3>
+            <ol>
+              <li>具有良好的学术背景，较强的科研能力，以第一作者或通讯作者发表过高水平文章；</li>
+              <li>具有良好的英文阅读、交流及写作能力；</li>
+              <li>
+                熟悉模型、数值计算或有程序开发经验者将予以优先考虑，包括但不限于紧束缚模型、KP模型、BdG方程、格林函数、第一性原理计算、微磁模拟等，能熟练使用Kwant、Vasp/Wien2k、OMMFF/ Mumax等软件为佳。
+              </li>
+            </ol>
+
+            <h3>2. 薪资福利</h3>
+            <ol>
+              <li>综合年薪税前40万起，入选东方理工卓越博士后年薪60万起，入选相关人才项目有额外收入，具体面议。</li>
+              <li>缴纳五险一金，优先支持申请政府人才公寓（可拎包入住），享受东方理工教职工其它同等福利待遇，包括带薪年假、节假日福利等;</li>
+              <li>在站期间可向地方政府申请最高不超过20万元的科研经费资助;</li>
+              <li>可作为负责人申请各类人才项目及国家自然科学基金等课题；对获得中国博士后科学基金资助和省级博士后科研项目资助的，宁波市给予各类项目1:1配套经费支持;</li>
+              <li>博士后出站留甬工作的，可享受最高不超过60万元的补贴;</li>
+              <li>出站后颁发中国科学技术大学博士后证书;</li>
+              <li>表现优秀者可长聘为研究员序列。</li>
+            </ol>
+          </section>
+
+          <!-- 4 -->
+          <section class="card" id="sec4" aria-label="Research assistant recruitment">
+            <div class="card-header">
+              <h2>四、科研助理招聘</h2>
+            </div>
+
+            <p><strong>岗位职责：</strong>参与或主导课题组科研课题; 协助博士后和研究生的科研工作。</p>
+            <p><strong>应聘条件：</strong>一般要求硕士及以上学历；有相关科研经历；有良好的英语读写交流能力及较强的团队协作能力。</p>
+            <p><strong>薪酬待遇：</strong>月薪6000-8000 (具体面议)，缴纳五险一金，优秀者可转博（课题组已有1名科研助理成功转博，另有一名即将转博），或推荐至国内外合作课题组读博。</p>
+          </section>
+
+          <!-- 5 -->
+          <section class="card" id="sec5" aria-label="Research assistant professor recruitment">
+            <div class="card-header">
+              <h2>五、研究助理教授招聘</h2>
+            </div>
+            <p>具体面议。</p>
+          </section>
+
+          <!-- 6 -->
+          <section class="card" id="sec6" aria-label="How to apply">
+            <div class="card-header">
+              <h2>六、应聘方式</h2>
+            </div>
+
+            <div class="callout">
+              <p>
+                有兴趣的同学请将个人简历及相关能力证明材料以pdf形式发送至邮箱
+                <strong><a href="mailto:tzhou@eitech.edu.cn">tzhou@eitech.edu.cn</a></strong>，
+                邮件主题请注明“申请岗位+姓名”。
+              </p>
+            </div>
+
+            <div class="contact">
+              <p style="margin:0; color: var(--op-body-muted);">Contact</p>
+              <p class="email"><a href="mailto:tzhou@eitech.edu.cn">tzhou@eitech.edu.cn</a></p>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- TOC attached to content boxes -->
+      <aside class="open-aside" aria-label="Page contents">
+        <nav class="toc" aria-label="目录">
+          <p class="toc-title">目录</p>
+          <ol>
+            <li><a href="#sec1">一、课题组介绍</a></li>
+            <li><a href="#sec2">二、博士生招生</a></li>
+            <li><a href="#sec3">三、博士后招聘</a></li>
+            <li><a href="#sec4">四、科研助理招聘</a></li>
+            <li><a href="#sec5">五、研究助理教授招聘</a></li>
+            <li><a href="#sec6">六、应聘方式</a></li>
+          </ol>
+        </nav>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="dibu">
+    <div class="bottom1">
+      <div class="bottomsite">
+        <div class="bottoms1"><a href="index.html">Home</a><br><a href="news.html">News</a><br><a href="research.html">Research</a></div>
+        <div class="bottoms2"><a href="publications.html">Publications</a><br><a href="people.html">People</a><br><a href="photos.html">Photos</a><br></div>
+        <div class="bottoms3"><a href="openings.html">Openings</a><br><a href="contact-us.html">Contact Us</a></div>
+      </div>
+
+      <div class="shengming">
+        <div class="shengming1">Zhou &nbsp;&nbsp;&nbsp;Group</div>
+        <div class="shengming2">
+          Address: Room 306, Mathematics and Physics Building, Eastern Institute of Technology, NingBo;
+          <br>
+          E-mail: tzhou@eitech.edu.cn
+        </div>
+        <div class="shengming3">©Zhou Group. All Rights Reserved</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!doctype html>
+<!-- 声明：这是 HTML5 文档 -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research | Prof. Tong Zhou's Research Group</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Research page styles: scoped to .research-page only (no conflict) -->
+  <style>
+    /* =========================
+       Research page: layout + readability
+       ========================= */
+    main.research-page{
+      width: 1300px;
+      margin: 0 auto;
+      padding: 15px 0 60px;
+
+      /* page-local knobs (safe, only inside research-page) */
+      --rp-max-text: 78ch;                 /* reading width */
+      --rp-card-radius: 14px;
+      --rp-card-border: rgba(31,35,40,0.10);
+      --rp-card-shadow: 0 10px 26px rgba(17,24,39,0.06);
+
+      --rp-rule-color: rgba(170,169,161,0.55); /* #AAA9A1 + alpha */
+      --rp-rule-width: 1px;
+
+      --rp-title-color: var(--text);
+      --rp-kicker-color: var(--muted);
+      --rp-accent: var(--accent);
+    }
+
+    /* container */
+    .research-page .rp-wrap{
+      background: var(--surface);
+      border: 1px solid var(--rp-card-border);
+      border-radius: var(--rp-card-radius);
+      box-shadow: var(--rp-card-shadow);
+      padding: 28px 28px 10px;
+    }
+
+    /* typography */
+    .research-page .entry-content{
+      max-width: var(--rp-max-text);
+      margin: 0 auto;
+      color: var(--text);
+    }
+
+    /* strip WordPress-like classes without changing markup */
+    .research-page .wp-block-heading{
+      margin: 0 0 14px;
+      color: var(--rp-title-color);
+      font-family: var(--font-heading);
+      letter-spacing: 0.2px;
+    }
+
+    /* Section titles: Topics / Methods development */
+    .research-page h2.wp-block-heading{
+      font-size: 26px;
+      line-height: 1.25;
+      padding-bottom: 10px;
+      border-bottom: 2.5px solid rgba(253,184,55,1); /* accent underline */
+      margin-top: 6px;
+      margin-bottom: 18px;
+    }
+
+    /* Subsection titles: 1/2/3 */
+    .research-page h3.wp-block-heading{
+      font-size: 20px;
+      line-height: 1.35;
+      margin-top: 22px;
+      margin-bottom: 10px;
+    }
+
+    /* Remove center alignment look from WP classes while keeping clean */
+    .research-page .has-text-align-center{
+      text-align: left;
+    }
+
+    .research-page p{
+      margin: 0 0 12px;
+      font-size: 16px;
+      line-height: 1.78;
+      color: var(--text);
+    }
+
+    /* Links: match your academic style (subtle) */
+    .research-page a{
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .research-page a:hover{
+      text-decoration: underline;
+      background: transparent;
+    }
+
+    /* Images: unified, centered, responsive, with gentle frame */
+    .research-page .wp-block-image{
+      margin: 14px 0 18px;
+    }
+    .research-page figure{
+      margin: 0;
+    }
+    .research-page figure.aligncenter{
+      display: flex;
+      justify-content: center;
+    }
+    .research-page img{
+      max-width: 100%;
+      height: auto !important;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 18px rgba(17,24,39,0.06);
+      background: #fff;
+    }
+
+    /* Related Publications paragraph: slightly muted + compact */
+    .research-page .rp-related{
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-top: -4px;
+    }
+
+    /* Horizontal rules: consistent, light, not heavy */
+    .research-page hr{
+      border: 0;
+      border-top: var(--rp-rule-width) solid var(--rp-rule-color);
+      margin: 18px 0;
+    }
+
+    /* Spacer div from WP: keep but make it minimal on small screens */
+    .research-page .wp-block-spacer{
+      height: 56px !important;
+    }
+
+    /* Small screen */
+    @media (max-width: 1400px){
+      main.research-page{ width: min(1300px, 96vw); }
+    }
+    @media (max-width: 900px){
+      .research-page .rp-wrap{ padding: 20px 16px 8px; }
+      .research-page h2.wp-block-heading{ font-size: 22px; }
+      .research-page h3.wp-block-heading{ font-size: 18px; }
+      .research-page p{ font-size: 15.5px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="top-accent" aria-hidden="true"></div>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="logo logo--left" href="index.html">
+        <img src="image/base/logo3a.png" alt="logo_left" height="40">
+      </a>
+
+      <ul class="nav-list">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="news.html">News</a></li>
+        <li class="nav-item nav-item--active"><a href="research.html">Research</a></li>
+        <li class="nav-item"><a href="publications.html">Publications</a></li>
+        <li class="nav-item"><a href="people.html">People</a></li>
+        <li class="nav-item"><a href="photos.html">Photos</a></li>
+        <li class="nav-item"><a href="openings.html">Openings</a></li>
+      </ul>
+
+      <a class="logo logo--right" href="https://www.eitech.edu.cn/">
+        <img src="image/base/logo3.png" height="35" alt="logo-right">
+      </a>
+    </nav>
+  </header>
+
+  <main class="research-page">
+    <div class="rp-wrap">
+      <div class="entry-content" itemprop="text">
+
+        <h2 class="wp-block-heading"><strong>Topics</strong></h2>
+
+        <h3 class="wp-block-heading has-text-align-center">
+          <strong>1. Topological Quantum Computing</strong>
+        </h3>
+
+        <p>
+          Designing platforms and strategies towards topological quantum computing by demonstrating non-Abelian statistics
+          through Majorana fusion and braiding
+        </p>
+
+        <div class="wp-block-image">
+          <figure class="aligncenter size-large is-resized">
+            <img
+              fetchpriority="high"
+              decoding="async"
+              width="1024"
+              height="843"
+              src="https://www.zhouphy.com/wp-content/uploads/2023/12/topological_quantum_computing-1024x843.jpg"
+              alt=""
+              class="wp-image-358"
+              style="width:515px;height:auto"
+              srcset="https://www.zhouphy.com/wp-content/uploads/2023/12/topological_quantum_computing-1024x843.jpg 1024w, https://www.zhouphy.com/wp-content/uploads/2023/12/topological_quantum_computing-300x247.jpg 300w, https://www.zhouphy.com/wp-content/uploads/2023/12/topological_quantum_computing-768x633.jpg 768w, https://www.zhouphy.com/wp-content/uploads/2023/12/topological_quantum_computing.jpg 1185w"
+              sizes="(max-width: 1024px) 100vw, 1024px"
+            />
+          </figure>
+        </div>
+
+        <p class="rp-related">
+          Related Publications: T. Zhou et al.,
+          <a href="https://www.nature.com/articles/s41467-022-29463-6">Nat. Commun. 13, 1738 (2022)</a>; T. Zhou et al.,
+          <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.157402">Phys. Rev. Lett. 124, 137001 (2020)</a>.
+        </p>
+
+        <hr />
+
+        <h3 class="wp-block-heading has-text-align-center">
+          <strong>2. Topological Transport</strong>
+        </h3>
+
+        <p>
+          Quantum states in topological insulators, semimetals, and superconductors, along with their interactions with
+          external fields, such as forces, heat, light, electricity, magnetism, etc. Quantum transport behavior in the
+          superconductor-semiconductor interface, such as Andreev reflection, Josephson effect, superconducting diode
+          effect, etc.
+        </p>
+
+        <div class="wp-block-image">
+          <figure class="aligncenter size-full is-resized">
+            <img
+              decoding="async"
+              width="503"
+              height="262"
+              src="http://120.26.217.177/wp-content/uploads/2023/11/topological_transport.png"
+              alt=""
+              class="wp-image-330"
+              style="width:724px;height:auto"
+              srcset="https://www.zhouphy.com/wp-content/uploads/2023/11/topological_transport.png 503w, https://www.zhouphy.com/wp-content/uploads/2023/11/topological_transport-300x156.png 300w"
+              sizes="(max-width: 503px) 100vw, 503px"
+            />
+          </figure>
+        </div>
+
+        <p class="rp-related">
+          Related Publications: T. Zhou et al.,
+          <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.127.116402">Phys. Rev. Lett. 127, 116402 (2021)</a>
+        </p>
+
+        <hr />
+
+        <h3 class="wp-block-heading has-text-align-center">
+          <strong>3. Topological Response</strong>
+        </h3>
+
+        <p>
+          The intriguing properties of quantum materials, such as novel electronic structure, superconductivity,
+          magnetoelectricity, optics, transport, etc. It also involves the design and prediction of materials with specific
+          functionalities.
+        </p>
+
+        <div class="wp-block-image">
+          <figure class="aligncenter size-large is-resized">
+            <img
+              decoding="async"
+              width="938"
+              height="1024"
+              src="http://120.26.217.177/wp-content/uploads/2023/11/topological_response-1-938x1024.jpg"
+              alt=""
+              class="wp-image-338"
+              style="width:575px;height:auto"
+              srcset="https://www.zhouphy.com/wp-content/uploads/2023/11/topological_response-1-938x1024.jpg 938w, https://www.zhouphy.com/wp-content/uploads/2023/11/topological_response-1-275x300.jpg 275w, https://www.zhouphy.com/wp-content/uploads/2023/11/topological_response-1-768x838.jpg 768w, https://www.zhouphy.com/wp-content/uploads/2023/11/topological_response-1.jpg 963w"
+              sizes="(max-width: 938px) 100vw, 938px"
+            />
+          </figure>
+        </div>
+
+        <p class="rp-related">
+          Related Publications: G. Xu, T. Zhou*, et al
+          <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.124.137001">Phys. Rev. Lett. 125, 157402 (2020)</a>;
+          T. Zhou* et al
+          <a href="https://www.nature.com/articles/s41563-022-01466-0">Nat. Mater. 22, 284 (2023)</a>.
+        </p>
+
+        <div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
+
+        <h2 class="wp-block-heading"><strong>Methods development</strong></h2>
+
+        <div class="wp-block-image">
+          <figure class="aligncenter size-large is-resized">
+            <img
+              loading="lazy"
+              decoding="async"
+              width="1024"
+              height="576"
+              src="http://120.26.217.177/wp-content/uploads/2023/11/methods-1024x576.jpg"
+              alt=""
+              class="wp-image-334"
+              style="width:1029px;height:auto"
+              srcset="https://www.zhouphy.com/wp-content/uploads/2023/11/methods-1024x576.jpg 1024w, https://www.zhouphy.com/wp-content/uploads/2023/11/methods-300x169.jpg 300w, https://www.zhouphy.com/wp-content/uploads/2023/11/methods-768x432.jpg 768w, https://www.zhouphy.com/wp-content/uploads/2023/11/methods-1536x865.jpg 1536w, https://www.zhouphy.com/wp-content/uploads/2023/11/methods.jpg 1961w"
+              sizes="(max-width: 1024px) 100vw, 1024px"
+            />
+          </figure>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="dibu">
+    <div class="bottom">
+      <div class="bottomsite">
+        <div class="bottoms1"><a href="index.html">Home</a><br><a href="news.html">News</a><br><a href="research.html">Research</a></div>
+        <div class="bottoms2"><a href="publications.html">Publications</a><br><a href="people.html">People</a><br><a href="photos.html">Photos</a></div>
+        <div class="bottoms3"><a href="openings.html">Openings</a><br><a href="contact-us.html">Contact Us</a></div>
+      </div>
+
+      <div class="shengming">
+        <div class="shengming1">Zhou &nbsp;&nbsp;&nbsp;Group</div>
+        <div class="shengming2">
+          Address: Room 306, Mathematics and Physics Building, Eastern Institute of Technology, NingBo;
+          <br>
+          E-mail: tzhou@eitech.edu.cn
+        </div>
+        <div class="shengming3">©Zhou Group. All Rights Reserved</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

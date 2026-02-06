@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Photos | Zhou Group</title>
+
+  <!-- Global theme -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Page-scoped styles (won't affect other pages) -->
+  <style>
+    /* =========================
+       Photos page (scoped)
+       Goals:
+       - Stable grid (no overflow)
+       - No image cropping, no height limit
+       - Caption reserved (one line) but empty now
+       - Floating right toolbar (sticky, lightweight)
+       ========================= */
+
+    main.photos-page{
+      width: 1300px;
+      margin: 0 auto;
+      padding: 28px 0 64px;
+
+      --surface: var(--surface);
+      --text: var(--text);
+      --muted: var(--muted);
+      --border: rgba(0,0,0,0.08);
+      --shadow: 0px 10px 22px rgba(0,0,0,0.08);
+
+      --radius: 14px;
+      --gap: 14px;
+
+      --h1: 22px;
+      --h2: 18px;
+      --p: 14px;
+      --lh: 1.6;
+    }
+
+    /* Overall layout */
+    main.photos-page .layout{
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 200px; /* stable: content + slim toolbar */
+      gap: 18px;
+      align-items: start;
+    }
+
+    /* Header card */
+    main.photos-page .hero{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px 18px;
+      margin-bottom: 14px;
+    }
+    main.photos-page .hero-top{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      margin-bottom: 12px;
+    }
+    main.photos-page h1{
+      margin:0;
+      font-size: var(--h1);
+      letter-spacing: 0.2px;
+      color: var(--text);
+      font-family: var(--font-heading);
+    }
+    main.photos-page .sub{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: var(--lh);
+    }
+
+    /* Filter pills */
+    main.photos-page .filters{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    main.photos-page .pill{
+      appearance:none;
+      border: 1px solid rgba(0,0,0,0.14);
+      background: #fff;
+      color: var(--text);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+    main.photos-page .pill:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+      border-color: rgba(146,7,28,0.28);
+    }
+    main.photos-page .pill.is-active{
+      border-color: rgba(146,7,28,0.32);
+      background: rgba(146,7,28,0.06);
+      color: var(--primary-600);
+    }
+
+    /* Section wrapper */
+    main.photos-page .section{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px 16px 10px;
+      margin-bottom: 14px;
+    }
+    main.photos-page .section-head{
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid rgba(253,184,55,0.9);
+    }
+    main.photos-page h2{
+      margin:0;
+      font-size: var(--h2);
+      letter-spacing: 0.2px;
+      color: var(--primary-600);
+      font-family: var(--font-heading);
+    }
+    main.photos-page .sec-note{
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Stable grid:
+       - minmax(0,1fr) prevents overflow
+       - min-width:0 on card prevents content forcing overflow
+       - responsive columns: 3 -> 2 -> 1
+    */
+    main.photos-page .grid{
+      display: grid;
+      gap: var(--gap);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      padding: 8px 0 12px;
+    }
+
+    /* Photo card */
+    main.photos-page .photo{
+      min-width: 0; /* CRITICAL for preventing overflow in grid */
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+      transition: transform .14s ease, box-shadow .14s ease;
+    }
+    main.photos-page .photo:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+    }
+
+    /* Image area: no cropping, no height constraint */
+    main.photos-page .media{
+      background: rgba(0,0,0,0.02);
+    }
+    main.photos-page .media img{
+      display: block;
+      width: 100%;
+      height: auto;   /* IMPORTANT: keep natural ratio */
+      max-width: 100%;
+    }
+
+    /* Caption placeholder (empty now):
+       - reserved space so future captions don't break layout
+       - one-line, wraps if longer (still stable)
+    */
+    main.photos-page .cap{
+      margin: 0;
+      padding: 10px 12px 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--muted);
+      min-height: 0; /* keep flexible; no forced height */
+      word-break: break-word;
+    }
+
+    /* Right toolbar (sticky, lightweight, always in page) */
+    main.photos-page .toolbar{
+      position: sticky;
+      top: 16px;
+      border-radius: 16px;
+      padding: 10px;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+    }
+    main.photos-page .toolbar h3{
+      margin: 6px 8px 8px;
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--primary-600);
+      letter-spacing: 0.2px;
+      font-family: var(--font-heading);
+    }
+    main.photos-page .tool{
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: rgba(146,7,28,0.03);
+      padding: 10px;
+      margin: 10px 0;
+    }
+    main.photos-page .toolbar a{
+      display:block;
+      padding: 8px 10px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 13px;
+      border: 1px solid transparent;
+    }
+    main.photos-page .toolbar a:hover{
+      border-color: rgba(146,7,28,0.20);
+      background: rgba(255,255,255,0.65);
+    }
+
+    /* Filter hide */
+    main.photos-page .is-hidden{ display:none !important; }
+
+    /* Responsive */
+    @media (max-width: 1400px){
+      main.photos-page{ width: min(1300px, 92vw); }
+    }
+    @media (max-width: 1100px){
+      main.photos-page .layout{ grid-template-columns: minmax(0,1fr) 190px; }
+      main.photos-page .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 900px){
+      main.photos-page .layout{ grid-template-columns: 1fr; }
+      main.photos-page .toolbar{ position: relative; top: 0; }
+      main.photos-page .grid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="top-accent" aria-hidden="true"></div>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="logo logo--left" href="index.html">
+        <img src="image/base/logo3a.png" height="40" alt="EIT">
+      </a>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="news.html">News</a></li>
+        <li class="nav-item"><a href="research.html">Research</a></li>
+        <li class="nav-item"><a href="publications.html">Publications</a></li>
+        <li class="nav-item"><a href="people.html">People</a></li>
+        <li class="nav-item nav-item--active"><a href="photos.html">Photos</a></li>
+        <li class="nav-item"><a href="openings.html">Openings</a></li>
+      </ul>
+      <a class="logo logo--right" href="https://www.eitech.edu.cn/">
+        <img src="image/base/logo3.png" height="45" alt="Zhou Lab">
+      </a>
+    </nav>
+  </header>
+
+  <main class="photos-page" aria-label="Group photos">
+    <div class="layout">
+      <!-- LEFT: CONTENT -->
+      <div>
+        <section class="hero">
+          <div class="hero-top">
+            <div>
+              <h1>Photos</h1>
+              <p class="sub">Meetings, Dining, and Life. (Captions are intentionally left blank — you can fill one sentence later.)</p>
+            </div>
+            <div class="filters" aria-label="Filter photos">
+              <button class="pill is-active" data-filter="all" type="button">All</button>
+              <button class="pill" data-filter="meetings" type="button">Meetings</button>
+              <button class="pill" data-filter="dining" type="button">Dining</button>
+              <button class="pill" data-filter="life" type="button">Life</button>
+            </div>
+          </div>
+          <p class="sub"><span id="photoCount">0</span> items shown</p>
+        </section>
+
+        <!-- Meetings -->
+        <section class="section" id="meetings">
+          <div class="section-head">
+            <h2>Meetings</h2>
+            <div class="sec-note">seminars · group meeting</div>
+          </div>
+          <div class="grid">
+            <article class="photo" data-cat="meetings">
+              <div class="media">
+                <img src="image/photos/20260131_1.jpg" alt="Meetings photo" loading="lazy">
+              </div>
+              <p class="cap"></p>
+            </article>
+
+            <article class="photo" data-cat="meetings">
+              <div class="media">
+                <img src="image/photos/20260131_2.jpg" alt="Meetings photo" loading="lazy">
+              </div>
+              <p class="cap"></p>
+            </article>
+
+            <article class="photo" data-cat="meetings">
+              <div class="media">
+                <img src="image/photos/20250827.jpg" alt="Meetings photo" loading="lazy">
+              </div>
+              <p class="cap"></p>
+            </article>
+
+            <article class="photo" data-cat="meetings">
+              <div class="media">
+                <img src="image/photos/20250817a.jpg" alt="Meetings photo" loading="lazy">
+              </div>
+              <p class="cap"></p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Dining -->
+        <section class="section" id="dining">
+          <div class="section-head">
+            <h2>Dining</h2>
+            <div class="sec-note">dinners · celebrations</div>
+          </div>
+          <div class="grid">
+            <article class="photo" data-cat="dining">
+              <div class="media">
+                <img src="image/photos/2025a1.jpg" alt="Dining photo" loading="lazy">
+              </div>
+              <p class="cap"></p>
+            </article>
+
+            <article class="photo" data-cat="dining">
+              <div class="media">
+                <img src="image/photos/2025a2.jpg" alt="Dining photo" loading="lazy">
+              </div>
+              <p class="cap"></p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Life -->
+        <section class="section" id="life">
+          <div class="section-head">
+            <h2>Life</h2>
+            <div class="sec-note">daily moments</div>
+          </div>
+          <div class="grid">
+            <article class="photo" data-cat="life">
+              <div class="media">
+                <img src="image/photos/a3.jpg" alt="Life photo" loading="lazy">
+              </div>
+              <p class="cap"></p>
+            </article>
+
+            <article class="photo" data-cat="life">
+              <div class="media">
+                <img src="image/photos/a2.jpg" alt="Life photo" loading="lazy">
+              </div>
+              <p class="cap"></p>
+            </article>
+
+            <article class="photo" data-cat="life">
+              <div class="media">
+                <img src="image/photos/a1.jpg" alt="Life photo" loading="lazy">
+              </div>
+              <p class="cap"></p>
+            </article>
+
+            <article class="photo" data-cat="life">
+              <div class="media">
+                <!-- NOTE: your original path has no extension; fix if needed (e.g., a4.jpg) -->
+                <img src="image/photos/a4" alt="Life photo" loading="lazy">
+              </div>
+              <p class="cap"></p>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT: TOOLBAR -->
+      <aside class="toolbar" aria-label="Floating navigation">
+        <h3>Navigate</h3>
+        <div class="tool">
+          <a href="#meetings">Meetings</a>
+          <a href="#dining">Dining</a>
+          <a href="#life">Life</a>
+        </div>
+
+        <h3>Filter</h3>
+        <div class="tool">
+          <a href="#" data-filter-link="all">Show all</a>
+          <a href="#" data-filter-link="meetings">Meetings</a>
+          <a href="#" data-filter-link="dining">Dining</a>
+          <a href="#" data-filter-link="life">Life</a>
+        </div>
+
+        <div class="tool">
+          <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top ↑</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="dibu">
+    <div class="bottom">
+      <div class="bottomsite">
+        <div class="bottoms1">
+          <a href="index.html">Home</a><br>
+          <a href="news.html">News</a><br>
+          <a href="research.html">Research</a>
+        </div>
+        <div class="bottoms2">
+          <a href="publications.html">Publications</a><br>
+          <a href="people.html">People</a><br>
+          <a href="photos.html">Photos</a>
+        </div>
+        <div class="bottoms3">
+          <a href="openings.html">Openings</a><br>
+          <a href="contact-us.html">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="shengming">
+        <div class="shengming1">Zhou &nbsp;&nbsp;&nbsp;Group</div>
+        <div class="shengming2">
+          Address: Room 306, Mathematics and Physics Building, Eastern Institute of Technology, NingBo;<br>
+          E-mail: tzhou@eitech.edu.cn
+        </div>
+        <div class="shengming3">©Zhou Group. All Rights Reserved</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Filter logic (stable: only toggles display)
+    const pills = Array.from(document.querySelectorAll('.photos-page .pill'));
+    const cards = Array.from(document.querySelectorAll('.photos-page .photo'));
+    const countEl = document.getElementById('photoCount');
+    const filterLinks = Array.from(document.querySelectorAll('[data-filter-link]'));
+
+    function setActive(filter){
+      pills.forEach(b => b.classList.toggle('is-active', b.dataset.filter === filter));
+    }
+
+    function applyFilter(filter){
+      let shown = 0;
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-cat') || '';
+        const ok = (filter === 'all') || (cat === filter);
+        card.classList.toggle('is-hidden', !ok);
+        if(ok) shown++;
+      });
+      countEl.textContent = shown.toString();
+      setActive(filter);
+    }
+
+    pills.forEach(btn => btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
+    filterLinks.forEach(a => a.addEventListener('click', (e) => {
+      e.preventDefault();
+      applyFilter(a.getAttribute('data-filter-link'));
+    }));
+
+    // Init
+    applyFilter('all');
+  </script>
+</body>
+</html>

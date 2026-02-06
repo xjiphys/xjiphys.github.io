@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <title>News | Zhou Group</title>
+ <style>
+/* 只影响 news.html：所有规则都以 .news-page 开头 */
+main.news-page {
+  width: 1300px;
+  margin: 0 auto;
+  padding: 15px 0 64px;
+
+  --year-title-color: var(--primary);
+  --year-title-size: 24px;
+
+  --year-sep-color: var(--accent);
+  --year-sep-width: 2.5px;
+  --year-sep-alpha: 1;
+
+  --item-sep-width: 1px;
+  --item-sep-alpha: 0.55;
+
+  --news-text-color: var(--text);
+  --date-color: var(--primary-600);
+}
+
+/* news content card */
+main.news-page .newsbox {
+  background-color: var(--surface);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.06);
+  padding: 18px 18px 8px;
+}
+
+/* year heading */
+main.news-page .year-title {
+  margin: 22px 0 10px;
+  padding-bottom: 10px;
+
+  font-size: var(--year-title-size);
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: var(--year-title-color);
+
+  /* 黄色分组线（透明度可调） */
+  border-bottom: var(--year-sep-width) solid rgba(253, 184, 55, var(--year-sep-alpha));
+}
+
+/* list */
+main.news-page .news-list {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+main.news-page .news-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+/* main.news-page .news-list .news-item:last-child {
+  border-bottom: none;
+} */
+
+/* date */
+main.news-page .news-item .date {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--date-color);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* text */
+main.news-page .news-text {
+  color: var(--news-text-color);
+  font-size: 16px;
+  line-height: 1.7;
+   font-weight: 500;
+}
+
+links inside news
+main.news-page .newsbox a,
+main.news-page .newsbox a.link {
+  color: var(--news-text-color);
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+main.news-page .newsbox a:hover,
+ main.news-page .newsbox a.link:hover { 
+  color: var(--primary);
+  background-color: transparent;
+} 
+
+/* responsive */
+@media (max-width: 1320px) {
+  main.news-page { width: calc(100% - 36px); }
+}
+@media (max-width: 900px) {
+  main.news-page .news-item { grid-template-columns: 1fr; gap: 6px; }
+  main.news-page .news-item .date { white-space: normal; }
+}
+/* 
+main.news-page { 
+  --date-color: var(--primary-600);  
+}
+
+main.news-page .news-item .date {
+  color: var(--date-color);
+} */
+</style>
+
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="top-accent" aria-hidden="true"></div>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="logo logo--left" href="index.html">
+        <img src="image/base/logo3a.png"  alt="EIT">
+      </a>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item nav-item--active"><a href="news.html">News</a></li>
+        <li class="nav-item"><a href="research.html">Research</a></li>
+        <li class="nav-item"><a href="publications.html">Publications</a></li>
+        <li class="nav-item"><a href="people.html">People</a></li>
+        <li class="nav-item"><a href="photos.html">Photos</a></li>
+        <li class="nav-item"><a href="openings.html">Openings</a></li>
+      </ul>
+      <a class="logo logo--right" href="https://www.eitech.edu.cn/"> 
+        <img src="image/base/logo3.png"  alt="Zhou Lab"> 
+      </a>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main class="news-page">
+    
+
+    <div class="news-layout">
+      <!-- News list -->
+      <section class="newsbox" aria-label="News list">
+        <!-- <div class="breakingnews">Latest updates</div> -->
+          <header class="page-header">
+      <h1 class="page-title">News</h1>
+      <p class="page-subtitle">Updates on publications, awards, talks, and group activities.</p>
+    </header>
+        <div class="breaknewstext">
+          <!-- 2025 -->
+          <h2 class="year-title">2025</h2>
+          <ul class="news-list">
+            <li class="news-item">
+              <time class="date" datetime="2025-12-18">2025.12.18</time>
+              <span class="news-text">
+                Our collaborative work with Prof. Cheng Zhang’s group and Prof. Lin Miao’s group, titled
+                “Defect Engineering for Stabilizing Magnetic and Topological Properties in Mn(Bi₁₋ₓSbₓ)₂Te₄,”
+                was published in <em>Nature Communications</em>. Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-12-16">2025.12.16</time>
+              <span class="news-text">
+                Our collaborative work with Prof. Yee Sin Ang’s group and Prof. Junwei Liu’s group, titled
+                “Ferroelastic altermagnetism”, was published in <em>npj Quantum Materials</em>. Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-10-31">2025.10.31</time>
+              <span class="news-text">
+                Our work titled “One-Dimensional Hydrogen Chains in Li-Hf-H System: A Pathway to High Superconductivity Under High Pressure”
+                was published in <em>Advanced Science</em>. Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-09-08">2025.09.08</time>
+              <span class="news-text">
+                Dr. Ziye Zhu and Dr. Chenghao Shen were awarded the NSFC Young Scholar Project Fund. Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-08-13">2025.08.13</time>
+              <span class="news-text">
+                Our work titled “Emergent Multiferroic Altermagnets and Spin Control via Noncollinear Molecular Polarization”
+                has been published in <em>SCIENCE CHINA Physics, Mechanics &amp; Astronomy</em>.
+                It was featured on the cover, selected for the Editor’s Focus, and received Two Research Highlight News respectively
+                by Prof. Xincheng Xie and Prof. E. Tsymbal.
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-07-01">2025.07.01</time>
+              <span class="news-text">
+                Mr. Xiyu Chen, Mr. Xiang Ji, and Mr. Linxuan Ji joined our group for the EIT PhD program in the fall of 2025!
+                Welcome aboard!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-06-25">2025.06.25</time>
+              <span class="news-text">
+                Dr. Ziye Zhu was awarded the Postdoctoral General Project. Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-05-24">2025.05.24</time>
+              <span class="news-text">
+                Our work about Two-dimensional Ferroelectric Altermagnets has been published in <em>Nano Letters</em>. Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-05-12">2025.05.12</time>
+              <span class="news-text">
+                Our work about Electrically switchable quantum anomalous and spin Hall states has been published in <em>Phys. Rev. B</em>. Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-03-24">2025.03.24</time>
+              <span class="news-text">
+                Our work about Ferroelectric control of valleytronic has been published in <em>Applied Physics Letters</em>. Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-02-05">2025.02.05</time>
+              <span class="news-text">
+                Mr. Bowen Hao joined our group as a Research Assistant! Welcome aboard!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-02-04">2025.02.04</time>
+              <span class="news-text">
+                Our work about Antiferroelectric Altermagnets has been published in <em>Phys. Rev. Lett.</em>
+                and selected as “Editors’ Suggestion” and “Featured in Physics”. Congrats!
+              </span>
+            </li>
+          </ul>
+
+          <!-- 2024 -->
+          <h2 class="year-title">2024</h2>
+          <ul class="news-list">
+            <li class="news-item">
+              <time class="date" datetime="2024-12">2024.12</time>
+              <span class="news-text">
+                Prof. Tong Zhou was awarded the prestigious Zhejiang Distinguished Young Scholars Fund. Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2024-12-05">2024.12.05</time>
+              <span class="news-text">
+                Dr. Ziye Zhu was awarded the NSFC special fund for theoretical physics. Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2024-10-16">2024.10.16</time>
+              <span class="news-text">
+                Our work about the non-Dirac quantum anomalous Hall effect has been published in <em>Phys. Rev. B</em>. Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2024-08-23">2024.08.23</time>
+              <span class="news-text">
+                Prof. Tong Zhou was awarded the NSFC General Project Fund. Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2024-08-19">2024.08.19</time>
+              <span class="news-text">
+                Our work about the existence of Xe3CO2 compound under high pressure has been published in <em>Phys. Rev. B</em>. Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2024-06-11">2024.06.11</time>
+              <span class="news-text">
+                Dr. Ziye Zhu from Westlake Univ. joined our group as a postdoc! Welcome aboard!
+              </span>
+            </li>
+           
+            <li class="news-item">
+              <time class="date" datetime="2024-06-04">2024.06.04</time>
+              <span class="news-text">
+                Mr. Shuang Li from Hebei Univ. joined our group for the EIT-USTC PhD program in the fall of 2024! Welcome aboard!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2024-05-13">2024.05.13</time>
+              <span class="news-text">
+                Mr. Zhou Cui from Fuzhou Univ. joined our group for a postdoc internship (to be a Postdoc in 2025)! Welcome aboard!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2024-05-13">2024.05.13</time>
+              <span class="news-text">
+                Mr. Wei Tu from Xi’an Tech. Univ. joined our group as a Research Assistant! Welcome aboard!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2024-05-13">2024.05.13</time>
+              <span class="news-text">
+                Prof. Tong Zhou delivered an invited talk “Towards Majorana Non-Abelian Statistics in Planar Josephson Junctions”
+                at USTC, Hefei, China.
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2024-02-21">2024.02.21</time>
+              <span class="news-text">
+                Ms. Sihui Wu from SUST visited our group for PhD internship! Welcome!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2024-01-15">2024.01.15</time>
+              <span class="news-text">
+                Ms. Jiahui Qian from Fudan Univ. joined our group for the EIT-SJTU PhD program in the fall of 2024! Welcome aboard!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2024-01-13">2024.01.13</time>
+              <span class="news-text">
+                Dr. Richang Huang from HKU joined our group as a postdoc! Welcome aboard!
+              </span>
+            </li>
+          </ul>
+
+          <!-- 2023 -->
+          <h2 class="year-title">2023</h2>
+          <ul class="news-list">
+            <li class="news-item">
+              <time class="date" datetime="2023-12-13">2023.12.13</time>
+              <span class="news-text">
+                Dr. Jiayong Zhang and Dr. Xianzhang Chen passed their Postdoctoral thesis proposal defense! Congrats!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2023-11">2023.11</time>
+              <span class="news-text">
+                Prof. Tong Zhou delivered an invited talk at Quantum Salon, Institute for Quantum Science and Engineering, Shenzhen, China.
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2023-10">2023.10</time>
+              <span class="news-text">
+                Prof. Tong Zhou delivered an invited talk at the Conference of Quantum Transport Theory in Nanjing Univ., China.
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2023-09-26">2023.09.26</time>
+              <span class="news-text">
+                Dr. Xianzhang Chen from Lanzhou Univ. joined our group as a postdoc! Welcome aboard!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2023-09">2023.09</time>
+              <span class="news-text">
+            2023.09, Prof. Tong Zhou delivered an invited talk about Topological superconductivity in Planar Josephson Junctions at the International Forum on Micro-Nano Technology & Composites Innovation Development, Zhengzhou, China
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2023-09-07">2023.09.07</time>
+              <span class="news-text">
+                Dr. Jiayong Zhang (Associate Professor in SUST) joined our group as a postdoc! Welcome aboard!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2023-07-13">2023.07.13</time>
+              <span class="news-text">
+                 2023.07, Prof. Tong Zhou delivered an invited talk about Non-Abelian statistics at the Conference of Condensed Matter Physics 2023, Liyang, China 
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2023-07-13">2023.07.13</time>
+              <span class="news-text">
+                A big welcome to Mr. Xunkai Duan, Mr. Yongliang Hu, and Mr. Kang Yang, who joined our group in fall 2023.
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2023-06-30">2023.06.30</time>
+              <span class="news-text">
+                Prof. Tong Zhou established his research group at EIT! Congrats!
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Side links -->
+      <!-- <aside class="youbankuang" aria-label="News navigation">
+        <a href="news.html" class="link1">
+          <div class="youyi">» Breaking news</div>
+        </a>
+        <a href="allnews.html" class="link1">
+          <div class="youer">» All the news</div>
+        </a>
+      </aside> -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="dibu">
+    <div class="bottom">
+      <div class="bottomsite">
+        <div class="bottoms1"><a href="index.html">Home</a><br><a href="news.html">News</a><br><a href="research.html">Research</a></div>
+        <div class="bottoms2"><a href="publications.html">Publications</a><br><a href="people.html">People</a><br><a href="photos.html">Photos</a></div>
+        <div class="bottoms3"><a href="openings.html">Openings</a><br><a href="contact-us.html">Contact Us</a></div>
+      </div>
+
+      <div class="shengming">
+        <div class="shengming1">Zhou&nbsp;&nbsp;&nbsp;Group</div>
+        <div class="shengming2">
+          Address: Room 306, Mathematics and Physics Building, Eastern Institute of Technology, Ningbo<br>
+          E-mail: tzhou@eitech.edu.cn
+        </div>
+        <div class="shengming3">© Zhou Group. All Rights Reserved</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

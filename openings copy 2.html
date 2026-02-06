@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Welcome to Zhou Group</title>
+
+  <!-- Page-only style (scoped): will NOT affect other pages -->
+  <style>
+    /* ===== Openings page: layout only, scoped to avoid conflicts ===== */
+    main.openings-page{
+      width: 1300px;
+      margin: 0 auto;
+      padding: 28px 0 64px;
+
+      --surface: var(--surface);
+      --text: var(--text);
+      --muted: var(--muted);
+      --border: rgba(0,0,0,0.08);
+      --shadow: 0px 8px 16px rgba(0,0,0,0.06);
+
+      --accent: var(--accent);
+      --primary: var(--primary);
+
+      --body: #2b2f36;
+      --body-muted: rgba(43,47,54,0.72);
+
+      --radius: 14px;
+      --p: 16px;
+      --lh: 1.75;
+      --h1: 34px;
+      --h2: 20px;
+      --h3: 16px;
+
+      --gap: 14px;
+    }
+
+    /* Container card (replacing the old "container" feel) */
+    main.openings-page .container{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 24px;
+    }
+
+    /* Top header inside the page */
+    main.openings-page .container > header{
+      text-align: center;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    main.openings-page .container > header h1{
+      margin: 0;
+      font-size: var(--h1);
+      line-height: 1.2;
+      font-family: var(--font-heading);
+      color: var(--text);
+      letter-spacing: 0.2px;
+    }
+
+    main.openings-page .subtitle{
+      margin-top: 10px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    /* Normalize typography (layout only) */
+    main.openings-page h2{
+      margin: 22px 0 10px;
+      font-size: var(--h2);
+      font-family: var(--font-heading);
+      color: var(--text);
+      letter-spacing: 0.2px;
+
+      /* subtle section separator like your news style */
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    main.openings-page h3{
+      margin: 16px 0 8px;
+      font-size: var(--h3);
+      font-family: var(--font-heading);
+      color: var(--text);
+    }
+
+    main.openings-page p{
+      margin: 10px 0 0;
+      font-size: var(--p);
+      line-height: var(--lh);
+      color: var(--body);
+    }
+
+    main.openings-page ul,
+    main.openings-page ol{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      font-size: var(--p);
+      line-height: var(--lh);
+      color: var(--body);
+    }
+    main.openings-page li{ margin: 6px 0; }
+
+    /* Remove inline center paragraph styling by class (keeps text same) */
+    main.openings-page .lead-center{
+      text-align: center;
+      margin-top: 15px;
+      color: #555;
+    }
+    main.openings-page .lead-center span{
+      font-size: 0.9em;
+      font-weight: normal;
+      line-height: inherit;
+      color: inherit;
+    }
+
+    /* Buttons: keep your links, just make them consistent */
+    main.openings-page .btn-group{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    main.openings-page .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: #ffffff;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    main.openings-page .btn:hover{
+      background: rgba(0,0,0,0.03);
+      text-decoration: none;
+    }
+
+    /* Bio box: keep your structure, refine spacing */
+    main.openings-page .bio-box{
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 14px;
+      padding: 16px 16px;
+      background: #ffffff;
+      margin-top: 12px;
+    }
+    main.openings-page .bio-text h3{
+      margin-top: 0;
+    }
+
+    /* Highlight boxes: keep your existing classes, just redefine nicely */
+    main.openings-page .highlight-box{
+      margin-top: 14px;
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: rgba(15,61,94,0.03);
+    }
+    main.openings-page .highlight-box.blue{
+      background: rgba(15,61,94,0.03);
+    }
+    main.openings-page .highlight-box h3{
+      margin-top: 0;
+    }
+
+    /* Tags */
+    main.openings-page .tag-container{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    main.openings-page .tag{
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: rgba(15,61,94,0.04);
+      font-size: 13px;
+      color: rgba(43,47,54,0.85);
+      white-space: nowrap;
+    }
+
+    /* Salary emphasis */
+    main.openings-page .salary{
+      font-weight: 900;
+      color: var(--text);
+    }
+
+    /* Contact block */
+    main.openings-page .contact-section{
+      margin-top: 16px;
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 14px;
+      padding: 16px;
+      background: rgba(146,7,28,0.03);
+    }
+    main.openings-page .contact-section h3{
+      margin-top: 0;
+    }
+
+    /* Links inside page content */
+    main.openings-page a{
+      color: var(--primary);
+      text-decoration: underline;
+      background: transparent;
+    }
+    main.openings-page a:hover{
+      color: var(--primary-600);
+      background: transparent;
+    }
+
+    /* Responsive */
+    @media (max-width: 1320px){
+      main.openings-page{ width: calc(100% - 36px); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header (keep same as other pages; only active differs) -->
+  <header class="site-header">
+    <div class="top-accent" aria-hidden="true"></div>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="logo logo--left" href="index.html">
+        <img src="image/base/logo3a.png" height="40" alt="EIT">
+      </a>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="news.html">News</a></li>
+        <li class="nav-item"><a href="research.html">Research</a></li>
+        <li class="nav-item"><a href="publications.html">Publications</a></li>
+        <li class="nav-item"><a href="people.html">People</a></li>
+        <li class="nav-item"><a href="photos.html">Photos</a></li>
+        <li class="nav-item nav-item--active"><a href="openings.html">Openings</a></li>
+      </ul>
+      <a class="logo logo--right" href="https://www.eitech.edu.cn/">
+        <img src="image/base/logo3.png" height="40" alt="Zhou Lab">
+      </a>
+    </nav>
+  </header>
+
+  <!-- Content (your text kept; only layout improved) -->
+  <main class="openings-page">
+    <div class="container">
+      <header>
+        <h1>周通课题组诚聘英才</h1>
+        <div class="subtitle">宁波东方理工大学 (EIT) | 凝聚态物理与量子计算方向</div>
+        <p class="lead-center">
+          <strong>长期招聘：</strong>研究助理教授 · 博士后 · 博士研究生 · 科研助理 · 实习生<br>
+          <span>提供极具竞争力的薪资待遇 & 大量出国学术交流机会</span>
+        </p>
+      </header>
+
+      <h2>一、课题组介绍</h2>
+
+      <div class="bio-box">
+        <div class="bio-text">
+          <h3>1. 导师简介：周通 (Prof. Tong Zhou)</h3>
+
+          <p>宁波东方理工大学理学部副教授（研究员、博导），上海交通大学、中国科学技术大学兼职博导。入选<strong>国家级高层次人才</strong>、浙江省杰青、浙江省领军型双创团队负责人。曾任纽约州立大学布法罗分校研究助理教授。</p>
+          <p><strong>学术成就：</strong> 发表SCI论文60余篇（含4篇PRL, 1篇Nat. Mater., 2篇Nat. Commun.），谷歌学术引用3700+，H-index 29。</p>
+
+          <div class="btn-group">
+            <a href="https://person.eitech.edu.cn/lxb/zt/main.htm" class="btn" target="_blank">官网导师介绍</a>
+            <a href="https://www.zhouphy.com/" class="btn" target="_blank">课题组主页</a>
+          </div>
+        </div>
+      </div>
+
+      <h3>2. 核心研究成果</h3>
+      <ul>
+        <li><strong>方法创新：</strong>将微磁模拟与(含时)BdG方程结合，发展了Majorana零能模及其量子比特动力学模拟方法。</li>
+        <li><strong>验证方案：</strong>基于平面约瑟夫森结设计了Majorana非阿贝尔统计性质验证方案，获多个实验跟进。</li>
+        <li><strong>新材料设计：</strong>提出了利用多重拓扑保护实现无耗散量子传输的新思路；设计了反铁电/铁电/分子铁电交错磁体（Altermagnets）等新型多天材料。</li>
+      </ul>
+
+      <h3>3. 研究方向</h3>
+      <p>目前主要集中于<strong>凝聚态物理</strong>领域：</p>
+      <ol>
+        <li><strong>拓扑量子计算：</strong>Majorana任意子的编织、融合及拓扑量子比特操控。</li>
+        <li><strong>新奇量子材料：</strong>重点关注<strong>Altermagnets</strong>的电子结构、磁电、输运及超导性质。</li>
+        <li><strong>超导-非超导体界面量子输运：</strong>Andreev反射、Josephson效应、超导二极管效应。</li>
+        <li><strong>拓扑量子物态：</strong>拓扑绝缘体/半金属/超导体中的量子态与外场相互作用。</li>
+        <li><strong>非共线磁织构：</strong>Skyrmion与Majorana的相互作用及动力学。</li>
+        <li><strong>AI for Science：</strong>机器学习在上述物理研究中的应用。</li>
+      </ol>
+
+      <h3>4. 常用研究方法</h3>
+      <div class="tag-container">
+        <span class="tag">紧束缚模型</span>
+        <span class="tag">KP模型</span>
+        <span class="tag">散射矩阵</span>
+        <span class="tag">格林函数</span>
+        <span class="tag">(含时) BdG方程</span>
+        <span class="tag">微磁模拟</span>
+        <span class="tag">第一性原理计算</span>
+        <span class="tag">机器学习</span>
+      </div>
+
+      <h2>二、博士研究生招生</h2>
+      <p>东方理工与国内顶尖高校实行<strong>“双导师制”</strong>联合培养，提供顶尖的科研环境与优厚津贴。</p>
+
+      <div class="highlight-box blue">
+        <h3>📍 联培模式 A：上海交大 / 中科大</h3>
+        <ul>
+          <li><strong>学籍与学位：</strong>在上海交大/中科大注册学籍，毕业授予<strong>上海交大/中科大博士学位</strong>。</li>
+          <li><strong>培养流程：</strong>第一年在学籍校上课，之后在东方理工开展科研。</li>
+          <li><strong>待遇：</strong>享受学籍校津贴 + 东方理工提供的<strong>极具竞争力的助研津贴</strong>（特别优秀者有额外补助）。</li>
+        </ul>
+        <div style="text-align: right; margin-top: 6px;">
+          <a href="https://www.eitech.edu.cn/?admission_category=graduate" class="link">查看招生简章 &rarr;</a>
+        </div>
+      </div>
+
+      <div class="highlight-box blue">
+        <h3>📍 联培模式 B：香港理工大学</h3>
+        <ul>
+          <li><strong>学籍与学位：</strong>毕业授予<strong>香港理工大学博士学位</strong>（与本校生一致）。</li>
+          <li><strong>培养流程：</strong>前两年在香港理工，后两年在东方理工。</li>
+          <li><strong>待遇：</strong>在港期间享受港理工奖学金，在东方理工期间享受优厚助研津贴。</li>
+        </ul>
+        <div style="text-align: right; margin-top: 6px;">
+          <a href="https://www.eitech.edu.cn/?admission_category=graduate" class="link">查看招生简章 &rarr;</a>
+        </div>
+      </div>
+
+      <h2>三、博士后招聘 (重点推荐)</h2>
+      <p>提供极具竞争力的薪酬体系与职业发展路径，颁发<strong>中国科学技术大学博士后证书</strong>。</p>
+
+      <div class="highlight-box">
+        <h3>💰 薪资与福利</h3>
+        <ul>
+          <li><strong>年薪：</strong>综合年薪税前 <span class="salary">40万起</span>；入选“东方理工卓越博士后”年薪 <span class="salary">60万起</span>。</li>
+          <li><strong>配套资助：</strong>在站期间可申请最高20万科研资助；获省级/国家级项目，宁波市给予1:1经费配套。</li>
+          <li><strong>生活保障：</strong>缴纳五险一金，优先支持申请人才公寓（拎包入住），享受带薪年假等教职工福利。</li>
+          <li><strong>出站奖励：</strong>留甬工作享受最高 <span class="salary">60万元补贴</span>。</li>
+        </ul>
+      </div>
+
+      <h3>应聘要求</h3>
+      <ul>
+        <li>具有良好的学术背景，以一作/通讯发表过高水平文章。</li>
+        <li>熟悉紧束缚模型、BdG方程、第一性原理计算或微磁模拟者优先。</li>
+        <li>熟练使用 Kwant, Vasp/Wien2k, OMMFF/Mumax 等软件者佳。</li>
+        <li><strong>职业前景：</strong>表现优秀者可长聘为研究员序列。</li>
+      </ul>
+
+      <h2>四、科研助理 / 实习生</h2>
+      <ul>
+        <li><strong>职责：</strong>参与课题组科研，协助博士后和研究生工作。</li>
+        <li><strong>薪酬：</strong>月薪 <span class="salary">6000-8000元</span> (具体面议)，缴纳五险一金。</li>
+        <li><strong>学历要求：</strong>硕士及以上，具备良好英语读写及协作能力。</li>
+        <li><strong>发展机会：</strong>优秀者可<strong>转博</strong>（组内已有成功转博案例）或推荐至海内外合作组深造。</li>
+      </ul>
+
+      <h2>五、研究助理教授</h2>
+      <p>具体待遇及要求面议，欢迎优秀青年学者咨询。</p>
+
+      <div class="contact-section">
+        <h3>📩 应聘方式</h3>
+        <p>欢迎海内外有志之士加入周通课题组！</p>
+        <p>请将个人简历及相关证明材料（PDF格式）发送至：<br>
+          <a href="mailto:tzhou@eitech.edu.cn" style="font-size: 1.2em; font-weight: bold; text-decoration: none;">tzhou@eitech.edu.cn</a>
+        </p>
+        <p style="margin-top: 10px; font-size: 0.9em;">邮件主题请注明：“申请岗位 + 姓名”</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer (same as your other pages) -->
+  <footer class="dibu">
+    <div class="bottom1">
+      <div class="bottomsite">
+        <div class="bottoms1"><a href="index.html">Home</a><br><a href="news.html">News</a><br><a href="research.html">Research</a></div>
+        <div class="bottoms2"><a href="publications.html">Publications</a><br><a href="people.html">People</a><br><a href="photos.html">Photos</a><br></div>
+        <div class="bottoms3"><a href="openings.html">Openings</a><br><a href="contact-us.html">Contact Us</a></div>
+      </div>
+
+      <div class="shengming">
+        <div class="shengming1">Zhou &nbsp;&nbsp;&nbsp;Group</div>
+        <div class="shengming2">
+          Address: Room 306, Mathematics and Physics Building, Eastern Institute of Technology, NingBo;
+          <br>
+          E-mail: tzhou@eitech.edu.cn
+        </div>
+        <div class="shengming3">©Zhou Group. All Rights Reserved</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
