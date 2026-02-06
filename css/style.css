@@ -473,7 +473,7 @@ span {
 	font-weight: bold;
 	font-family: var(--font-body);
 	border-bottom-style: solid;
-	color: var(--primary);
+	color: var(--text);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
