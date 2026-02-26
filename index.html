@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <title>Welcome to Prof. Tong Zhou's Research Group</title>
   <link rel="stylesheet" href="css/style.css" >
+
+  <link rel="icon" href="image/base/logo3a.png" type="image/png">
+  
+  <meta name="description" content="Welcome to Prof. Tong Zhou's research group.">
 </head>
 
 <body>
@@ -30,17 +34,21 @@
   </header>
 
   <main>
+
     <section class="hero" aria-label="Lab highlights">
-      <div id="indeximg1" class="TopPhoto"><img src="image/top/top1-1.png" width="1300" height="300" alt="Lab highlight image 1"></div>
-      <div id="indeximg2" class="TopPhoto is-hidden"><img src="image/top/top1-2.png" width="1300" height="300" alt="Lab highlight image 2"></div> 
-      <div id="indeximg3" class="TopPhoto is-hidden"><img src="image/top/top1-3.png" width="1300" height="300" alt="Lab highlight image 3"></div>
-      <div id="indeximg4" class="TopPhoto is-hidden"><img src="image/top/top2-1.png" width="1300" height="300" alt="Lab highlight image 4"></div>
-      <div id="indeximg5" class="TopPhoto is-hidden"><img src="image/top/top2-2.png" width="1300" height="300" alt="Lab highlight image 5"></div>
-      <div id="indeximg6" class="TopPhoto is-hidden"><img src="image/top/top2-3.png" width="1300" height="300" alt="Lab highlight image 6"></div>
-      <div id="indeximg7" class="TopPhoto is-hidden"><img src="image/top/top3-1.png" width="1300" height="300" alt="Lab highlight image 7"></div>
-      <div id="indeximg8" class="TopPhoto is-hidden"><img src="image/top/top3-2.png" width="1300" height="300" alt="Lab highlight image 8"></div> 
-      <div id="indeximg8" class="TopPhoto is-hidden"><img src="image/top/top3-3.png" width="1300" height="300" alt="Lab highlight image 8"></div> 
-    </section> 
+      <div class="TopPhoto is-active"><img src="image/top/top1-1.png" alt="Lab highlight image 1"></div>
+      <div class="TopPhoto"><img src="image/top/top1-2.png" alt="Lab highlight image 2"></div> 
+      <div class="TopPhoto"><img src="image/top/top1-3.png" alt="Lab highlight image 3"></div>
+      <div class="TopPhoto"><img src="image/top/top2-1.png" alt="Lab highlight image 4"></div>
+      <div class="TopPhoto"><img src="image/top/top2-2.png" alt="Lab highlight image 5"></div>
+      <div class="TopPhoto"><img src="image/top/top2-3.png" alt="Lab highlight image 6"></div>
+      <div class="TopPhoto"><img src="image/top/top3-1.png" alt="Lab highlight image 7"></div>
+      <div class="TopPhoto"><img src="image/top/top3-2.png" alt="Lab highlight image 8"></div> 
+      <div class="TopPhoto"><img src="image/top/top3-3.png" alt="Lab highlight image 9"></div> 
+
+      <button class="slider-btn slider-btn--left" aria-label="Previous slide">❮</button>
+      <button class="slider-btn slider-btn--right" aria-label="Next slide">❯</button>
+    </section>
 
     <section class="Show" aria-label="About the lab">
       <!-- photo-card -->
@@ -50,23 +58,33 @@
       <div class="intro-card">
         <div class="intro-content">
 	          <div class="section-title">
-	            <span class="title-text">Our Laboratory</span>
-	            <a href="research.html" class="more-link">more</a>
+	            <span class="title-text">Our Research Group</span>
+	            <a href="research.html" class="more-link">More</a>
 	          </div>
 	          <p class="body-text">
 	            Welcome to Prof. Tong Zhou’s research group in the College of Science at Eastern Institute of Technology, Ningbo. We explore condensed matter physics with an emphasis on topological quantum computation, topological quantum states, and quantum transport phenomena at superconductor-semiconductor interfaces.
 	          </p>
-	          <p class="subheading">Research Interests</p>
-	          <p class="body-text">
-              <ol>
-              <li><strong>Topological quantum computing:</strong> Majorana fusion and braiding.</li>
-              <li><strong>Topological states:</strong> insulators, semimetals, and superconductors under external fields.</li>
-             <li><strong>Quantum transport:</strong> superconductor–semiconductor interfaces (Andreev, Josephson, diode effects).</li>
-              <li><strong>Quantum materials:</strong> electronic structure, superconductivity, and magnetoelectric/optical/transport properties.</li>
-              <!-- <li><strong>Micromagnetics:</strong> skyrmions and coupling to topological electronic states.</li> -->
-              <!-- <li><strong>Machine learning:</strong> tools for discovery and prediction in these topics.</li> -->
-             </ol>
-	          </p>
+
+            <p class="subheading">Research Interests</p>
+
+<div class="research-grid">
+  <div class="research-item">
+    <img src="image/base/research1.png" alt="Quantum Computation">
+    <!-- <h4>量子材料理论与模拟<br><span class="research-en">Quantum Materials Theory & Simulation</span></h4> -->
+     <h4>Quantum Computation</h4>
+  </div>
+
+  <div class="research-item">
+    <img src="image/base/research2.png" alt="Quantum Materials">
+    <h4>Quantum Materials</h4>
+  </div>
+
+  <div class="research-item">
+    <img src="image/base/research3.png" alt="Quantum Devices">
+    <h4>Quantum Devices</h4>
+  </div>
+</div>
+
         </div>
       </div>
     </section>
@@ -75,7 +93,7 @@
       <div class="lastestnew">
         <div class="section-title section-title--wide">
           <span class="title-text">Highlights</span>
-          <a href="publications.html" class="more-link">more</a>
+          <a href="publications.html" class="more-link">More</a>
         </div>
 
         <article class="highlight-card">
@@ -132,7 +150,7 @@
       <aside class="youbianxinwen" aria-label="News">  
         <div class="NEWS111">
           <span>News</span>
-          <a href="news.html" class="more-link">more</a>
+          <a href="news.html" class="more-link">More</a>
         </div>
         <div id="B" class="xinwenlundong">
           <div id="B1" class="box1">
@@ -142,12 +160,6 @@
                  Our collaborative work with Prof. Cheng Zhang’s group and Prof. Lin Miao’s group, titled
           “Defect Engineering for Stabilizing Magnetic and Topological Properties in Mn(Bi₁₋ₓSbₓ)₂Te₄,”
           was published in <em>Nature Communications</em>. Congrats!
-              </li>
-              <li><span class="date">2022.10 :</span>
-                Jiani Hong won the National Scholarship. Congratulations to Jiani!
-              </li>
-              <li><span class="date">2022.07 :</span>
-                Congratulations！Our paper "Visualizing Eigen/Zundel cations and their interconversion in monolayer water on metal surfaces" was published on <a href="https://www.science.org/doi/10.1126/science.abo0823" class="link"><span class="italic">Science</span></a>. see <a href="https://news.pku.edu.cn/jxky/73a71706ebb84590932ab69a48d79fa8.htm" class="link"><span class="italic">pku news</span></a>, <a href="https://newsen.pku.edu.cn/news_events/news/research/12691.html" class="link"><span class="italic">pku news (English)</span></a>, <a href="https://www.scholarset.com/post/detail?fid=2516" class="link"><span class="italic">Zhishe News</span></a>
               </li>
 
               <li>
@@ -346,7 +358,6 @@
 
             </ul>
           </div>
-          <div id="B2" class="box2"></div>
         </div>
       </aside>
     </section>
@@ -371,74 +382,59 @@
 
   </footer>
 
-  <script>
-    let sec = 1;
-    const indexTimer = setInterval(() => count(0), 4000);
-    function count(myindex) {
-      if (myindex !== 0) {
-        sec = myindex;
-      }
-      for (let k = 1; k <= 8; k += 1) {
-        const el = document.getElementById(`indeximg${k}`);
-        if (el) {
-          el.classList.add('is-hidden');
-        }
-      }
-      const current = document.getElementById(`indeximg${sec}`);
-      if (current) {
-        current.classList.remove('is-hidden');
-      }
-      if (sec < 8) {
-        sec += 1;
-      } else {
-        sec = 1;
-      }
+
+<script>
+    // --- 智能轮播图 (带平滑过渡与手动按钮) ---
+    const slides = document.querySelectorAll('.hero .TopPhoto');
+    const btnPrev = document.querySelector('.slider-btn--left');
+    const btnNext = document.querySelector('.slider-btn--right');
+    
+    let currentSlide = 0; 
+    let slideTimer;
+
+    // 切换到指定索引的图片
+    function showSlide(index) {
+      // 移除所有图片的激活状态
+      slides.forEach(slide => slide.classList.remove('is-active'));
+      // 给目标图片加上激活状态（CSS会自动触发0.8秒淡入淡出）
+      slides[index].classList.add('is-active');
     }
 
-    let second = 1;
-    const highlightTimer = setInterval(() => count2(0), 2500);
-    function count2(myind) {
-      if (myind !== 0) {
-        second = myind;
-      }
-      for (let k = 1; k <= 8; k += 1) {
-        const el = document.getElementById(`indimg${k}`);
-        if (el) {
-          el.classList.add('is-hidden');
-        }
-      }
-      const current = document.getElementById(`indimg${second}`);
-      if (current) {
-        current.classList.remove('is-hidden');
-      }
-      if (second < 8) {
-        second += 1;
-      } else {
-        second = 1;
+    // 下一张
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // 上一张
+    function prevSlide() {
+      // 加 slides.length 是为了防止负数
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // 启动自动播放
+    function startAutoPlay() {
+      slideTimer = setInterval(nextSlide, 4000); // 4秒自动切一张
+    }
+
+    // 重置自动播放（防止手动点击后马上又自动翻页）
+    function resetAutoPlay() {
+      clearInterval(slideTimer);
+      startAutoPlay();
+    }
+
+    // 初始化运行
+    if (slides.length > 0) {
+      startAutoPlay();
+      
+      // 绑定左右按钮点击事件
+      if (btnPrev && btnNext) {
+        btnPrev.addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
+        btnNext.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
       }
     }
   </script>
-  <script>
-    const speed = 50;
-    const B = document.getElementById('B');
-    const B1 = document.getElementById('B1');
-    const B2 = document.getElementById('B2');
-    if (B && B1 && B2) {
-      B2.innerHTML = B1.innerHTML;
-      B.scrollTop = 0;
-      function marquee() {
-        if (B.scrollTop >= B1.scrollHeight) {
-          B.scrollTop = 0;
-        } else {
-          B.scrollTop += 1;
-        }
-      }
-      let myMar = setInterval(marquee, speed);
-      B.addEventListener('mouseover', () => clearInterval(myMar));
-      B.addEventListener('mouseout', () => {
-        myMar = setInterval(marquee, speed);
-      });
-    }
-  </script>
+
 </body>
 </html>
