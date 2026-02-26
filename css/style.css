@@ -55,6 +55,10 @@
 	--accent: #1b8aa5;
 	--border: #d6dbe1;
 }
+* {
+  box-sizing: border-box; /* Ensures padding doesn't break widths */
+}
+
 body {
 	margin:0 auto;
 	padding: 0;
