@@ -247,7 +247,7 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 .Show {	
 	max-width: 1300px; width: 100%; height: auto;
 	margin: 30px auto; padding: 0 0px;
-	display: flex; flex-wrap: wrap; gap: 30px; 
+	display: flex; flex-wrap: wrap; gap: 10px; 
 }
 
 .photo-card {
@@ -268,18 +268,18 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 	min-width: 300px;
 	height: auto;
 	margin: 0;
-	padding: 35px; /* 从 20px 增加到 35px，让内容更从容 */
+	padding: 25px; /* 从 20px 增加到 35px，让内容更从容 */
 	background-color: var(--surface);
 	/* 弱化阴影：降低 Alpha 透明度，增加模糊半径 (26px) */
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
-	border-top: 3px solid var(--accent);
 	border-radius: var(--radius); /* 应用你在根目录定义的圆角 */
+	border-top: 3px solid var(--accent);
 }
 
 .intro-content { width: 100%; height: auto; margin: 0; }
 
 .section-title, .section-title--wide {
-	width: 100%; height: auto; margin: 0 0 15px 0; 
+	width: 100%; height: auto; margin: 0 0 0px 0; 
 	padding: 10px;
 	border-bottom: 1px solid var(--border); font-weight: bold;
 	display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
@@ -297,6 +297,7 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 	max-width: 1300px; width: 100%; height: auto; 
 	margin: 10px auto; padding: 0 0px;
 	display: flex; flex-wrap: wrap; gap: 30px;
+	border-radius: var(--radius);
 }
 
 .lastestnew {
@@ -306,17 +307,6 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 }
 
 /* --- 优化 News 侧边栏：防止溢出 + 优雅内滚动 --- */
-/* .youbianxinwen {
-	width: 360px; 
-	max-width: 100%; 
-	display: flex;
-	flex-direction: column; 
-	margin: 0;
-	background-color: var(--surface);
-	box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.18);
-	overflow: hidden; 
-} */
-
 .youbianxinwen {
 	width: 360px;
 	max-width: 100%;
@@ -325,17 +315,22 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 	border-radius: var(--radius);
 	overflow: hidden;
+
+	padding: 0 !important; /* 移除外层内边距，让头部背景撑满 */
+	display: flex;
+      flex-direction: column;
 }
 
 .NEWS111 {
 	flex-shrink: 0; 
 	width: 100%; 
 	padding: 10px 20px; 
-	font-size: 20px; 
+	font-size: 18px; 
 	font-weight: bold;
 	border-bottom: 1px solid var(--border); 
 	display: flex; 
 	justify-content: space-between;
+	border-top: 3px solid var(--accent);
 }
 
 .xinwenlundong {
@@ -348,6 +343,30 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 	overflow-y: auto;  /* 垂直方向超出则滚动 */
 	overflow-x: hidden; /* 水平方向严禁滚动 */
 }
+  .xinwenlundong ul {
+      padding: 0 !important;
+      margin: 0 !important;
+      list-style: none !important;
+    } 
+    .xinwenlundong li {
+      margin-bottom: 18px !important;
+      line-height: 1.6 !important;
+      color: #333 !important;
+      font-size: 15px !important;
+      border-bottom: 1px dashed rgba(0,0,0,0.06);
+      padding-bottom: 14px !important;
+    }
+    .xinwenlundong li:last-child {
+      border-bottom: none;
+      margin-bottom: 0 !important;
+    }
+
+	.xinwenlundong .date {
+      color: var(--primary-600) ;
+      font-weight: 900 ;
+      margin-right: 6px;
+      font-family: var(--font-heading, sans-serif);
+    }
 
 /* --- 高级感定制滚动条 --- */
 .xinwenlundong::-webkit-scrollbar {
@@ -420,18 +439,17 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 	border: 1px solid rgba(0, 0, 0, 0.03); 
 }
 
-/* .Leaderphoto, .Leaderphoto2 {
-	padding: 30px; 
-	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
-	border-radius: var(--radius);
-	border: 1px solid rgba(0, 0, 0, 0.03); 
-} */
-
 .Leaderp1 {
-	width: 150px; height: 200px; 
+	width: 185px; max-width: 100%; height: auto;
 	background: url("../image/groupleader.jpg") no-repeat center / cover;
+	border-radius: 8px; 
+	/* padding: auto; */
 }
+.Leaderp1 img { width: 100%; height: auto; border-radius: 8px; object-fit: cover; 
+	margin-top: 10%; margin-bottom: 10%; ;}
+
 .Leaderp2 { flex: 1; min-width: 280px; height: auto; line-height: 1.6; }
+
 .Leaderp3 {
 	width: 180px; height: 40px; background-color: var(--primary); color: var(--surface);
 	font-weight: bold; text-align: center; line-height: 40px; cursor: pointer; border-radius: 4px;
@@ -480,6 +498,8 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 	gap: 20px;
 	margin-top: 25px;
 	justify-content: space-between;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 .research-item {

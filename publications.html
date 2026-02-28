@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Publications | Zhou Group</title>
 
-  <!-- Keep your global theme -->
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Page-scoped styles to avoid conflicts -->
   <style>
     /* =========================
        Publications page (scoped)
@@ -21,32 +19,25 @@
 
     .pub-page .pub-card{
       background: var(--surface);
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 14px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.06);
-      padding: 18px 22px 10px;
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 16px;
+      box-shadow: 0px 10px 30px rgba(0,0,0,0.05); /* 更柔和的高级阴影 */
+      padding: 30px 40px 20px;
     }
 
-    /* ---- Customizable palette (reader-friendly, academic) ---- */
+    /* ---- Customizable palette ---- */
     .pub-page{
-      --pub-title-color: var(--text);
-      --pub-authors-color: #AAA9A1;
-      --pub-venue-color: #AAA9A1;
+      --pub-title-color: #111111; /* 标题更深更醒目 */
+      --pub-authors-color: #666666;
+      --pub-venue-color: var(--primary); /* 期刊使用主题酒红 */
       --pub-meta-color: var(--muted);
 
       --pub-year-color: var(--primary);
-      --pub-year-size: 18px;
-
-      --pub-sep-color: rgba(170,169,161,0.45);
-      --pub-sep-width: 1px;
+      --pub-year-size: 20px;
 
       --pub-badge-bg: rgba(253, 184, 55, 0.12);
       --pub-badge-border: rgba(253, 184, 55, 0.55);
       --pub-badge-text: var(--primary-600);
-
-      --pub-chip-bg: rgba(15,61,94,0.06);
-      --pub-chip-border: rgba(15,61,94,0.18);
-      --pub-chip-text: rgba(15,61,94,0.92);
     }
 
     /* Top header row (title + search) */
@@ -55,15 +46,16 @@
       align-items: flex-end;
       justify-content: space-between;
       gap: 18px;
-      padding: 6px 0 14px;
-      /* border-bottom: 1px solid rgba(0,0,0,0.08); */
-      /* margin-bottom: 14px; */
+      padding: 6px 0 24px;
+      border-bottom: 2px solid rgba(0,0,0,0.04);
+      margin-bottom: 20px;
     }
 
     .pub-page .pub-top h1{
-      margin: 0;
-      font-size: 22px;
+      margin: 0 0 10px 0;
+      font-size: 26px;
       letter-spacing: 0.2px;
+      color: var(--primary);
     }
 
     .pub-page .pub-tools{
@@ -76,50 +68,33 @@
     .pub-page .pub-search{
       width: 360px;
       max-width: 56vw;
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(0,0,0,0.12);
-      background: #fff;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.1);
+      background: #f9f9f9;
       color: var(--text);
       outline: none;
+      transition: all 0.3s ease;
     }
     .pub-page .pub-search:focus{
-      border-color: rgba(15,61,94,0.35);
-      box-shadow: 0 0 0 3px rgba(15,61,94,0.08);
-    }
-
-    .pub-page .pub-count{
-      font-size: 14px;
-      color: var(--pub-meta-color);
-      white-space: nowrap;
+      background: #fff;
+      border-color: rgba(146, 7, 28, 0.3);
+      box-shadow: 0 0 0 3px rgba(146, 7, 28, 0.08);
     }
 
     /* Year sections */
-    .pub-page .pub-year{
-      /* margin-top: 18px; */
-      /* padding-top: 6px; */
-    }
-
     .pub-page .pub-year-title{
       display: flex;
       align-items: baseline;
       justify-content: space-between;
       gap: 12px;
-
       font-size: var(--pub-year-size);
       font-weight: 800;
       color: var(--pub-year-color);
       letter-spacing: 0.4px;
-
-      padding-bottom: 3px;
-      margin: 12px 0 6px;
-      border-bottom: 2px solid rgba(253,184,55,0.9);
-    }
-
-    .pub-page .pub-year-sub{
-      font-size: 13px;
-      color: var(--pub-meta-color);
-      font-weight: 600;
+      padding-bottom: 5px;
+      margin: 30px 0 10px;
+      border-bottom: 2px solid rgba(253,184,55,0.8);
     }
 
     /* Publication list */
@@ -129,65 +104,92 @@
       padding: 0;
     }
 
+    /* 核心升级 1：排版与悬停交互 */
     .pub-page .pub-item{
       display: grid;
       grid-template-columns: 56px 1fr;
-      gap: 12px;
-      padding: 2px 0;
-      /* border-bottom: var(--pub-sep-width) solid var(--pub-sep-color); */
+      gap: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border-bottom: 1px solid transparent; 
+      margin-bottom: 5px;
     }
-    .pub-page .pub-item:last-child{
-      border-bottom: none;
+    .pub-page .pub-item:hover{
+      background-color: rgba(146, 7, 28, 0.03); /* 微弱的酒红背景高亮 */
+      transform: translateX(6px); /* 丝滑向右平移 */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
     }
 
-    /* Left number */
+    /* 核心升级 2：左侧徽章序号 */
     .pub-page .pub-no{
       font-variant-numeric: tabular-nums;
-      color: var(--pub-meta-color);
+      background-color: #f0f0f0;
+      color: #888;
       font-size: 14px;
-      line-height: 1.6;
-      text-align: right;
-      padding-top: 2px;
-      user-select: none;
+      line-height: 1;
+      text-align: center;
+      padding: 6px 0;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: fit-content;
+      margin-top: 4px;
+    }
+    /* 悬停时徽章变色 */
+    .pub-page .pub-item:hover .pub-no{
+      background-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(146, 7, 28, 0.2);
     }
 
-    /* Right content */
+    /* 核心升级 3：字体层级 */
     .pub-page .pub-title{
       margin: 0;
-      font-size: 16px;
-      line-height: 1.55;
-      font-weight: 500;
+      font-size: 18px; /* 标题加大 */
+      line-height: 1.4;
+      font-weight: 700;
       color: var(--pub-title-color);
+    }
+    .pub-page .pub-title-link{
+      color: var(--pub-title-color);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .pub-page .pub-title-link:hover{
+      color: var(--primary); /* 标题悬停变酒红 */
     }
 
     .pub-page .pub-authors{
-      margin-top: 6px;
-      font-size: 14px;
+      margin-top: 8px;
+      font-size: 15px;
       line-height: 1.6;
       color: var(--pub-authors-color);
-      font-weight: 400;
     }
 
     .pub-page .pub-venue{
-      margin-top: 4px;
-      font-size: 14px;
+      margin-top: 6px;
+      font-size: 15px;
       line-height: 1.6;
       color: var(--pub-venue-color);
-      font-weight: 400;
+      font-style: italic; /* 期刊斜体 */
+      font-weight: 600;   /* 期刊加粗 */
     }
 
     .pub-page .pub-badges{
-      margin-top: 8px;
+      margin-top: 12px;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
 
     .pub-page .badge{
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: 999px;
       border: 1px solid var(--pub-badge-border);
       background: var(--pub-badge-bg);
@@ -196,39 +198,44 @@
       font-weight: 700;
       letter-spacing: 0.2px;
       user-select: none;
-      white-space: nowrap;
     }
 
-    /* Link chips (PDF/SuppInfo/gif) */
+    /* 核心升级 5：现代胶囊按钮 */
     .pub-page .chip{
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--pub-chip-border);
-      background: var(--pub-chip-bg);
-      color: var(--pub-chip-text);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .pub-page .chip:hover{
-      border-color: rgba(15,61,94,0.32);
-      background: rgba(15,61,94,0.08);
-      text-decoration: none;
-    }
-
-    /* Links inside pubs (optional) */
-    .pub-page a.pub-link{
+      gap: 4px;
+      padding: 5px 16px;
+      border-radius: 50px;
+      border: 1px solid rgba(146, 7, 28, 0.15);
+      background: #ffffff;
       color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
       text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
     }
-    .pub-page a.pub-link:hover{
-      text-decoration: underline;
-      background: transparent;
+    /* 胶囊按钮悬停高级特效 */
+    .pub-page .chip:hover{
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(146, 7, 28, 0.2);
+    }
+    /* 自动加上跳转小箭头 */
+    .pub-page .chip::after {
+      content: '↗';
+      font-size: 12px;
+      font-weight: 900;
+      opacity: 0.8;
+      margin-left: 2px;
+      transition: transform 0.3s ease;
+    }
+    .pub-page .chip:hover::after {
+      transform: translate(2px, -2px); /* 箭头微动效果 */
     }
 
     /* Responsive */
@@ -236,26 +243,16 @@
       .pub-page{ width: min(1300px, 92vw); }
     }
     @media (max-width: 640px){
-      .pub-page .pub-item{ grid-template-columns: 44px 1fr; }
+      .pub-page .pub-card{ padding: 20px; }
+      .pub-page .pub-item{ grid-template-columns: 44px 1fr; padding: 15px 10px; gap: 15px;}
       .pub-page .pub-search{ width: 100%; max-width: 100%; }
       .pub-page .pub-tools{ width: 100%; }
       .pub-page .pub-top{ align-items: stretch; flex-direction: column; }
     }
-
-    .pub-page .pub-title-link{
-  color: var(--pub-title-color);
-  text-decoration: none;
-  border-bottom: 2px solid var(--surface); /* 用你的主题色淡线 */
-}
-.pub-page .pub-title-link:hover{
-  border-bottom-color: var(--primary-600);
-}
-
   </style>
 </head>
 
 <body>
-  <!-- ========== SAME HEADER AS OTHER PAGES ========== -->
   <header class="site-header">
     <div class="top-accent" aria-hidden="true"></div>
     <nav class="site-nav" aria-label="Primary">
@@ -282,11 +279,10 @@
       <div class="pub-top">
         <div>
           <h1>Publications</h1>
-          <!-- <div class="pub-count"><span id="pubTotal">0</span> items · grouped by year</div> -->
-          Total citations >3700, h-index 29, per Google Scholar 02/2026; >20 invited talks
-          <br>
-          Link: 
-          <a href="https://scholar.google.com/citations?user=WLkq6ygAAAAJ&hl=zh-CN">Google Scholar</a><br>
+          <div style="font-size: 15px; color: var(--muted); line-height: 1.6;">
+            Total citations >3700, h-index 29, per Google Scholar 02/2026; >20 invited talks<br>
+            Link: <a href="https://scholar.google.com/citations?user=WLkq6ygAAAAJ&hl=zh-CN" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none;">Google Scholar ↗</a>
+          </div>
         </div>
 
         <div class="pub-tools">
@@ -294,12 +290,10 @@
         </div>
       </div>
 
-      <!-- Render target -->
       <div id="pubRoot" aria-live="polite"></div>
     </section>
   </main>
 
-  <!-- ========== SAME FOOTER STYLE ========== -->
   <footer class="dibu">
     <div class="bottom">
       <div class="bottomsite">
@@ -334,13 +328,9 @@
     /*
       =========================
       DATA (merged + de-duplicated by title)
-      - Add more papers by appending objects to `papersRaw`.
-      - For PDF/SuppInfo/gif links: fill `links: [{label:"PDF", href:"..."}]`.
       =========================
     */
     const papersRaw = [
-
-    // Arxiv
       {
         year: 2026,
         title: "Symmetry-Driven Unconventional Magnetoelectric Coupling in Perovskite Altermagnets: From Bulk to the Two-Dimensional Limit",
@@ -350,41 +340,33 @@
         paperUrl:"",
         links: []
       },
-
-        {
-          year: 2025,
-          title: "Altermagnetic Proximity Effect",
-          authors: "Ziye Zhu, Richang Huang, Xianzhang Chen, Xunkai Duan, Jiayong Zhang, Igor Zutic, Tong Zhou",
-          venue: "arXiv.2509.06790",
-          badges: [],
-          paperUrl:"https://doi.org/10.48550/arXiv.2509.06790",
-          links: []
-        },
-
-        
-
-        {
-          year: 2025,
-          title: "Electrically switchable quantum anomalous and spin Hall states in two-dimensional honeycomb lattices with non-Dirac bands",
-          authors: "Wu, Sihui and Qian, Jiahui and Duan, Xunkai and Chen, Xianzhang and Cui, Zhou and Zhang, Jiayong and Ma, Chunlan and Zhou, Tong",
-          venue: "arXiv.2504.20031",
-          badges: [],
-          paperUrl:"https://link.aps.org/doi/10.1103/PhysRevB.111.235414",
-          links: []
-        },
-        {
-          year: 2025,
-          title: "Altermagnetoelectric Spin Field Effect Transistor",
-          authors: "Ziye Zhu, Xianzhang Chen, Xunkai Duan, Zhou Cui, Jiayong Zhang, Igor Zutic, Tong Zhou",
-          venue: "arXiv:2512.02974",
-          badges: [],
-          paperUrl:"https://doi.org/10.48550/arXiv.2512.02974",
-          links: []
-        },
-        
-
-      /* ---- 2026 (from your file) ---- */
-      
+      {
+        year: 2025,
+        title: "Altermagnetic Proximity Effect",
+        authors: "Ziye Zhu, Richang Huang, Xianzhang Chen, Xunkai Duan, Jiayong Zhang, Igor Zutic, Tong Zhou",
+        venue: "arXiv.2509.06790",
+        badges: [],
+        paperUrl:"https://doi.org/10.48550/arXiv.2509.06790",
+        links: []
+      },
+      {
+        year: 2025,
+        title: "Electrically switchable quantum anomalous and spin Hall states in two-dimensional honeycomb lattices with non-Dirac bands",
+        authors: "Wu, Sihui and Qian, Jiahui and Duan, Xunkai and Chen, Xianzhang and Cui, Zhou and Zhang, Jiayong and Ma, Chunlan and Zhou, Tong",
+        venue: "arXiv.2504.20031",
+        badges: [],
+        paperUrl:"https://link.aps.org/doi/10.1103/PhysRevB.111.235414",
+        links: []
+      },
+      {
+        year: 2025,
+        title: "Altermagnetoelectric Spin Field Effect Transistor",
+        authors: "Ziye Zhu, Xianzhang Chen, Xunkai Duan, Zhou Cui, Jiayong Zhang, Igor Zutic, Tong Zhou",
+        venue: "arXiv:2512.02974",
+        badges: [],
+        paperUrl:"https://doi.org/10.48550/arXiv.2512.02974",
+        links: []
+      },
       {
         year: 2026,
         title: "One-Dimensional Hydrogen Chains in Li-Hf-H System: A Pathway to High Superconductivity Under High Pressure",
@@ -394,64 +376,44 @@
         paperUrl:"https://doi.org/10.1002/advs.202514126",
         links: []
       },
-
       {
-          year: 2026,
-          title: "Two-dimensional magnetic tunnel p-n junctions for low-power electronics. ",
-          authors: "Wenkai Zhu, Ziao Wang, Tiangui Hu, Zakhar R Kudrynskyi, Tong Zhou, Zakhar D Kovalyuk, Ce Hu, Hailong Lin, Xiaodong Li, Yongcheng Deng, Quanshan Lv, Lixia Zhao, Amalia Patanè, Igor Žutić, Houzhi Zheng, Kaiyou Wang",
-          venue: "Nat. Commun. 17, 1283 (2026)",
-          badges: [],
-          paperUrl:"https://doi.org/10.1038/s41467-025-68043-2",
-          links: []
-        },
-
+        year: 2026,
+        title: "Two-dimensional magnetic tunnel p-n junctions for low-power electronics. ",
+        authors: "Wenkai Zhu, Ziao Wang, Tiangui Hu, Zakhar R Kudrynskyi, Tong Zhou, Zakhar D Kovalyuk, Ce Hu, Hailong Lin, Xiaodong Li, Yongcheng Deng, Quanshan Lv, Lixia Zhao, Amalia Patanè, Igor Žutić, Houzhi Zheng, Kaiyou Wang",
+        venue: "Nat. Commun. 17, 1283 (2026)",
+        badges: [],
+        paperUrl:"https://doi.org/10.1038/s41467-025-68043-2",
+        links: []
+      },
       {
-          year: 2026,
-          title: "Defect Engineering for Stabilizing Magnetic and Topological Properties in Mn(Bi1-xSbx)2Te4",
-          authors: "Haonan Chen, Jiayu Wang, Huayao Li, Xunkai Duan, Yuxiang Wang, Zixuan Xu, Yingchao Xia, Wenhao He, Zehao Jia, Xiangyu Cao, Yicheng Mou, Xiangyu Jiang, Jiaming Gu, Pengliang Leng, Fengfeng Zhu, Changlin Zheng, Xiang Yuan, Faxian Xiu, Tong Zhou*, Lin Miao*, Cheng Zhang*",
-          venue: "Nat Commun 17, 1029 (2026)",
-          badges: [],
-          paperUrl:"https://doi.org/10.1038/s41467-025-67774-6",
-          links: []
-        },
-    {
-          year: 2026,
-          title: "Ferroelastic altermagnetism ",
-          authors: "Rui Peng, Shibo Fang, Pin Ho, Fanxin Liu, Tong Zhou, Junwei Liu, Yee Sin Ang",
-          venue: "npj Quantum Mater. 11, 5 (2026)",
-          badges: [],
-          paperUrl:"https://doi.org/10.1038/s41535-025-00835-7",
-          links: []
-        },
-
-      /* ---- Unknown year in your file (keep, avoid wrong grouping) ---- */
-      // {
-      //   year: null,
-      //   title: "Tunable Topological Edge States in Sb Monolayer-based Heterostructures",
-      //   authors: "T Zhou, J Zhang, Y Xue, B Zhao, H Zhang, H Jiang, Z Yang",
-      //   venue: "(Year not specified in your list)",
-      //   badges: [],
-      //   paperUrl:"",
-      //   links: []
-      // },
-
-      /* ---- 2025 (Full list #52) ---- */
-      
-
+        year: 2026,
+        title: "Defect Engineering for Stabilizing Magnetic and Topological Properties in Mn(Bi1-xSbx)2Te4",
+        authors: "Haonan Chen, Jiayu Wang, Huayao Li, Xunkai Duan, Yuxiang Wang, Zixuan Xu, Yingchao Xia, Wenhao He, Zehao Jia, Xiangyu Cao, Yicheng Mou, Xiangyu Jiang, Jiaming Gu, Pengliang Leng, Fengfeng Zhu, Changlin Zheng, Xiang Yuan, Faxian Xiu, Tong Zhou*, Lin Miao*, Cheng Zhang*",
+        venue: "Nat Commun 17, 1029 (2026)",
+        badges: [],
+        paperUrl:"https://doi.org/10.1038/s41467-025-67774-6",
+        links: []
+      },
       {
-          year: 2025,
-          title: "Towards Scalable Braiding: Topological Superconductivity Unlocked under Nearly Arbitrary Magnetic Field Directions in Planar Josephson Junctions",
-          authors: "Richang Huang, Yongliang Hu, Xianzhang Chen, Peng Yu, Siwei Tan, Igor Zutic, Tong Zhou",
-          venue: "Phys. Rev. B 111, 235414 (2025)",
-          badges: [],
-          paperUrl:"10.1103/PhysRevB.111.235414",
-          links: []
-        },
-    
-
+        year: 2026,
+        title: "Ferroelastic altermagnetism ",
+        authors: "Rui Peng, Shibo Fang, Pin Ho, Fanxin Liu, Tong Zhou, Junwei Liu, Yee Sin Ang",
+        venue: "npj Quantum Mater. 11, 5 (2026)",
+        badges: [],
+        paperUrl:"https://doi.org/10.1038/s41535-025-00835-7",
+        links: []
+      },
       {
         year: 2025,
-        // month: 10.31,
+        title: "Towards Scalable Braiding: Topological Superconductivity Unlocked under Nearly Arbitrary Magnetic Field Directions in Planar Josephson Junctions",
+        authors: "Richang Huang, Yongliang Hu, Xianzhang Chen, Peng Yu, Siwei Tan, Igor Zutic, Tong Zhou",
+        venue: "Phys. Rev. B 111, 235414 (2025)",
+        badges: [],
+        paperUrl:"10.1103/PhysRevB.111.235414",
+        links: []
+      },
+      {
+        year: 2025,
         title: "Emergent multiferroic altermagnets and spin control via noncollinear molecular polarization",
         authors: "Ziye Zhu, Yuntian Liu, Xunkai Duan, Jiayong Zhang, Bowen Hao, Su-Huai Wei, Igor Zutic, Tong Zhou*",
         venue: "Science China Physics, Mechanics & Astronomy 68.12 (2025): 127562.",
@@ -459,18 +421,16 @@
         paperUrl:"https://link.springer.com/article/10.1007/s11433-025-2778-3",
         links: []
       },
-
       {
         year: 2025,
         title: "Two-Dimensional Ferroelectric Altermagnets: From Model to Material Realization",
-        authors: "Ziye ZhuXunkai DuanJiayong ZhangBowen HaoIgor ŽutićTong Zhou*",
+        authors: "Ziye Zhu, Xunkai Duan, Jiayong Zhang, Bowen Hao, Igor Žutić, Tong Zhou*",
         venue: "Nano Lett. 2025, 25, 23, 9456–9462",
         badges: [],
         paperUrl:"",
         links: []
       },
-
-       {
+      {
         year: 2025,
         title: "Ferroelectric control of valleytronic nonvolatile storage in HfCl2/Sc2CO2 heterostructure",
         authors: "Zhou Cui, Xunkai Duan, Jiansen Wen, Ziye Zhu, Jiayong Zhang, Jiajie Pei, Cuilian Wen, Tong Zhou*, Bo Wu, Baisheng Sa",
@@ -479,7 +439,6 @@
         paperUrl:"https://pubs.aip.org/aip/apl/article-abstract/126/12/122902/3340392/Ferroelectric-control-of-valleytronic-nonvolatile?redirectedFrom=fulltext",
         links: []
       },
-
       {
         year: 2025,
         title: "Antiferroelectric altermagnets: Antiferroelectricity alters magnets",
@@ -489,8 +448,6 @@
         paperUrl:"https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.106801",
         links: []
       },
-
-
       {
         year: 2025,
         title: "Ultrafast Laser-Induced Spin Dynamics in All-Semiconductor Ferromagnetic CrSBr–Phosphorene Heterostructures",
@@ -500,17 +457,6 @@
         paperUrl:"https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.4c03279",
         links: []
       },
-
-      /* ---- 2024 (Full list #51-46) ---- */
-      // {
-      //   year: 2024,
-      //   title: "Antiferroelectric Altermagnets: Antiferroelectricity Alters Magnets",
-      //   authors: "X. Duan, J. Zhang, Z. Zhu, Y. Liu, Z. Zhang, I. Žutić, T. Zhou*",
-      //   venue: "arXiv:2410.06071 (2024), Accepted in Phys. Rev. Lett.",
-      //   badges: ["PRL in press"],
-      //   paperUrl:"",
-      //   links: []
-      // },
       {
         year: 2024,
         title: "Large-gap non-Dirac quantum anomalous Hall effect in nitrided TlSb monolayers on nonmagnetic substrates",
@@ -565,8 +511,6 @@
         paperUrl:"https://www.sciencedirect.com/science/article/pii/S2772949423000578",
         links: []
       },
-
-      /* ---- 2023 (Full list #44-39) ---- */
       {
         year: 2023,
         title: "Large and tunable magnetoresistance in van der Waals Ferromagnet/Semiconductor junctions",
@@ -619,13 +563,8 @@
         venue: "Nat. Mater. 22, 284 (2023)",
         badges: [],
         paperUrl:"https://www.nature.com/articles/s41563-022-01466-0",
-        links: [
-          /* put your real links here */
-          /* { label: "PDF", href: "pdf/asymmetry_2023.pdf" } */
-        ]
+        links: []
       },
-
-      /* ---- 2022 (Full list #38-37) ---- */
       {
         year: 2022,
         title: "Fusion of Majorana Bound States with Mini-Gate Control in Two-Dimensional Systems",
@@ -633,9 +572,7 @@
         venue: "Nat. Commun. 13, 1738 (2022)",
         badges: [],
         paperUrl:"https://www.nature.com/articles/s41467-022-29463-6",
-        links: [
-          /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." }, { label: "gif", href: "..." } */
-        ]
+        links: []
       },
       {
         year: 2022,
@@ -646,8 +583,6 @@
         paperUrl:"https://pubs.aip.org/aip/apl/article/120/4/043102/2832911",
         links: []
       },
-
-      /* ---- 2021 (Full list #36-33) ---- */
       {
         year: 2021,
         title: "Large tunneling magnetoresistance in van der Waals ferromagnet/semiconductor heterojunctions",
@@ -664,9 +599,7 @@
         venue: "Phys. Rev. Lett. 127, 116402 (2021)",
         badges: [],
         paperUrl:"https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.127.116402",
-        links: [
-          /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." } */
-        ]
+        links: []
       },
       {
         year: 2021,
@@ -695,8 +628,6 @@
         paperUrl:"https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c00141",
         links: []
       },
-
-      /* ---- 2020 (Full list #31-29) ---- */
       {
         year: 2020,
         title: "Optically Probing Tunable Band Topology in Atomic Monolayers",
@@ -704,9 +635,7 @@
         venue: "Phys. Rev. Lett. 125, 157402 (2020)",
         badges: [],
         paperUrl:"https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.157402",
-        links: [
-          /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." } */
-        ]
+        links: []
       },
       {
         year: 2020,
@@ -724,12 +653,8 @@
         venue: "Phys. Rev. Lett. 124, 137001 (2020)",
         badges: [],
         paperUrl:"https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.124.137001",
-        links: [
-          /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." }, { label: "gif1", href: "..." }, { label: "gif2", href: "..." } */
-        ]
+        links: []
       },
-
-      /* ---- 2019 (Full list #28-23) ---- */
       {
         year: 2019,
         title: "Electrical control of Majorana bound states using magnetic stripes",
@@ -764,9 +689,7 @@
         venue: "Phys. Rev. B 99, 134505 (2019)",
         badges: [],
         paperUrl:"https://doi.org/10.1103/PhysRevB.99.134505",
-        links: [
-          /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." } */
-        ]
+        links: []
       },
       {
         year: 2019,
@@ -786,8 +709,6 @@
         paperUrl:"https://doi.org/10.1103/PhysRevB.99.035409",
         links: []
       },
-
-      /* ---- 2018 (Full list #22-16) ---- */
       {
         year: 2018,
         title: "Multiple Hall effects in proximitized 2D materials (Conference Presentation)",
@@ -804,9 +725,7 @@
         venue: "npj Quantum Mater. 3, 39 (2018)",
         badges: [],
         paperUrl:"https://www.nature.com/articles/s41535-018-0113-4",
-        links: [
-          /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." } */
-        ]
+        links: []
       },
       {
         year: 2018,
@@ -853,8 +772,6 @@
         paperUrl:"https://pubs.rsc.org/en/content/articlelanding/2018/cp/c7cp07610j/unauth",
         links: []
       },
-
-      /* ---- 2017 (Full list #15) ---- */
       {
         year: 2017,
         title: "Li2TiSiO5: a low potential and large capacity Ti-based anode material for Li-ion batteries",
@@ -864,8 +781,6 @@
         paperUrl:"https://pubs.rsc.org/en/content/articlelanding/2017/ee/c7ee00763a/unauth",
         links: []
       },
-
-      /* ---- 2016 (Full list #14-10) ---- */
       {
         year: 2016,
         title: "Quantum spin–quantum anomalous Hall effect with tunable edge states in Sb monolayer-based heterostructures",
@@ -873,9 +788,7 @@
         venue: "Phys. Rev. B 94, 235449 (2016)",
         badges: [],
         paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.94.235449",
-        links: [
-          /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." } */
-        ]
+        links: []
       },
       {
         year: 2016,
@@ -913,8 +826,6 @@
         paperUrl:"https://pubs.aip.org/aip/apl/article-abstract/108/8/082104/31654/Quantum-anomalous-Hall-effect-in-stable-dumbbell?redirectedFrom=fulltext",
         links: []
       },
-
-      /* ---- 2015 (Full list #9-6) ---- */
       {
         year: 2015,
         title: "Unexpected low thermal conductivity and large power factor in Dirac semimetal Cd3As2",
@@ -940,9 +851,7 @@
         venue: "Nano Letters 15, 5149–5155 (2015)",
         badges: [],
         paperUrl:"https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.5b01373",
-        links: [
-          /* { label: "PDF", href: "..." }, { label: "SuppInfo", href: "..." } */
-        ]
+        links: []
       },
       {
         year: 2015,
@@ -952,8 +861,6 @@
         badges: [],
         paperUrl:"https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.201500003"
       },
-
-      /* ---- 2014 (Full list #5-2) ---- */
       {
         year: 2014,
         title: "Reversible chemical tuning of charge carriers for enhanced photoelectrochemical conversion and probing of living cells",
@@ -963,7 +870,6 @@
         paperUrl:"https://onlinelibrary.wiley.com/doi/full/10.1002/smll.201401059",
         links:[]
       },
-
       {
         year: 2014,
         title: "Electrocatalysis: Reduced Mesoporous Co3O4 Nanowires as Efficient Water Oxidation Electrocatalysts and Supercapacitor Electrodes (Adv. Energy Mater. 16/2014)",
@@ -980,23 +886,19 @@
         badges: [],
         paperUrl:"https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aenm.201400696"
       },
-
-      /* ---- 2012 (Full list #1) ---- */
       {
         year: 2012,
         title: "Comparison of the structural and magnetic properties of ground-state SrTcO3 and CaTcO3 from first principles",
         authors: "CL Ma, T Zhou",
         venue: "Physica B: Condensed Matter 407, 218–221 (2012)",
         badges: [],
-        // links: [{ label: "link", href: "https://www.sciencedirect.com/science/article/abs/pii/S0921452611010854" }],
-         paperUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0921452611010854",
+        paperUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0921452611010854",
       }
     ];
 
     /*
       =========================
       1) De-duplicate by title (case-insensitive)
-         - Keep the "richer" item: more venue/authors/links/badges
       =========================
     */
     function normTitle(t){
@@ -1008,7 +910,6 @@
       s += (p.venue && p.venue.length) ? 2 : 0;
       s += (p.badges && p.badges.length) ? p.badges.length : 0;
       s += (p.links && p.links.length) ? p.links.length * 2 : 0;
-      // prefer known year over null
       s += (p.year === null || p.year === undefined) ? 0 : 1;
       return s;
     }
@@ -1045,31 +946,27 @@
       groups.get(k).push(p);
     }
 
-    // Sort groups: numeric years desc, Unknown at end
     const groupKeys = Array.from(groups.keys()).sort((a,b)=>{
       if(a === "Unknown year") return 1;
       if(b === "Unknown year") return -1;
       return Number(b) - Number(a);
     });
 
-    // Sort items within each year: keep as given (could also sort by title)
     for(const k of groupKeys){
       const arr = groups.get(k);
       arr.sort((p1,p2)=>{
-        // prefer venue/journal-ish before preprint within same year (light heuristic)
         const v1 = (p1.venue || "").toLowerCase();
         const v2 = (p2.venue || "").toLowerCase();
         const pre1 = v1.includes("preprint") || v1.includes("arxiv");
         const pre2 = v2.includes("preprint") || v2.includes("arxiv");
         if(pre1 !== pre2) return pre1 ? 1 : -1;
-        // otherwise stable sort by title
         return (p1.title || "").localeCompare(p2.title || "");
       });
     }
 
     /*
       =========================
-      3) Render
+      3) Render & Magic Highlighting
       =========================
     */
     const root = document.getElementById("pubRoot");
@@ -1080,11 +977,19 @@
       }[c]));
     }
 
+    // 自动高亮 PI 姓名的正则魔法
+    function highlightPI(authorsString) {
+      if (!authorsString) return "";
+      let safeStr = escapeHTML(authorsString);
+      // 匹配 "Tong Zhou", "T Zhou", "T. Zhou", 以及带星号的情况
+      const regex = /(Tong Zhou\s*\*?|T\.?\s*Zhou\s*\*?)/gi;
+      return safeStr.replace(regex, '<strong style="color: #000000; font-weight: 900;">$&</strong>');
+    }
+
     function render(){
       root.innerHTML = groupKeys.map(k => {
         const yearLabel = k;
         const items = groups.get(k) || [];
-        const sub = (k === "Unknown year") ? "" : "";
         const id = (k === "Unknown year") ? "yUnknown" : ("y" + k);
 
         const lis = items.map(p => {
@@ -1105,23 +1010,18 @@
               }).join("")}</div>`
             : "";
 
-          // If both badges and links exist, show both rows
-          const extraHTML = (badgesHTML || linksHTML)
-            ? `<div class="pub-badges">${badgesHTML ? "" : ""}</div>${badgesHTML}${linksHTML}`
-            : "";
-
           return `
             <li class="pub-item" data-text="${escapeHTML(dataText)}">
-              <div class="pub-no"></div>
+              <div><div class="pub-no"></div></div>
               <div>
                 <p class="pub-title">
-  ${p.paperUrl
-    ? `<a class="pub-title-link" href="${escapeHTML(p.paperUrl)}" target="_blank" rel="noopener">${escapeHTML(p.title)}</a>`
-    : `${escapeHTML(p.title)}`
-  }
-</p>
+                  ${p.paperUrl
+                    ? `<a class="pub-title-link" href="${escapeHTML(p.paperUrl)}" target="_blank" rel="noopener">${escapeHTML(p.title)}</a>`
+                    : `${escapeHTML(p.title)}`
+                  }
+                </p>
                 
-                ${p.authors ? `<div class="pub-authors">${escapeHTML(p.authors)}</div>` : ""}
+                ${p.authors ? `<div class="pub-authors">${highlightPI(p.authors)}</div>` : ""}
                 ${p.venue ? `<div class="pub-venue">${escapeHTML(p.venue)}</div>` : ""}
                 ${badgesHTML}
                 ${linksHTML && !badgesHTML ? linksHTML : (linksHTML ? linksHTML : "")}
@@ -1134,7 +1034,6 @@
           <div class="pub-year" data-year="${escapeHTML(yearLabel)}">
             <div class="pub-year-title" id="${escapeHTML(id)}">
               <span>${escapeHTML(yearLabel)}</span>
-              <span class="pub-year-sub">${escapeHTML(sub)}</span>
             </div>
             <ul class="pub-list">${lis}</ul>
           </div>
@@ -1166,7 +1065,7 @@
         const no = li.querySelector('.pub-no');
         if(no) no.textContent = (total - idx).toString();
       });
-      document.getElementById('pubTotal').textContent = total.toString();
+      // document.getElementById('pubTotal').textContent = total.toString();
     }
 
     function applyFilter(){
@@ -1180,7 +1079,6 @@
         li.style.display = show ? '' : 'none';
       });
 
-      // Hide empty year groups when searching
       years.forEach(sec => {
         const anyVisible = Array.from(sec.querySelectorAll('.pub-item')).some(li => li.style.display !== 'none');
         sec.style.display = anyVisible ? '' : 'none';
@@ -1190,8 +1088,6 @@
     }
 
     input.addEventListener('input', applyFilter);
-
-    // Init numbering + total
     renumber();
   </script>
 </body>
