@@ -5,7 +5,7 @@ This is a test website for zhou group.
 Log:
 
 ```
-2026-02-25: update the layouts
+2026-02-25: update the layouts; redesign logo
 2026-02-25: update the list of publication
 2026-02-02: initial test.
 
