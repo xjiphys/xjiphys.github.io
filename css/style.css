@@ -268,7 +268,7 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 	min-width: 300px;
 	height: auto;
 	margin: 0;
-	padding: 25px; /* 从 20px 增加到 35px，让内容更从容 */
+	padding: 40px; /* 从 20px 增加到 35px，让内容更从容 */
 	background-color: var(--surface);
 	/* 弱化阴影：降低 Alpha 透明度，增加模糊半径 (26px) */
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
@@ -280,7 +280,8 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 
 .section-title, .section-title--wide {
 	width: 100%; height: auto; margin: 0 0 0px 0; 
-	padding: 10px;
+	margin-left: 0px;
+	padding: 8px;
 	border-bottom: 1px solid var(--border); font-weight: bold;
 	display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
 }
@@ -298,12 +299,24 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 	margin: 10px auto; padding: 0 0px;
 	display: flex; flex-wrap: wrap; gap: 30px;
 	border-radius: var(--radius);
+	margin-bottom: 60px;
+	padding: 0px;
+	/* border-top: 10pxvar(--primary-600); */
 }
 
 .lastestnew {
 	flex: 1; min-width: 300px; height: auto;
-	padding-bottom: 20px; background-color: var(--surface);
-	border-top: 3px solid var(--accent);
+	padding-bottom: 20px; 
+	background-color: var(--surface);
+	/* padding: 12px 24px; */
+	padding: 0;
+
+	background-color: var(--surface);
+	/* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); */
+	border-radius: var(--radius);
+	overflow: hidden;
+	/* display: flex;
+      flex-direction: column; */
 }
 
 /* --- 优化 News 侧边栏：防止溢出 + 优雅内滚动 --- */
@@ -315,7 +328,6 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 	border-radius: var(--radius);
 	overflow: hidden;
-
 	padding: 0 !important; /* 移除外层内边距，让头部背景撑满 */
 	display: flex;
       flex-direction: column;
@@ -324,7 +336,7 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 .NEWS111 {
 	flex-shrink: 0; 
 	width: 100%; 
-	padding: 10px 20px; 
+	padding: 12px 30px; 
 	font-size: 18px; 
 	font-weight: bold;
 	border-bottom: 1px solid var(--border); 
@@ -335,7 +347,7 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 
 .xinwenlundong {
 	width: 100%; 
-	padding: 10px 20px; 
+	padding: 12px 30px; 
 	margin-top: 0; 
 	line-height: 1.8;
 	/* 【核心修复2】告诉浏览器最大高度是多少，超出这个高度就开始内滚动 */
@@ -495,7 +507,7 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 .research-grid {
 	display: flex;
 	flex-wrap: wrap; /* 核心自适应：允许在手机端自动换行堆叠 */
-	gap: 20px;
+	gap: 5%;
 	margin-top: 25px;
 	justify-content: space-between;
 	margin-left: 5%;
@@ -521,7 +533,7 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 
 .research-item img {
 	width: 100%;
-	height: 120px; /* 固定高度，确保三张图对齐 */
+	height: 150px; /* 固定高度，确保三张图对齐 */
 	object-fit: contain; /* 保证图片按比例缩放，不被拉伸变形或裁切 */
 	margin-bottom: 0px;
 }
