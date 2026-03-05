@@ -64,7 +64,8 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 	padding: 10px 20px; /* 上下预留一点空间给换行时使用 */
 }
 
-.site-header .logo--left img { height: calc(var(--nav-height) * 0.9); width: auto; max-width: 100%; }
+.site-header .logo--left img { height: calc(var(--nav-height) * 0.9); width: auto; 
+	max-width: 100%; margin-right: auto; }
 .site-header .logo--right img { height: calc(var(--nav-height) * 0.55); width: auto; max-width: 100%; }
 
 .logo { display: inline-flex; align-items: center; flex-shrink: 0; }
@@ -438,11 +439,33 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 /* ========================================================= */
 /* 4. People 人员页面卡片自适应 */
 /* ========================================================= */
+.Leadertop {
+	max-width: 1300px; width: 100%; height: auto;
+	margin: 0 auto; padding: 10px 20px;
+	padding-top: 40px;
+	font-size: 26px; 
+	color: var(--primary); 
+	font-weight: bold; 
+	border-bottom: 3px solid var(--accent);
+}
+
 .Leader {
 	max-width: 1300px; width: 100%; height: auto;
 	margin: 0 auto; padding: 10px 20px;
+	/* padding-top: 0px; */
 	font-size: 22px; color: var(--primary); font-weight: bold; border-bottom: 3px solid var(--accent);
 }
+
+.Leaderphoto-top {
+	max-width: 1300px; width: 100%; height: auto; 
+	margin: 30px auto;
+	padding: 30px;
+	display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 30px;
+	background-color: var(--surface); box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.18);
+	border-radius: var(--radius);
+	border: 1px solid rgba(0, 0, 0, 0.03); 
+}
+
 .Leaderphoto, .Leaderphoto2 {
 	max-width: 1300px; width: 100%; height: auto; 
 	margin: 20px auto; padding: 20px;
@@ -453,15 +476,17 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 }
 
 .Leaderp1 {
-	width: 185px; max-width: 100%; height: auto;
+	width: 240px; max-width: 100%; height: auto;
 	background: url("../image/groupleader.jpg") no-repeat center / cover;
 	border-radius: 8px; 
-	/* padding: auto; */
+	padding: 5px 15px 0px 0px;
+	/* padding-right: 30px; */
 }
 .Leaderp1 img { width: 100%; height: auto; border-radius: 8px; object-fit: cover; 
-	margin-top: 10%; margin-bottom: 10%; ;}
+	margin-top: 5%; margin-bottom: 5% ;}
 
-.Leaderp2 { flex: 1; min-width: 280px; height: auto; line-height: 1.6; }
+.Leaderp2 { flex: 1; min-width: 280px; height: auto; line-height: 1.6; 
+	font-size: 17px;}
 
 .Leaderp3 {
 	width: 180px; height: 40px; background-color: var(--primary); color: var(--surface);
