@@ -268,7 +268,8 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 	min-width: 300px;
 	height: auto;
 	margin: 0;
-	padding: 40px; /* 从 20px 增加到 35px，让内容更从容 */
+	padding: 20px 40px; /* 从 20px 增加到 35px，让内容更从容 */
+	padding-top: 1 0px;
 	background-color: var(--surface);
 	/* 弱化阴影：降低 Alpha 透明度，增加模糊半径 (26px) */
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
@@ -281,7 +282,7 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 .section-title, .section-title--wide {
 	width: 100%; height: auto; margin: 0 0 0px 0; 
 	margin-left: 0px;
-	padding: 8px;
+	padding: 5px;
 	border-bottom: 1px solid var(--border); font-weight: bold;
 	display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
 }
