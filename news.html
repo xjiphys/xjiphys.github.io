@@ -20,7 +20,6 @@
       --text: #333333;
     }
 
-    /* 1. 呼吸感与阴影：主卡片大圆角 + 柔和弥散阴影 */
     main.news-page .newsbox {
       background-color: var(--surface);
       border: 1px solid rgba(0,0,0,0.03);
@@ -59,24 +58,12 @@
       padding-bottom: 8px;
       letter-spacing: 1px;
     }
-    /* 年份金红渐变下划线 */
-    /* main.news-page .year-title::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent) 0%, rgba(253,184,55,0) 100%);
-      border-radius: 2px;
-    } */
 
-    /* 3. 引入时间轴设计 (Timeline) */
     main.news-page .news-list {
       list-style: none;
       margin: 0 0 10px 5px;
-      padding: 0 0 0 30px; /* 为时间轴留出空间 */
-      border-left: 2.5px solid rgba(146, 7, 28, 0.15); /* 贯穿全年的淡酒红细线 */
+      padding: 0 0 0 30px;
+      border-left: 2.5px solid rgba(146, 7, 28, 0.15); /* 淡酒红细线 */
       border-top: 3px solid var(--accent);
     }
 
@@ -91,7 +78,7 @@
       transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* 时间轴节点 (精致小空心圆) */
+    /* 时间轴节点 (小空心圆) */
     main.news-page .news-item::before {
       content: '';
       position: absolute;
@@ -108,7 +95,7 @@
 
     /* 4. 悬停交互动画 (高级质感) */
     main.news-page .news-item:hover {
-      background-color: rgba(146, 7, 28, 0.03); /* 极淡高级酒红背景 */
+      background-color: rgba(146, 7, 28, 0.03); /* 极淡酒红背景 */
     }
 
     /* 节点“点亮”特效 */
@@ -206,7 +193,6 @@
       color: var(--primary-hover);
       border-bottom-color: var(--primary-hover);
     } 
-
     /* Responsive 响应式适配 */
     @media (max-width: 1320px) {
       main.news-page { width: calc(100% - 36px); }
@@ -250,10 +236,54 @@
           <p class="page-subtitle">Updates on publications, awards, talks, and group activities.</p>
         </header>
 
-
         <div class="breaknewstext">
+          <!--a-->
           <h2 class="year-title">2026</h2>
+          <!-- --- -->
           <ul class="news-list">
+            <li class="news-item">
+              <time class="date" datetime="2026-03-12">2026.03.12</time>
+              <span class="news-text">
+              Our new work, with Dr. Ziye Zhu as the first author, has been accepted for publication in Physical Review Letters. Congrats!
+              <div class="news-tag-container">
+                  <a href=" https://journals.aps.org/prl/accepted/10.1103/kqy8-myz1 " class="news-tag">Article <span class="arrow">↗</span></a>
+                </div>
+              </span>
+            </li>
+
+            <li class="news-item">
+              <time class="date" datetime="2026-03-12">2026.03.12</time>
+              <span class="news-text">
+              Prof. Yee Sin Ang visited our group and delivered an insightful invited talk titled "Computational design of 2D semiconductor devices for next-generation computing". 
+              We greatly appreciate his profound insights and wonderful sharing!
+              <div class="news-tag-container">
+                  <a href="https://mp.weixin.qq.com/s/Padu9HYbt9aCk3RCoGy02Q" class="news-tag">EIT News <span class="arrow">↗</span></a>
+                </div>
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2026-03-12">2026.03.12</time>
+              <span class="news-text">
+              Prof. Rui Peng visited our group and delivered an inspiring invited talk titled "From layer-spintronics to ferroelastic altermagnetism: new frontiers in spin manipulation". 
+              We greatly appreciate his wonderful sharing!
+              <div class="news-tag-container">
+                  <a href="https://mp.weixin.qq.com/s/WBOhCtbxA6C3UlCCDpbcAA" class="news-tag">EIT News <span class="arrow">↗</span></a>
+                </div>
+              </span>
+            </li>
+            <!-- --- -->
+            <li class="news-item">
+              <time class="date" datetime="2026-02-27">2026.02.27</time>
+              <span class="news-text">
+              Our work titled "Antiferroelectric altermagnets: Antiferroelectricity alters magnets" has been selected as to Physical Review Letters collection of the year 2025! Congrats!
+              <div class="news-tag-container">
+                  <a href="https://mp.weixin.qq.com/s/Y3VjJfYWXUWjExHqED-0fw" class="news-tag">EIT News <span class="arrow">↗</span></a>
+                  <a href="https://promo.aps.org/prl2025?_gl=1*1oq1rxl*_gcl_au*NzE3ODEwNjAwLjE3NzIwODEwMTM.*_ga*MTcyNzA3Njc1Ny4xNzUwOTM5NTQ5*_ga_ZS5V2B2DR1*czE3NzI0Mjg5OTIkbzEyJGcxJHQxNzcyNDI5MDMyJGoyMCRsMCRoMTQwNjk1NTI1OQ.." class="news-tag">PRL Collection 2025 <span class="arrow">↗</span></a>
+                  <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.106801" class="news-tag">Read Article <span class="arrow">↗</span></a>
+                </div>
+              </span>
+            </li>
+            
              <li class="news-item">
               <time class="date" datetime="2026-02-27">2026.02.27</time>
               <span class="news-text">
@@ -263,6 +293,12 @@
                   <a href="https://promo.aps.org/prl2025?_gl=1*1oq1rxl*_gcl_au*NzE3ODEwNjAwLjE3NzIwODEwMTM.*_ga*MTcyNzA3Njc1Ny4xNzUwOTM5NTQ5*_ga_ZS5V2B2DR1*czE3NzI0Mjg5OTIkbzEyJGcxJHQxNzcyNDI5MDMyJGoyMCRsMCRoMTQwNjk1NTI1OQ.." class="news-tag">PRL Collection 2025 <span class="arrow">↗</span></a>
                   <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.106801" class="news-tag">Read Article <span class="arrow">↗</span></a>
                 </div>
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2026-01-14">2026.01.14</time>
+              <span class="news-text">
+              Dr. Chenghao Shen and Dr. Ziye Zhu have been awarded the prestigious EIT Excellent Postdoctoral Fellowship. Congrats!
               </span>
             </li>
           </ul>
@@ -285,12 +321,39 @@
               </span>
             </li>
             <li class="news-item">
+              <time class="date" datetime="2025-12-02">2025.12.02</time>
+              <span class="news-text">
+                Dr. Xianzhang Cheng and Dr. Jiayong Zhang have successfully completed their postdoctoral research. We wish them all the best in their future endeavors!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-11-21">2025.11.21</time>
+              <span class="news-text">
+                Our Ph.D. student, Xunkai Duan, delivered an outstanding presentation and won the Grand Prize at the EIT Doctoral Student Forum. 
+                Congratulations!
+              </span>
+            </li>
+            <li class="news-item">
               <time class="date" datetime="2025-10-31">2025.10.31</time>
               <span class="news-text">
                 Our work titled “One-Dimensional Hydrogen Chains in Li-Hf-H System: A Pathway to High Superconductivity Under High Pressure”
                 was published in <em>Advanced Science</em>. Congrats!
               </span>
             </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-10-10">2025.10</time>
+              <span class="news-text">
+                Our Ph.D. student, Xunkai Duan, has been awarded the prestigious National Scholarship for Doctoral Students at Shanghai Jiao Tong University. 
+                Congratulations on this remarkable achievement!
+              </span>
+            </li>
+            <li class="news-item">
+              <time class="date" datetime="2025-09-10">2025.09</time>
+              <span class="news-text">
+                Mr. Xunkai Duan and Dr. Ziye Zhu won the Best Poster Award at the Chinese Physical Society (CPS) Meeting. Congrats!
+              </span>
+            </li>
+
             <li class="news-item">
               <time class="date" datetime="2025-09-08">2025.09.08</time>
               <span class="news-text">
@@ -313,9 +376,6 @@
               <span class="news-text">
                 Mr. Xiyu Chen, Mr. Xiang Ji, and Mr. Linxuan Ji joined our group for the EIT PhD program in the fall of 2025!
                 Welcome aboard!
-                <!-- <div class="news-tag-container">
-                  <a href="#" class="news-tag">EIT Admissions <span class="arrow">↗</span></a>
-                </div> -->
               </span>
             </li>
             
@@ -352,8 +412,16 @@
             <li class="news-item">
               <time class="date" datetime="2025-02-04">2025.02.04</time>
               <span class="news-text">
-                Our work about Antiferroelectric Altermagnets has been published in <em>Phys. Rev. Lett.</em>
-                and selected as “Editors’ Suggestion” and “Featured in Physics”. Congrats!
+                Our work titled "Antiferroelectric Altermagnets: Antiferroelectricity Alters Magnets" has been officially published in <em>Phys. Rev. Lett.</em>. 
+                We are incredibly proud that it was selected as an "Editors’ Suggestion" and highlighted in "Featured in Physics". 
+                Huge congratulations to the team!
+                <!-- Our work about Antiferroelectric Altermagnets has been published in <em>Phys. Rev. Lett.</em> -->
+                <!-- and selected as “Editors’ Suggestion” and “Featured in Physics”. Congrats! -->
+                <div class="news-tag-container">
+                  <a href=" https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.106801 " class="news-tag">Article<span class="arrow">↗</span></a>
+                  <a href=" https://mp.weixin.qq.com/s/4hhG7wfohL-peYAeu3_4uQ " class="news-tag">EIT News: 轻轻一电，磁性大变 <span class="arrow">↗</span></a>
+                  <a href=" https://mp.weixin.qq.com/s/dJlGOfz6t2TLK6TMeODp3Q " class="news-tag">EIT News: 当90后博士生遇上90后博导 <span class="arrow">↗</span></a>
+                </div>
               </span>
             </li>
           </ul>
