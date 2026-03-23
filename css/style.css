@@ -353,7 +353,7 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 	margin-top: 0; 
 	line-height: 1.8;
 	/* 【核心修复2】告诉浏览器最大高度是多少，超出这个高度就开始内滚动 */
-	max-height: 900px; /* 这个高度刚好与左侧的4篇高亮文章差不多齐平 */
+	max-height: 1200px; /* 水平对齐*/
 	overflow-y: auto;  /* 垂直方向超出则滚动 */
 	overflow-x: hidden; /* 水平方向严禁滚动 */
 }
