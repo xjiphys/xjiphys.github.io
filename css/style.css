@@ -13,7 +13,7 @@
   --accent: #fdb837;
   --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", Arial, sans-serif;
   --font-heading: "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", "Helvetica Neue", Arial, sans-serif;
-  --logo-left-height: 60px;
+  --logo-left-height: 70px;
   --logo-right-height: 30px;
   --border: #E3E0D8;
   --radius: 12px; /* 全局圆角变量，方便统一调整 */
@@ -61,10 +61,10 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 	flex-wrap: wrap; /* 核心：允许换行 */
 	align-items: center;
 	justify-content: space-between; 
-	padding: 10px 20px; /* 上下预留一点空间给换行时使用 */
+	padding: 0px 0px 3px 10px; /* 上下预留一点空间给换行时使用 */
 }
 
-.site-header .logo--left img { height: calc(var(--nav-height) * 0.9); width: auto; 
+.site-header .logo--left img { height: calc(var(--nav-height) * 1.1); width: auto; 
 	max-width: 100%; margin-right: auto; }
 .site-header .logo--right img { height: calc(var(--nav-height) * 0.55); width: auto; max-width: 100%; }
 
@@ -122,7 +122,7 @@ a:hover { color: var(--primary-600); background-color: transparent; }
 @media (max-width: 600px) {
 	/* 极小屏幕（手机），字体缩小，按钮间距变小 */
 	.nav-item a { font-size: 15px; padding: 6px 10px; }
-	.site-header .logo--left img { height: 35px; }
+	.site-header .logo--left img { height: 45px; }
 	.site-header .logo--right img { height: 22px; }
 	.nav-list { gap: 6px; } /* 让菜单按钮更紧凑，避免折行太多 */
 }
