@@ -179,6 +179,15 @@
       font-style: italic; /* 期刊斜体 */
       font-weight: 600;   /* 期刊加粗 */
     }
+    .pub-page .pub-venue a{
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .pub-page .pub-venue a:hover{
+      color: var(--primary-600);
+      text-decoration: underline;
+    }
 
     .pub-page .pub-badges{
       margin-top: 12px;
@@ -332,617 +341,643 @@
       =========================
     */
     const papersRaw = [
-      // {year: 2026,
-      //   title: " ",
-      //   authors:" ",
-      //   venue: " ",
-      //   paperUrl:" ",
-      //   badges: [],
-      //   links: []
-      // },
-      {
-        year: 2026,
-        title: "Altermagnetic Proximity Effect",
-        authors: "Ziye Zhu, Richang Huang, Xianzhang Chen, Xunkai Duan, Jiayong Zhang, Igor Zutic, Tong Zhou",
-        venue: "Phys. Rev. Lett. 136, 186702 (2026)",
-        badges: ["Editors' Suggestion"," Featured in Physics"],
-        paperUrl:"https://journals.aps.org/prl/abstract/10.1103/kqy8-myz1",
-        links: []
-      },
-      {
-        year: 2026,
-        title: "Symmetry-Driven Unconventional Magnetoelectric Coupling in Perovskite Altermagnets: From Bulk to the Two-Dimensional Limit",
-        authors: "Zhou Cui, Ziye Zhu, Xunkai Duan, Bowen Hao, Xianzhang Chen, Jiayong Zhang, Tong Zhou",
-        venue: "Advanced Science (2026): e00004",
-        badges: [],
-        paperUrl:"https://doi.org/10.1002/advs.202600004",
-        links: []
-      },
-      {year: 2026,
-        title: " Interface-Enhanced Superconductivity in Ultrathin TiN Proximitized by Topological Insulators ",
-        authors:" Renjie Xie, Bowen Hao, Min Ge, Shenjin Zhang, Rongjing Zhai, Jiachang Bi, Shunda Zhang, Shaozhu Xiao, Fengfeng Zhang, Hee Taek Yi, Seongshik Oh, Tong Zhou*, Yanwei Cao*, Xiong Yao* ",
-        venue: " ACS nano (2026)",
-        paperUrl:" https://pubs.acs.org/doi/abs/10.1021/acsnano.5c20630",
-        badges: [],
-        links: []
-      },
-      {year: 2026,
-        title: " Valleytronics in 2D Materials Roadmap",
-        authors:"Kyle L Seyler*, Giancarlo Soavi*, Bent Weber*, Sunit Das, Amit Agarwal, Ioannis Paradisanos, Mikhail M Glazov, Oleg Dogadov, Francesco Gucci, Giulio Cerullo, Stefano Dal Conte, Shubhadeep Biswas, Jan Wilhelm, Igor Žutić, Konstantin S Denisov, Tong Zhou, Huiyuan Zheng, Wang Yao, Hongyi Yu, Ting Cao, Dacen Waters, Matthew Yankowitz, Guido Burkard, Artem Denisov, Thomas Ihn, Klaus Ensslin, Louis Gaudreau, Justin Boddison-Chouinard, Zlata Fedorova, Isabelle Staude, Kuan Eng Johnson Goh, Zhichao Zhou, Xiao Li ",
-        venue: " arXiv.2603.01427  ",
-        paperUrl:" https://doi.org/10.48550/arXiv.2603.01427 ",
-        badges: [],
-        links: []
-      },
-      {year: 2026,
-        title: "Altermagnets Enable Gate-Switchable Helical and Chiral Topological Transport with Spin-Valley-Momentum-Locked Dual Protection",
-        authors:"Xianzhang Chen, Jiayong Zhang, Bowen Hao, Jiahui Qian, Ziye Zhu, Igor Zutic, Zhenyu Zhang, Tong Zhou*",
-        venue: "arXiv.2603.06487",
-        paperUrl:"https://doi.org/10.48550/arXiv.2603.06487",
-        badges: [],
-        links: []
-      },
-      {
-        year: 2026,
-        title: "Symmetry-Driven Unconventional Magnetoelectric Coupling in Perovskite Altermagnets: From Bulk to the Two-Dimensional Limit",
-        authors: "Z Cui, Z Zhu, X Duan, B Hao, X Chen, J Zhang, T Zhou",
-        venue: "arXiv.2601.05602",
-        badges: [],
-        paperUrl:"https://doi.org/10.48550/arXiv.2601.05602",
-        links: []
-      },
-      {
-        year: 2025,
-        title: "Electrically switchable quantum anomalous and spin Hall states in two-dimensional honeycomb lattices with non-Dirac bands",
-        authors: "Wu, Sihui and Qian, Jiahui and Duan, Xunkai and Chen, Xianzhang and Cui, Zhou and Zhang, Jiayong and Ma, Chunlan and Zhou, Tong",
-        venue: "arXiv.2504.20031",
-        badges: [],
-        paperUrl:"https://link.aps.org/doi/10.1103/PhysRevB.111.235414",
-        links: []
-      },
-      {
-        year: 2025,
-        title: "Altermagnetoelectric Spin Field Effect Transistor",
-        authors: "Ziye Zhu, Xianzhang Chen, Xunkai Duan, Zhou Cui, Jiayong Zhang, Igor Zutic, Tong Zhou",
-        venue: "arXiv:2512.02974",
-        badges: [],
-        paperUrl:"https://doi.org/10.48550/arXiv.2512.02974",
-        links: []
-      },
-      {
-        year: 2026,
-        title: "One-Dimensional Hydrogen Chains in Li-Hf-H System: A Pathway to High Superconductivity Under High Pressure",
-        authors: "Kang Yang, Wenwen Cui*, Tong Yang, Shicong Ding, Peiheng Lai, Kun Gao, Jingming Shi, Ming Yang*, Tong Zhou*, Yinwei Li*",
-        venue: "Advanced Science, e14126 (2026)",
-        badges: [],
-        paperUrl:"https://doi.org/10.1002/advs.202514126",
-        links: []
-      },
-      {
-        year: 2026,
-        title: "Two-dimensional magnetic tunnel p-n junctions for low-power electronics. ",
-        authors: "Wenkai Zhu, Ziao Wang, Tiangui Hu, Zakhar R Kudrynskyi, Tong Zhou, Zakhar D Kovalyuk, Ce Hu, Hailong Lin, Xiaodong Li, Yongcheng Deng, Quanshan Lv, Lixia Zhao, Amalia Patanè, Igor Žutić, Houzhi Zheng, Kaiyou Wang*",
-        venue: "Nat. Commun. 17, 1283 (2026)",
-        badges: [],
-        paperUrl:"https://doi.org/10.1038/s41467-025-68043-2",
-        links: []
-      },
-      {
-        year: 2026,
-        title: "Defect Engineering for Stabilizing Magnetic and Topological Properties in Mn(Bi1-xSbx)2Te4",
-        authors: "Haonan Chen, Jiayu Wang, Huayao Li, Xunkai Duan, Yuxiang Wang, Zixuan Xu, Yingchao Xia, Wenhao He, Zehao Jia, Xiangyu Cao, Yicheng Mou, Xiangyu Jiang, Jiaming Gu, Pengliang Leng, Fengfeng Zhu, Changlin Zheng, Xiang Yuan, Faxian Xiu, Tong Zhou*, Lin Miao*, Cheng Zhang*",
-        venue: "Nat Commun 17, 1029 (2026)",
-        badges: [],
-        paperUrl:"https://doi.org/10.1038/s41467-025-67774-6",
-        links: []
-      },
-      {
-        year: 2026,
-        title: "Ferroelastic altermagnetism ",
-        authors: "Rui Peng, Shibo Fang, Pin Ho, Fanxin Liu, Tong Zhou*, Junwei Liu*, Yee Sin Ang*",
-        venue: "npj Quantum Mater. 11, 5 (2026)",
-        badges: [],
-        paperUrl:"https://doi.org/10.1038/s41535-025-00835-7",
-        links: []
-      },
-      {
-        year: 2025,
-        title: "Towards Scalable Braiding: Topological Superconductivity Unlocked under Nearly Arbitrary Magnetic Field Directions in Planar Josephson Junctions",
-        authors: "Richang Huang, Yongliang Hu, Xianzhang Chen, Peng Yu, Siwei Tan, Igor Zutic, Tong Zhou",
-        venue: "Phys. Rev. B 111, 235414 (2025)",
-        badges: [],
-        paperUrl:"10.1103/PhysRevB.111.235414",
-        links: []
-      },
-        {year: 2025,
-          title: "Non-Hermitian higher-order topological insulators enabled by altermagnet engineering",
-          authors: "X Ji, D Wang, T Zhou*, X Yang*",
-          venue: "arXiv.2512.23951",
-          paperUrl: "https://doi.org/10.48550/arXiv.2512.23951"
-        },
-      {
-        year: 2025,
-        title: "Emergent multiferroic altermagnets and spin control via noncollinear molecular polarization",
-        authors: "Ziye Zhu, Yuntian Liu, Xunkai Duan, Jiayong Zhang, Bowen Hao, Su-Huai Wei, Igor Zutic, Tong Zhou*",
-        venue: "Science China Physics, Mechanics & Astronomy 68.12 (2025): 127562.",
-        badges: [],
-        paperUrl:"https://link.springer.com/article/10.1007/s11433-025-2778-3",
-        links: []
-      },
-      {
-        year: 2025,
-        title: "Two-Dimensional Ferroelectric Altermagnets: From Model to Material Realization",
-        authors: "Ziye Zhu, Xunkai Duan, Jiayong Zhang, Bowen Hao, Igor Žutić, Tong Zhou*",
-        venue: "Nano Lett. 2025, 25, 23, 9456–9462",
-        badges: [],
-        paperUrl:"",
-        links: []
-      },
-      {
-        year: 2025,
-        title: "Ferroelectric control of valleytronic nonvolatile storage in HfCl2/Sc2CO2 heterostructure",
-        authors: "Zhou Cui, Xunkai Duan, Jiansen Wen, Ziye Zhu, Jiayong Zhang, Jiajie Pei, Cuilian Wen, Tong Zhou*, Bo Wu*, Baisheng Sa*",
-        venue: "Appl. Phys. Lett. 126, 122902 (2025)",
-        badges: [],
-        paperUrl:"https://pubs.aip.org/aip/apl/article-abstract/126/12/122902/3340392/Ferroelectric-control-of-valleytronic-nonvolatile?redirectedFrom=fulltext",
-        links: []
-      },
-      {
-        year: 2025,
-        title: "Antiferroelectric altermagnets: Antiferroelectricity alters magnets",
-        authors: "Xunkai Duan, Jiayong Zhang, Ziye Zhu, Yuntian Liu, Zhenyu Zhang, Igor Žutić, Tong Zhou*",
-        venue: "Phys. Rev. Lett. 134, 106801",
-        badges: ["Editors' Suggestion"," Featured in Physics","P Collection 2025"],
-        paperUrl:"https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.106801",
-        links: []
-      },
-      {
-        year: 2025,
-        title: "Ultrafast Laser-Induced Spin Dynamics in All-Semiconductor Ferromagnetic CrSBr–Phosphorene Heterostructures",
-        authors: "Yiqi Huo, Shuo, Li*, Luo Yan, Ningbo Li, Jing Zou, Junjie He, Tong Zhou, Thomas Frauenheim, Sergei Tretiak, Liujiang Zhou*",
-        venue: "The Journal of Physical Chemistry Letters 16, 782–788 (2025)",
-        badges: [],
-        paperUrl:"https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.4c03279",
-        links: []
-      },
-      {
-        year: 2024,
-        title: "Large-gap non-Dirac quantum anomalous Hall effect in nitrided TlSb monolayers on nonmagnetic substrates",
-        authors: "J Shen, J Li, J Qian, X Duan, C Ma, T Zhou*, J Zhang*",
-        venue: "Phys. Rev. B 110, 155423 (2024)",
-        badges: [],
-        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.110.155423",
-        links: []
-      },
-      {
-        year: 2024,
-        title: "Potential existence of Xe3CO2 compounds with distinct Xe-C covalent bonds under pressures of Earth’s core",
-        authors: "K Yang, K Yang, T Yang, J He, M Yang*, T Zhou*",
-        venue: "Phys. Rev. B 110, 054108 (2024)",
-        badges: [],
-        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.110.054108",
-        links: []
-      },
-      {
-        year: 2024,
-        title: "Microwave signatures of topological superconductivity in planar Josephson junctions",
-        authors: "B Pekerten, D Brandão, BH Elfeky, T Zhou, JE Han, J Shabani, I Žutić",
-        venue: "Phys. Rev. B 110, L060513 (2024)",
-        badges: [],
-        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.110.L060513",
-        links: []
-      },
-      {
-        year: 2024,
-        title: "Phase jumps in Josephson junctions with time-dependent spin–orbit coupling",
-        authors: "D Monroe, C Shen, D Tringali, M Alidoust, T Zhou, I Žutić",
-        venue: "Appl. Phys. Lett. 125, 012601 (2024)",
-        badges: [],
-        paperUrl:"https://pubs.aip.org/aip/apl/article-abstract/125/1/012601/3300566/Phase-jumps-in-Josephson-junctions-with-time?redirectedFrom=fulltext",
-        links: []
-      },
-      {
-        year: 2024,
-        title: "Beyond the standard model of topological Josephson junctions: From crystalline anisotropy to finite-size and diode effects",
-        authors: "B Pekerten, D. S Brandão, B Bussiere, D Monroe, T Zhou, J E Han, J Shabani, A Matos-Abiague, I Žutić",
-        venue: "Applied Physics Letters 124, 252602 (2024)",
-        badges: [],
-        paperUrl:"https://pubs.aip.org/aip/apl/article-abstract/124/25/252602/3299162/Beyond-the-standard-model-of-topological-Josephson?redirectedFrom=fulltext",
-        links: []
-      },
-      {
-        year: 2024,
-        title: "Compositional engineering of magnetic anisotropy in Cr2SixGe2-xTe6",
-        authors: "T Xie, S Liang, S Deitemyer, Q Wang, T Zhou, I Žutić, X Zhang, D Yuan, X Zhang, C Gong",
-        venue: "Materials Today Electronics 7, 100081 (2024)",
-        badges: [],
-        paperUrl:"https://www.sciencedirect.com/science/article/pii/S2772949423000578",
-        links: []
-      },
-      {
-        year: 2023,
-        title: "Large and tunable magnetoresistance in van der Waals Ferromagnet/Semiconductor junctions",
-        authors: "W Zhu, Y Zhu, T Zhou, X Zhang, H Lin, Q Cui, F Yan, Z Wang, Y Deng, H Yang, L Zhao, I Žutić, KD Belashchenko, K Wang",
-        venue: "Nature Communications 14, 5371 (2023)",
-        badges: [],
-        paperUrl:"https://www.nature.com/articles/s41467-023-41077-0",
-        links: []
-      },
-      {
-        year: 2023,
-        title: "Tuning corner states in proximitized second-order topological insulators with bulk-boundary obstruction",
-        authors: "Y Xue, T Zhou, W Xu, B Zhao, I Žutić, Z Yang",
-        venue: "Phys. Rev. B 108 (16), L161110 (2023)",
-        badges: [],
-        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.108.L161110",
-        links: []
-      },
-      {
-        year: 2023,
-        title: "Epitaxial Kagome Thin Films as a Platform for Topological Flat Bands",
-        authors: "S Cheng, M Nrisimhamurty, T Zhou, N Bagués, W Zhou, AJ Bishop, I Lyalin, C Jozwiak, A Bostwick, E Rotenberg, DW McComb, I Žutić, RK Kawakami",
-        venue: "Nano Letters 23, 7107–7113 (2023)",
-        badges: [],
-        paperUrl:"https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.3c01961",
-        links: []
-      },
-      {
-        year: 2023,
-        title: "Quantum anomalous Hall effect with high Chern numbers in functionalized square-octagon Sb monolayers",
-        authors: "H Bao, B Zhao, J Zhang, Y Xue, T Zhou, Z Yang",
-        venue: "2D Materials 10, 035004 (2023)",
-        badges: [],
-        paperUrl:"https://iopscience.iop.org/article/10.1088/2053-1583/accbd0/meta",
-        links: []
-      },
-      {
-        year: 2023,
-        title: "Small-voltage multiferroic control of two-dimensional magnetic insulators",
-        authors: "S Liang, T Xie, NA Blumenschein, T Zhou, T Ersevim, Z Song, J Liang, MA Susner, BS Conner, SJ Gong, JP Wang, M Ouyang, I Žutić, AL Friedman, X Zhang, C Gong",
-        venue: "Nature Electronics 6, 199–205 (2023)",
-        badges: [],
-        paperUrl:"https://www.nature.com/articles/s41928-023-00931-1",
-        links: []
-      },
-      {
-        year: 2023,
-        title: "Asymmetry in the Magnetic Neighborhood",
-        authors: "T Zhou*, I Žutić*",
-        venue: "Nat. Mater. 22, 284 (2023)",
-        badges: [],
-        paperUrl:"https://www.nature.com/articles/s41563-022-01466-0",
-        links: []
-      },
-      {
-        year: 2022,
-        title: "Fusion of Majorana Bound States with Mini-Gate Control in Two-Dimensional Systems",
-        authors: "T Zhou*, MC Dartiailh, K Sardashti, JE Han, A Matos-Abiague, J Shabani, I Žutić",
-        venue: "Nat. Commun. 13, 1738 (2022)",
-        badges: [],
-        paperUrl:"https://www.nature.com/articles/s41467-022-29463-6",
-        links: []
-      },
-      {
-        year: 2022,
-        title: "Spin–orbit coupling proximity effect in MoS2/Fe3GeTe2 heterostructures",
-        authors: "Z Tu, T Zhou, T Ersevim, HS Arachchige, AT Hanbicki, AL Friedman, D Mandrus, M Ouyang, I Žutić, C Gong",
-        venue: "Applied Physics Letters 120 (4) (2022)",
-        badges: [],
-        paperUrl:"https://pubs.aip.org/aip/apl/article/120/4/043102/2832911",
-        links: []
-      },
-      {
-        year: 2021,
-        title: "Large tunneling magnetoresistance in van der Waals ferromagnet/semiconductor heterojunctions",
-        authors: "W Zhu, H Lin, F Yan, C Hu, Z Wang, L Zhao, Y Deng, ZR Kudrynskyi, T Zhou, ZD Kovalyuk, Y Zheng, A Patanè, I Žutić, S Li, H Zheng, K Wang",
-        venue: "Advanced Materials 33, 2104658 (2021)",
-        badges: [],
-        paperUrl:"https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/adma.202104658",
-        links: []
-      },
-      {
-        year: 2021,
-        title: "Quantum Spin-Valley Hall Kink States: From Concept to Materials Design",
-        authors: "T Zhou*, S Cheng, M Schleenvoigt, P Schüffelgen, H Jiang, Z Yang, I Žutić*",
-        venue: "Phys. Rev. Lett. 127, 116402 (2021)",
-        badges: [],
-        paperUrl:"https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.127.116402",
-        links: []
-      },
-      {
-        year: 2021,
-        title: "Water-Dispersible CsPbBr3 Perovskite Nanocrystals with Ultra-Stability and its Application in Electrochemical CO2 Reduction",
-        authors: "K Chen#, K Qi#, T Zhou#, T Yang#, Y Zhang*, Z Guo, CK Lim, J Zhang, I Žutić, H Zhang*, PN Prasad*",
-        venue: "Nano-Micro Letters 13, 172–184 (2021)",
-        badges: [],
-        paperUrl:"https://link.springer.com/article/10.1007/s40820-021-00690-8",
-        links: []
-      },
-      {
-        year: 2021,
-        title: "Towards non-Abelian statistics in topological planar Josephson junctions",
-        authors: "T Zhou, MC Dartiailh, K Sardashti, JE Han, A Matos-Abiague, J Shabani, I Žutić",
-        venue: "Spintronics XIV 11805, 118050B (2021)",
-        badges: [],
-        paperUrl:"https://www.spiedigitallibrary.org/conference-proceedings-of-spie/11805/118050B/Towards-non-Abelian-statistics-in-topological-planar-Josephson-junctions/10.1117/12.2596241.short?SSO=1",
-        links: []
-      },
-      {
-        year: 2021,
-        title: "Synthesis, Magnetic Properties, and Electronic Structure of Magnetic Topological Insulator MnBi2Se4",
-        authors: "T Zhu, AJ Bishop, T Zhou, M Zhu, DJ O’Hara, AA Baker, S Cheng, RC Walko, JJ Repicky, T Liu, JA Gupta, CM Jozwiak, E Rotenberg, J Hwang, I Žutić, RK Kawakami",
-        venue: "Nano Letters 21, 5083–5090 (2021)",
-        badges: [],
-        paperUrl:"https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c00141",
-        links: []
-      },
-      {
-        year: 2020,
-        title: "Optically Probing Tunable Band Topology in Atomic Monolayers",
-        authors: "G Xu, T Zhou*, B Scharf, I Žutić",
-        venue: "Phys. Rev. Lett. 125, 157402 (2020)",
-        badges: [],
-        paperUrl:"https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.157402",
-        links: []
-      },
-      {
-        year: 2020,
-        title: "Localized Excitons in NbSe2-MoSe2 Heterostructures",
-        authors: "J Joshi, T Zhou, S Krylyuk, AV Davydov, I Žutić, PM Vora*",
-        venue: "ACS Nano 14, 8528–8538 (2020)",
-        badges: [],
-        paperUrl:"https://pubs.acs.org/doi/abs/10.1021/acsnano.0c02803",
-        links: []
-      },
-      {
-        year: 2020,
-        title: "Phase Control of Majorana Bound States in a Topological X Junction",
-        authors: "T Zhou*, MC Dartiailh, W Mayer, JE Han, A Matos-Abiague, J Shabani, I Žutić",
-        venue: "Phys. Rev. Lett. 124, 137001 (2020)",
-        badges: [],
-        paperUrl:"https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.124.137001",
-        links: []
-      },
-      {
-        year: 2019,
-        title: "Electrical control of Majorana bound states using magnetic stripes",
-        authors: "N Mohanta, T Zhou, JW Xu, JE Han, AD Kent, J Shabani, I Žutić, A Matos-Abiague",
-        venue: "Phys. Rev. Applied 12, 034048 (2019)",
-        badges: [],
-        paperUrl:"https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.12.034048",
-        links: []
-      },
-      {
-        year: 2019,
-        title: "Engineering a topological quantum dot device through planar magnetization in bismuthene",
-        authors: "J Zhou#, T Zhou#, S Cheng, H Jiang, Z Yang",
-        venue: "Phys. Rev. B 99, 195422 (2019)",
-        badges: [],
-        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.99.195422",
-        links: []
-      },
-      {
-        year: 2019,
-        title: "Nanoelectronics with proximitized materials",
-        authors: "I Žutić, A Matos-Abiague, B Scharf, T Zhou, H Dery, K Belashchenko",
-        venue: "Solid-State Electronics 155, 93–98 (2019)",
-        badges: [],
-        paperUrl:"https://www.sciencedirect.com/science/article/abs/pii/S0038110118306865",
-        links: []
-      },
-      {
-        year: 2019,
-        title: "Tunable Magnetic Textures in Spin Valves: From Spintronics to Majorana Bound States",
-        authors: "T Zhou*, N Mohanta, JE Han, A Matos-Abiague, I Žutić",
-        venue: "Phys. Rev. B 99, 134505 (2019)",
-        badges: [],
-        paperUrl:"https://doi.org/10.1103/PhysRevB.99.134505",
-        links: []
-      },
-      {
-        year: 2019,
-        title: "Quantum anomalous Hall effects and various topological mechanisms in functionalized Sn monolayers",
-        authors: "YS Mu, Y Xue, T Zhou, ZQ Yang",
-        venue: "New Journal of Physics 21, 023010 (2019)",
-        badges: [],
-        paperUrl:"https://iopscience.iop.org/article/10.1088/1367-2630/ab0454/meta",
-        links: []
-      },
-      {
-        year: 2019,
-        title: "Topologically trivial states induced by strong spin-orbit coupling and Chern insulators in doped X(C21N3H15) (X=Ta, Hf) metal-organic frameworks",
-        authors: "J Zhang, B Zhao, T Zhou, Y Xue, Y Fang, C Ma, Z Yang",
-        venue: "Phys. Rev. B 99, 035409 (2019)",
-        badges: [],
-        paperUrl:"https://doi.org/10.1103/PhysRevB.99.035409",
-        links: []
-      },
-      {
-        year: 2018,
-        title: "Multiple Hall effects in proximitized 2D materials (Conference Presentation)",
-        authors: "T Zhou, G Xu, A Matos-Abiague, B Scharf, I Žutić",
-        venue: "Spintronics XI 10732, 1073221 (2018)",
-        badges: [],
-        paperUrl:"https://doi.org/10.1117/12.2323160",
-        links: []
-      },
-      {
-        year: 2018,
-        title: "Giant Spin-valley Polarizations and Multiple Hall Effects in Functionalized Bismuth Monolayers",
-        authors: "T Zhou, J Zhang, H Jiang, I Žutić, Z Yang*",
-        venue: "npj Quantum Mater. 3, 39 (2018)",
-        badges: [],
-        paperUrl:"https://www.nature.com/articles/s41535-018-0113-4",
-        links: []
-      },
-      {
-        year: 2018,
-        title: "Tailoring magnetism in semiconductors",
-        authors: "I Žutić, T Zhou",
-        venue: "Science China Physics, Mechanics & Astronomy 61, 1–3 (2018)",
-        badges: [],
-        paperUrl:" https://doi.org/10.1007/s11433-018-9191-0",
-        links: []
-      },
-      {
-        year: 2018,
-        title: "Coupling effect of topological states and Chern insulators in two-dimensional triangular lattices",
-        authors: "J Zhang, B Zhao, Y Xue, T Zhou, Z Yang*",
-        venue: "Phys. Rev. B 97, 125430 (2018)",
-        badges: [],
-        paperUrl:"https://doi.org/10.1103/PhysRevB.97.125430",
-        links: []
-      },
-      {
-        year: 2018,
-        title: "Novel Chern insulators with half-metallic edge states",
-        authors: "Y Xue, B Zhao, Y Zhu, T Zhou, J Zhang, N Li, H Jiang, Z Yang",
-        venue: "NPG Asia Materials 10, e467–e467 (2018)",
-        badges: [],
-        paperUrl:"https://www.nature.com/articles/am2017240",
-        links: []
-      },
-      {
-        year: 2018,
-        title: "Strong magnetization and Chern insulators in compressed van der Waals heterostructures",
-        authors: "J Zhang, B Zhao, T Zhou, Y Xue, C Ma, Z Yang",
-        venue: "Phys. Rev. B 97, 085401 (2018)",
-        badges: [],
-        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.97.085401",
-        links: []
-      },
-      {
-        year: 2018,
-        title: "Large valley polarization in monolayer MoTe2 on a magnetic substrate",
-        authors: "N Li, J Zhang, Y Xue, T Zhou, Z Yang*",
-        venue: "PCCP 20, 3805–3812 (2018)",
-        badges: [],
-        paperUrl:"https://pubs.rsc.org/en/content/articlelanding/2018/cp/c7cp07610j/unauth",
-        links: []
-      },
-      {
-        year: 2017,
-        title: "Li2TiSiO5: a low potential and large capacity Ti-based anode material for Li-ion batteries",
-        authors: "J Liu, WK Pang, T Zhou, L Chen, Y Wang, VK Peterson*, Z Yang*, Z Guo, Y Xia*",
-        venue: "Energy & Environmental Science 10, 1456–1464 (2017)",
-        badges: [],
-        paperUrl:"https://pubs.rsc.org/en/content/articlelanding/2017/ee/c7ee00763a/unauth",
-        links: []
-      },
-      {
-        year: 2016,
-        title: "Quantum spin–quantum anomalous Hall effect with tunable edge states in Sb monolayer-based heterostructures",
-        authors: "T Zhou, J Zhang, Y Xue, B Zhao, H Zhang, H Jiang, Z Yang*",
-        venue: "Phys. Rev. B 94, 235449 (2016)",
-        badges: [],
-        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.94.235449",
-        links: []
-      },
-      {
-        year: 2016,
-        title: "Quantum anomalous Hall effect in stanene on a nonmagnetic substrate",
-        authors: "H Zhang, T Zhou, J Zhang, B Zhao, Y Yao, Z Yang*",
-        venue: "Phys. Rev. B 94, 235409 (2016)",
-        badges: [],
-        paperUrl:"https://journals.aps.org/prb/abstract/10.1103/PhysRevB.94.235409",
-        links: []
-      },
-      {
-        year: 2016,
-        title: "Quantum anomalous Hall effect in real materials",
-        authors: "J Zhang, B Zhao, T Zhou, Z Yang",
-        venue: "Chinese Physics B 25, 117308 (2016)",
-        badges: [],
-        paperUrl:"https://iopscience.iop.org/article/10.1088/1674-1056/25/11/117308/meta",
-        links: []
-      },
-      {
-        year: 2016,
-        title: "Enhanced thermoelectric properties of the Dirac semimetal Cd3As2",
-        authors: "T Zhou, C Zhang, H Zhang, F Xiu, Z Yang",
-        venue: "Inorganic Chemistry Frontiers 3, 1637–1643 (2016)",
-        badges: [],
-        paperUrl:"https://pubs.rsc.org/en/content/articlehtml/2017/qi/c6qi00383d",
-        links: []
-      },
-      {
-        year: 2016,
-        title: "Quantum anomalous Hall effect in stable dumbbell stanene",
-        authors: "H Zhang, J Zhang, B Zhao, T Zhou, Z Yang",
-        venue: "Applied Physics Letters 108 (8) (2016)",
-        badges: [],
-        paperUrl:"https://pubs.aip.org/aip/apl/article-abstract/108/8/082104/31654/Quantum-anomalous-Hall-effect-in-stable-dumbbell?redirectedFrom=fulltext",
-        links: []
-      },
-      {
-        year: 2015,
-        title: "Unexpected low thermal conductivity and large power factor in Dirac semimetal Cd3As2",
-        authors: "C Zhang, T Zhou, S Liang, J Cao, X Yuan, Y Liu, Y Shen, Q Wang, J Zhao, Z Yang, F Xiu",
-        venue: "Chinese Physics B 25, 017202 (2015)",
-        badges: [],
-        paperUrl:"https://iopscience.iop.org/article/10.1088/1674-1056/25/1/017202/meta",
-        links: []
-      },
-      {
-        year: 2015,
-        title: "Nanoparticle superlattices as efficient bifunctional electrocatalysts for water splitting",
-        authors: "J Li, Y Wang, T Zhou, H Zhang, X Sun, J Tang, L Zhang, AM Al-Enizi, …",
-        venue: "J. Am. Chem. Soc. 137, 14305–14312 (2015)",
-        badges: [],
-        paperUrl:"https://pubs.acs.org/doi/abs/10.1021/jacs.5b07756",
-        links: []
-      },
-      {
-        year: 2015,
-        title: "Quantum Spin-Quantum Anomalous Hall Insulators and Topological Transitions in Functionalized Sb(111) Monolayers",
-        authors: "T Zhou, J Zhang, B Zhao, H Zhang, Z Yang*",
-        venue: "Nano Letters 15, 5149–5155 (2015)",
-        badges: [],
-        paperUrl:"https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.5b01373",
-        links: []
-      },
-      {
-        year: 2015,
-        title: "Bio‐Inspired Leaf‐Mimicking Nanosheet/Nanotube Heterostructure as a Highly Efficient Oxygen Evolution Catalyst",
-        authors: "Yongcheng Wang, Kun Jiang, Hui Zhang, Tong Zhou, Jiwei Wang, Wei Wei, Zhongqin Yang, Xuhui Sun, Wen-Bin Cai, Gengfeng Zheng",
-        venue: "Advanced Science 2, 1500003 (2015)",
-        badges: [],
-        paperUrl:"https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.201500003"
-      },
-      {
-        year: 2014,
-        title: "Reversible chemical tuning of charge carriers for enhanced photoelectrochemical conversion and probing of living cells",
-        authors: "Y Wang#, J Tang#, T Zhou#, P Da, J Li, B Kong, Z Yang, G Zheng",
-        venue: "Small 10, 4967–4974 (2014)",
-        badges: [],
-        paperUrl:"https://onlinelibrary.wiley.com/doi/full/10.1002/smll.201401059",
-        links:[]
-      },
-      {
-        year: 2014,
-        title: "Electrocatalysis: Reduced Mesoporous Co3O4 Nanowires as Efficient Water Oxidation Electrocatalysts and Supercapacitor Electrodes (Adv. Energy Mater. 16/2014)",
-        authors: "Yongcheng Wang, Tong Zhou, Kun Jiang, Peimei Da, Zheng Peng, Jing Tang, Biao Kong, Wen-Bin Cai, Zhongqin Yang, Gengfeng Zheng",
-        venue: "Advanced Energy Materials 4 (16) (2014)",
-        badges: [],
-        paperUrl:"https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/aenm.201470082"
-      },
-      {
-        year: 2014,
-        title: "Reduced Mesoporous Co3O4 Nanowires as Efficient Water Oxidation Electrocatalysts and Supercapacitor Electrodes",
-        authors: "Y Wang, T Zhou, K Jiang, P Da, Z Peng, J Tang, B Kong, WB Cai, Z Yang, G Zheng",
-        venue: "Advanced Energy Materials 4 (16), 1400696 (2014)",
-        badges: [],
-        paperUrl:"https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aenm.201400696"
-      },
-      {
-        year: 2012,
-        title: "Comparison of the structural and magnetic properties of ground-state SrTcO3 and CaTcO3 from first principles",
-        authors: "CL Ma, T Zhou",
-        venue: "Physica B: Condensed Matter 407, 218–221 (2012)",
-        badges: [],
-        paperUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0921452611010854",
+      {
+            "year": 2026,
+            "title": "Altermagnetic Proximity Effect",
+            "authors": "Ziye Zhu, Richang Huang, Xianzhang Chen, Xunkai Duan, Jiayong Zhang, Igor Zutic, Tong Zhou",
+            "venue": "Phys. Rev. Lett. 136, 186702 (2026)",
+            "badges": [
+                  "Editors' Suggestion",
+                  " Featured in Physics"
+            ],
+            "paperUrl": "https://journals.aps.org/prl/abstract/10.1103/kqy8-myz1",
+            "links": [],
+            "pdfUrl": "articles/altermagnetic_proximity_effect.pdf"
+      },
+      {
+            "year": 2026,
+            "title": "Symmetry-Driven Unconventional Magnetoelectric Coupling in Perovskite Altermagnets: From Bulk to the Two-Dimensional Limit",
+            "authors": "Zhou Cui, Ziye Zhu, Xunkai Duan, Bowen Hao, Xianzhang Chen, Jiayong Zhang, Tong Zhou",
+            "venue": "Advanced Science, e00004 (2026)",
+            "badges": [],
+            "paperUrl": "https://doi.org/10.1002/advs.202600004",
+            "links": [
+                  {
+                        "label": "arXiv",
+                        "href": "https://arxiv.org/abs/2601.05602"
+                  }
+            ]
+      },
+      {
+            "year": 2026,
+            "title": "Interface-Enhanced Superconductivity in Ultrathin TiN Proximitized by Topological Insulators",
+            "authors": "Renjie Xie, Bowen Hao, Min Ge, Shenjin Zhang, Rongjing Zhai, Jiachang Bi, Shunda Zhang, Shaozhu Xiao, Fengfeng Zhang, Hee Taek Yi, Seongshik Oh, Tong Zhou*, Yanwei Cao*, Xiong Yao*",
+            "venue": "ACS nano (2026)",
+            "paperUrl": "https://pubs.acs.org/doi/abs/10.1021/acsnano.5c20630",
+            "badges": [],
+            "links": []
+      },
+      {
+            "year": 2026,
+            "title": "Valleytronics in 2D Materials Roadmap",
+            "authors": "Kyle L Seyler*, Giancarlo Soavi*, Bent Weber*, Sunit Das, Amit Agarwal, Ioannis Paradisanos, Mikhail M Glazov, Oleg Dogadov, Francesco Gucci, Giulio Cerullo, Stefano Dal Conte, Shubhadeep Biswas, Jan Wilhelm, Igor Žutić, Konstantin S Denisov, Tong Zhou, Huiyuan Zheng, Wang Yao, Hongyi Yu, Ting Cao, Dacen Waters, Matthew Yankowitz, Guido Burkard, Artem Denisov, Thomas Ihn, Klaus Ensslin, Louis Gaudreau, Justin Boddison-Chouinard, Zlata Fedorova, Isabelle Staude, Kuan Eng Johnson Goh, Zhichao Zhou, Xiao Li",
+            "venue": "arXiv.2603.01427",
+            "paperUrl": "https://arxiv.org/abs/2603.01427",
+            "badges": [],
+            "links": [],
+            "pdfUrl": "articles/2603.01427v1.pdf"
+      },
+      {
+            "year": 2026,
+            "title": "Altermagnets Enable Gate-Switchable Helical and Chiral Topological Transport with Spin-Valley-Momentum-Locked Dual Protection",
+            "authors": "Xianzhang Chen, Jiayong Zhang, Bowen Hao, Jiahui Qian, Ziye Zhu, Igor Zutic, Zhenyu Zhang, Tong Zhou*",
+            "venue": "arXiv.2603.06487",
+            "paperUrl": "https://arxiv.org/abs/2603.06487",
+            "badges": [],
+            "links": [],
+            "pdfUrl": "articles/2603.06487v1.pdf"
+      },
+      {
+            "year": 2025,
+            "title": "Electrically switchable quantum anomalous and spin Hall states in two-dimensional honeycomb lattices with non-Dirac bands",
+            "authors": "Wu, Sihui and Qian, Jiahui and Duan, Xunkai and Chen, Xianzhang and Cui, Zhou and Zhang, Jiayong and Ma, Chunlan and Zhou, Tong",
+            "venue": "Phys. Rev. B 111, 235414 (2025)",
+            "badges": [],
+            "paperUrl": "https://doi.org/10.1103/PhysRevB.111.235414",
+            "links": [],
+            "pdfUrl": "articles/PhysRevB.111.235414.pdf"
+      },
+      {
+            "year": 2025,
+            "title": "Altermagnetoelectric Spin Field Effect Transistor",
+            "authors": "Ziye Zhu, Xianzhang Chen, Xunkai Duan, Zhou Cui, Jiayong Zhang, Igor Zutic, Tong Zhou",
+            "venue": "arXiv:2512.02974",
+            "badges": [],
+            "paperUrl": "https://arxiv.org/abs/2512.02974",
+            "links": [],
+            "pdfUrl": "articles/2512.02974v1.pdf"
+      },
+      {
+            "year": 2026,
+            "title": "One-Dimensional Hydrogen Chains in Li-Hf-H System: A Pathway to High Superconductivity Under High Pressure",
+            "authors": "Kang Yang, Wenwen Cui*, Tong Yang, Shicong Ding, Peiheng Lai, Kun Gao, Jingming Shi, Ming Yang*, Tong Zhou*, Yinwei Li*",
+            "venue": "Advanced Science, e14126 (2026)",
+            "badges": [],
+            "paperUrl": "https://doi.org/10.1002/advs.202514126",
+            "links": [],
+            "pdfUrl": "articles/Advanced Science - 2025 - Yang - One‐Dimensional Hydrogen Chains in Li Hf H System  A Pathway to High Superconductivity.pdf"
+      },
+      {
+            "year": 2026,
+            "title": "Two-dimensional magnetic tunnel p-n junctions for low-power electronics.",
+            "authors": "Wenkai Zhu, Ziao Wang, Tiangui Hu, Zakhar R Kudrynskyi, Tong Zhou, Zakhar D Kovalyuk, Ce Hu, Hailong Lin, Xiaodong Li, Yongcheng Deng, Quanshan Lv, Lixia Zhao, Amalia Patanè, Igor Žutić, Houzhi Zheng, Kaiyou Wang*",
+            "venue": "Nat. Commun. 17, 1283 (2026)",
+            "badges": [],
+            "paperUrl": "https://doi.org/10.1038/s41467-025-68043-2",
+            "links": [],
+            "pdfUrl": "articles/s41467-025-68043-2.pdf"
+      },
+      {
+            "year": 2026,
+            "title": "Defect Engineering for Stabilizing Magnetic and Topological Properties in Mn(Bi1-xSbx)2Te4",
+            "authors": "Haonan Chen, Jiayu Wang, Huayao Li, Xunkai Duan, Yuxiang Wang, Zixuan Xu, Yingchao Xia, Wenhao He, Zehao Jia, Xiangyu Cao, Yicheng Mou, Xiangyu Jiang, Jiaming Gu, Pengliang Leng, Fengfeng Zhu, Changlin Zheng, Xiang Yuan, Faxian Xiu, Tong Zhou*, Lin Miao*, Cheng Zhang*",
+            "venue": "Nat Commun 17, 1029 (2026)",
+            "badges": [],
+            "paperUrl": "https://doi.org/10.1038/s41467-025-67774-6",
+            "links": [],
+            "pdfUrl": "articles/s41467-025-67774-6.pdf"
+      },
+      {
+            "year": 2026,
+            "title": "Ferroelastic altermagnetism",
+            "authors": "Rui Peng, Shibo Fang, Pin Ho, Fanxin Liu, Tong Zhou*, Junwei Liu*, Yee Sin Ang*",
+            "venue": "npj Quantum Mater. 11, 5 (2026)",
+            "badges": [],
+            "paperUrl": "https://doi.org/10.1038/s41535-025-00835-7",
+            "links": [],
+            "pdfUrl": "articles/s41535-025-00835-7.pdf"
+      },
+      {
+            "year": 2025,
+            "title": "Towards Scalable Braiding: Topological Superconductivity Unlocked under Arbitrary Magnetic Field Directions in Curved Planar Josephson Junctions",
+            "authors": "Richang Huang, Yongliang Hu, Xianzhang Chen, Peng Yu, Siwei Tan, Igor Zutic, Tong Zhou",
+            "venue": "arXiv.2504.20031",
+            "badges": [],
+            "paperUrl": "https://arxiv.org/abs/2504.20031",
+            "links": [],
+            "pdfUrl": "articles/2504.20031v3.pdf"
+      },
+      {
+            "year": 2025,
+            "title": "Non-Hermitian higher-order topological insulators enabled by altermagnet engineering",
+            "authors": "X Ji, D Wang, T Zhou*, X Yang*",
+            "venue": "arXiv.2512.23951",
+            "paperUrl": "https://arxiv.org/abs/2512.23951",
+            "badges": [],
+            "links": [],
+            "pdfUrl": "articles/2512.23951v2.pdf"
+      },
+      {
+            "year": 2025,
+            "title": "Emergent multiferroic altermagnets and spin control via noncollinear molecular polarization",
+            "authors": "Ziye Zhu, Yuntian Liu, Xunkai Duan, Jiayong Zhang, Bowen Hao, Su-Huai Wei, Igor Zutic, Tong Zhou*",
+            "venue": "Science China Physics, Mechanics & Astronomy 68.12 (2025): 127562.",
+            "badges": [],
+            "paperUrl": "https://link.springer.com/article/10.1007/s11433-025-2778-3",
+            "links": [],
+            "pdfUrl": "articles/s11433-025-2778-3.pdf"
+      },
+      {
+            "year": 2025,
+            "title": "Two-Dimensional Ferroelectric Altermagnets: From Model to Material Realization",
+            "authors": "Ziye Zhu, Xunkai Duan, Jiayong Zhang, Bowen Hao, Igor Žutić, Tong Zhou*",
+            "venue": "Nano Lett. 2025, 25, 23, 9456–9462",
+            "badges": [],
+            "paperUrl": "https://doi.org/10.1021/acs.nanolett.5c02121",
+            "links": [],
+            "pdfUrl": "articles/2025-zhu-two-dimensional-ferroelectric-altermagnets-from-model.pdf"
+      },
+      {
+            "year": 2025,
+            "title": "Ferroelectric control of valleytronic nonvolatile storage in HfCl2/Sc2CO2 heterostructure",
+            "authors": "Zhou Cui, Xunkai Duan, Jiansen Wen, Ziye Zhu, Jiayong Zhang, Jiajie Pei, Cuilian Wen, Tong Zhou*, Bo Wu*, Baisheng Sa*",
+            "venue": "Appl. Phys. Lett. 126, 122902 (2025)",
+            "badges": [],
+            "paperUrl": "https://pubs.aip.org/aip/apl/article-abstract/126/12/122902/3340392/Ferroelectric-control-of-valleytronic-nonvolatile?redirectedFrom=fulltext",
+            "links": []
+      },
+      {
+            "year": 2025,
+            "title": "Antiferroelectric altermagnets: Antiferroelectricity alters magnets",
+            "authors": "Xunkai Duan, Jiayong Zhang, Ziye Zhu, Yuntian Liu, Zhenyu Zhang, Igor Žutić, Tong Zhou*",
+            "venue": "Phys. Rev. Lett. 134, 106801",
+            "badges": [
+                  "Editors' Suggestion",
+                  " Featured in Physics",
+                  "P Collection 2025"
+            ],
+            "paperUrl": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.106801",
+            "links": [],
+            "pdfUrl": "articles/2025-duan-antiferroelectric-altermagnets-antiferroelectricity-alters-magnets.pdf"
+      },
+      {
+            "year": 2025,
+            "title": "Ultrafast Laser-Induced Spin Dynamics in All-Semiconductor Ferromagnetic CrSBr–Phosphorene Heterostructures",
+            "authors": "Yiqi Huo, Shuo, Li*, Luo Yan, Ningbo Li, Jing Zou, Junjie He, Tong Zhou, Thomas Frauenheim, Sergei Tretiak, Liujiang Zhou*",
+            "venue": "The Journal of Physical Chemistry Letters 16, 782–788 (2025)",
+            "badges": [],
+            "paperUrl": "https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.4c03279",
+            "links": []
+      },
+      {
+            "year": 2024,
+            "title": "Large-gap non-Dirac quantum anomalous Hall effect in nitrided TlSb monolayers on nonmagnetic substrates",
+            "authors": "J Shen, J Li, J Qian, X Duan, C Ma, T Zhou*, J Zhang*",
+            "venue": "Phys. Rev. B 110, 155423 (2024)",
+            "badges": [],
+            "paperUrl": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.110.155423",
+            "links": []
+      },
+      {
+            "year": 2024,
+            "title": "Potential existence of Xe3CO2 compounds with distinct Xe-C covalent bonds under pressures of Earth’s core",
+            "authors": "K Yang, K Yang, T Yang, J He, M Yang*, T Zhou*",
+            "venue": "Phys. Rev. B 110, 054108 (2024)",
+            "badges": [],
+            "paperUrl": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.110.054108",
+            "links": []
+      },
+      {
+            "year": 2024,
+            "title": "Microwave signatures of topological superconductivity in planar Josephson junctions",
+            "authors": "B Pekerten, D Brandão, BH Elfeky, T Zhou, JE Han, J Shabani, I Žutić",
+            "venue": "Phys. Rev. B 110, L060513 (2024)",
+            "badges": [],
+            "paperUrl": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.110.L060513",
+            "links": []
+      },
+      {
+            "year": 2024,
+            "title": "Phase jumps in Josephson junctions with time-dependent spin–orbit coupling",
+            "authors": "D Monroe, C Shen, D Tringali, M Alidoust, T Zhou, I Žutić",
+            "venue": "Appl. Phys. Lett. 125, 012601 (2024)",
+            "badges": [],
+            "paperUrl": "https://pubs.aip.org/aip/apl/article-abstract/125/1/012601/3300566/Phase-jumps-in-Josephson-junctions-with-time?redirectedFrom=fulltext",
+            "links": []
+      },
+      {
+            "year": 2024,
+            "title": "Beyond the standard model of topological Josephson junctions: From crystalline anisotropy to finite-size and diode effects",
+            "authors": "B Pekerten, D. S Brandão, B Bussiere, D Monroe, T Zhou, J E Han, J Shabani, A Matos-Abiague, I Žutić",
+            "venue": "Applied Physics Letters 124, 252602 (2024)",
+            "badges": [],
+            "paperUrl": "https://pubs.aip.org/aip/apl/article-abstract/124/25/252602/3299162/Beyond-the-standard-model-of-topological-Josephson?redirectedFrom=fulltext",
+            "links": []
+      },
+      {
+            "year": 2024,
+            "title": "Compositional engineering of magnetic anisotropy in Cr2SixGe2-xTe6",
+            "authors": "T Xie, S Liang, S Deitemyer, Q Wang, T Zhou, I Žutić, X Zhang, D Yuan, X Zhang, C Gong",
+            "venue": "Materials Today Electronics 7, 100081 (2024)",
+            "badges": [],
+            "paperUrl": "https://www.sciencedirect.com/science/article/pii/S2772949423000578",
+            "links": []
+      },
+      {
+            "year": 2023,
+            "title": "Large and tunable magnetoresistance in van der Waals Ferromagnet/Semiconductor junctions",
+            "authors": "W Zhu, Y Zhu, T Zhou, X Zhang, H Lin, Q Cui, F Yan, Z Wang, Y Deng, H Yang, L Zhao, I Žutić, KD Belashchenko, K Wang",
+            "venue": "Nature Communications 14, 5371 (2023)",
+            "badges": [],
+            "paperUrl": "https://www.nature.com/articles/s41467-023-41077-0",
+            "links": []
+      },
+      {
+            "year": 2023,
+            "title": "Tuning corner states in proximitized second-order topological insulators with bulk-boundary obstruction",
+            "authors": "Y Xue, T Zhou, W Xu, B Zhao, I Žutić, Z Yang",
+            "venue": "Phys. Rev. B 108 (16), L161110 (2023)",
+            "badges": [],
+            "paperUrl": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.108.L161110",
+            "links": [],
+            "pdfUrl": "articles/PhysRevB.108.L161110.pdf"
+      },
+      {
+            "year": 2023,
+            "title": "Epitaxial Kagome Thin Films as a Platform for Topological Flat Bands",
+            "authors": "S Cheng, M Nrisimhamurty, T Zhou, N Bagués, W Zhou, AJ Bishop, I Lyalin, C Jozwiak, A Bostwick, E Rotenberg, DW McComb, I Žutić, RK Kawakami",
+            "venue": "Nano Letters 23, 7107–7113 (2023)",
+            "badges": [],
+            "paperUrl": "https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.3c01961",
+            "links": []
+      },
+      {
+            "year": 2023,
+            "title": "Quantum anomalous Hall effect with high Chern numbers in functionalized square-octagon Sb monolayers",
+            "authors": "H Bao, B Zhao, J Zhang, Y Xue, T Zhou, Z Yang",
+            "venue": "2D Materials 10, 035004 (2023)",
+            "badges": [],
+            "paperUrl": "https://iopscience.iop.org/article/10.1088/2053-1583/accbd0/meta",
+            "links": []
+      },
+      {
+            "year": 2023,
+            "title": "Small-voltage multiferroic control of two-dimensional magnetic insulators",
+            "authors": "S Liang, T Xie, NA Blumenschein, T Zhou, T Ersevim, Z Song, J Liang, MA Susner, BS Conner, SJ Gong, JP Wang, M Ouyang, I Žutić, AL Friedman, X Zhang, C Gong",
+            "venue": "Nature Electronics 6, 199–205 (2023)",
+            "badges": [],
+            "paperUrl": "https://www.nature.com/articles/s41928-023-00931-1",
+            "links": []
+      },
+      {
+            "year": 2023,
+            "title": "Asymmetry in the Magnetic Neighborhood",
+            "authors": "T Zhou*, I Žutić*",
+            "venue": "Nat. Mater. 22, 284 (2023)",
+            "badges": [],
+            "paperUrl": "https://www.nature.com/articles/s41563-022-01466-0",
+            "links": []
+      },
+      {
+            "year": 2022,
+            "title": "Fusion of Majorana Bound States with Mini-Gate Control in Two-Dimensional Systems",
+            "authors": "T Zhou*, MC Dartiailh, K Sardashti, JE Han, A Matos-Abiague, J Shabani, I Žutić",
+            "venue": "Nat. Commun. 13, 1738 (2022)",
+            "badges": [],
+            "paperUrl": "https://www.nature.com/articles/s41467-022-29463-6",
+            "links": [],
+            "pdfUrl": "articles/2022-zhou-fusion-of-majorana-bound-states-with.pdf"
+      },
+      {
+            "year": 2022,
+            "title": "Spin–orbit coupling proximity effect in MoS2/Fe3GeTe2 heterostructures",
+            "authors": "Z Tu, T Zhou, T Ersevim, HS Arachchige, AT Hanbicki, AL Friedman, D Mandrus, M Ouyang, I Žutić, C Gong",
+            "venue": "Applied Physics Letters 120 (4) (2022)",
+            "badges": [],
+            "paperUrl": "https://pubs.aip.org/aip/apl/article/120/4/043102/2832911",
+            "links": []
+      },
+      {
+            "year": 2021,
+            "title": "Large tunneling magnetoresistance in van der Waals ferromagnet/semiconductor heterojunctions",
+            "authors": "W Zhu, H Lin, F Yan, C Hu, Z Wang, L Zhao, Y Deng, ZR Kudrynskyi, T Zhou, ZD Kovalyuk, Y Zheng, A Patanè, I Žutić, S Li, H Zheng, K Wang",
+            "venue": "Advanced Materials 33, 2104658 (2021)",
+            "badges": [],
+            "paperUrl": "https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/adma.202104658",
+            "links": []
+      },
+      {
+            "year": 2021,
+            "title": "Quantum Spin-Valley Hall Kink States: From Concept to Materials Design",
+            "authors": "T Zhou*, S Cheng, M Schleenvoigt, P Schüffelgen, H Jiang, Z Yang, I Žutić*",
+            "venue": "Phys. Rev. Lett. 127, 116402 (2021)",
+            "badges": [],
+            "paperUrl": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.127.116402",
+            "links": [],
+            "pdfUrl": "articles/2021-zhou-quantum-spin-valley-hall-kink-states.pdf"
+      },
+      {
+            "year": 2021,
+            "title": "Water-Dispersible CsPbBr3 Perovskite Nanocrystals with Ultra-Stability and its Application in Electrochemical CO2 Reduction",
+            "authors": "K Chen#, K Qi#, T Zhou#, T Yang#, Y Zhang*, Z Guo, CK Lim, J Zhang, I Žutić, H Zhang*, PN Prasad*",
+            "venue": "Nano-Micro Letters 13, 172–184 (2021)",
+            "badges": [],
+            "paperUrl": "https://link.springer.com/article/10.1007/s40820-021-00690-8",
+            "links": [],
+            "pdfUrl": "articles/s40820-021-00690-8.pdf"
+      },
+      {
+            "year": 2021,
+            "title": "Towards non-Abelian statistics in topological planar Josephson junctions",
+            "authors": "T Zhou, MC Dartiailh, K Sardashti, JE Han, A Matos-Abiague, J Shabani, I Žutić",
+            "venue": "Spintronics XIV 11805, 118050B (2021)",
+            "badges": [],
+            "paperUrl": "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/11805/118050B/Towards-non-Abelian-statistics-in-topological-planar-Josephson-junctions/10.1117/12.2596241.short?SSO=1",
+            "links": []
+      },
+      {
+            "year": 2021,
+            "title": "Synthesis, Magnetic Properties, and Electronic Structure of Magnetic Topological Insulator MnBi2Se4",
+            "authors": "T Zhu, AJ Bishop, T Zhou, M Zhu, DJ O’Hara, AA Baker, S Cheng, RC Walko, JJ Repicky, T Liu, JA Gupta, CM Jozwiak, E Rotenberg, J Hwang, I Žutić, RK Kawakami",
+            "venue": "Nano Letters 21, 5083–5090 (2021)",
+            "badges": [],
+            "paperUrl": "https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c00141",
+            "links": []
+      },
+      {
+            "year": 2020,
+            "title": "Optically Probing Tunable Band Topology in Atomic Monolayers",
+            "authors": "G Xu, T Zhou*, B Scharf, I Žutić",
+            "venue": "Phys. Rev. Lett. 125, 157402 (2020)",
+            "badges": [],
+            "paperUrl": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.157402",
+            "links": []
+      },
+      {
+            "year": 2020,
+            "title": "Localized Excitons in NbSe2-MoSe2 Heterostructures",
+            "authors": "J Joshi, T Zhou, S Krylyuk, AV Davydov, I Žutić, PM Vora*",
+            "venue": "ACS Nano 14, 8528–8538 (2020)",
+            "badges": [],
+            "paperUrl": "https://pubs.acs.org/doi/abs/10.1021/acsnano.0c02803",
+            "links": []
+      },
+      {
+            "year": 2020,
+            "title": "Phase Control of Majorana Bound States in a Topological X Junction",
+            "authors": "T Zhou*, MC Dartiailh, W Mayer, JE Han, A Matos-Abiague, J Shabani, I Žutić",
+            "venue": "Phys. Rev. Lett. 124, 137001 (2020)",
+            "badges": [],
+            "paperUrl": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.124.137001",
+            "links": [],
+            "pdfUrl": "articles/2020-zhou-phase-control-of-majorana-bound-states.pdf"
+      },
+      {
+            "year": 2019,
+            "title": "Electrical control of Majorana bound states using magnetic stripes",
+            "authors": "N Mohanta, T Zhou, JW Xu, JE Han, AD Kent, J Shabani, I Žutić, A Matos-Abiague",
+            "venue": "Phys. Rev. Applied 12, 034048 (2019)",
+            "badges": [],
+            "paperUrl": "https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.12.034048",
+            "links": []
+      },
+      {
+            "year": 2019,
+            "title": "Engineering a topological quantum dot device through planar magnetization in bismuthene",
+            "authors": "J Zhou#, T Zhou#, S Cheng, H Jiang, Z Yang",
+            "venue": "Phys. Rev. B 99, 195422 (2019)",
+            "badges": [],
+            "paperUrl": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.99.195422",
+            "links": []
+      },
+      {
+            "year": 2019,
+            "title": "Nanoelectronics with proximitized materials",
+            "authors": "I Žutić, A Matos-Abiague, B Scharf, T Zhou, H Dery, K Belashchenko",
+            "venue": "Solid-State Electronics 155, 93–98 (2019)",
+            "badges": [],
+            "paperUrl": "https://www.sciencedirect.com/science/article/abs/pii/S0038110118306865",
+            "links": []
+      },
+      {
+            "year": 2019,
+            "title": "Tunable Magnetic Textures in Spin Valves: From Spintronics to Majorana Bound States",
+            "authors": "T Zhou*, N Mohanta, JE Han, A Matos-Abiague, I Žutić",
+            "venue": "Phys. Rev. B 99, 134505 (2019)",
+            "badges": [],
+            "paperUrl": "https://doi.org/10.1103/PhysRevB.99.134505",
+            "links": [],
+            "pdfUrl": "articles/PhysRevB.99.134505.pdf"
+      },
+      {
+            "year": 2019,
+            "title": "Quantum anomalous Hall effects and various topological mechanisms in functionalized Sn monolayers",
+            "authors": "YS Mu, Y Xue, T Zhou, ZQ Yang",
+            "venue": "New Journal of Physics 21, 023010 (2019)",
+            "badges": [],
+            "paperUrl": "https://iopscience.iop.org/article/10.1088/1367-2630/ab0454/meta",
+            "links": []
+      },
+      {
+            "year": 2019,
+            "title": "Topologically trivial states induced by strong spin-orbit coupling and Chern insulators in doped X(C21N3H15) (X=Ta, Hf) metal-organic frameworks",
+            "authors": "J Zhang, B Zhao, T Zhou, Y Xue, Y Fang, C Ma, Z Yang",
+            "venue": "Phys. Rev. B 99, 035409 (2019)",
+            "badges": [],
+            "paperUrl": "https://doi.org/10.1103/PhysRevB.99.035409",
+            "links": []
+      },
+      {
+            "year": 2018,
+            "title": "Multiple Hall effects in proximitized 2D materials (Conference Presentation)",
+            "authors": "T Zhou, G Xu, A Matos-Abiague, B Scharf, I Žutić",
+            "venue": "Spintronics XI 10732, 1073221 (2018)",
+            "badges": [],
+            "paperUrl": "https://doi.org/10.1117/12.2323160",
+            "links": []
+      },
+      {
+            "year": 2018,
+            "title": "Giant Spin-valley Polarizations and Multiple Hall Effects in Functionalized Bismuth Monolayers",
+            "authors": "T Zhou, J Zhang, H Jiang, I Žutić, Z Yang*",
+            "venue": "npj Quantum Mater. 3, 39 (2018)",
+            "badges": [],
+            "paperUrl": "https://www.nature.com/articles/s41535-018-0113-4",
+            "links": []
+      },
+      {
+            "year": 2018,
+            "title": "Tailoring magnetism in semiconductors",
+            "authors": "I Žutić, T Zhou",
+            "venue": "Science China Physics, Mechanics & Astronomy 61, 1–3 (2018)",
+            "badges": [],
+            "paperUrl": "https://doi.org/10.1007/s11433-018-9191-0",
+            "links": [],
+            "pdfUrl": "articles/s11433-018-9191-0.pdf"
+      },
+      {
+            "year": 2018,
+            "title": "Coupling effect of topological states and Chern insulators in two-dimensional triangular lattices",
+            "authors": "J Zhang, B Zhao, Y Xue, T Zhou, Z Yang*",
+            "venue": "Phys. Rev. B 97, 125430 (2018)",
+            "badges": [],
+            "paperUrl": "https://doi.org/10.1103/PhysRevB.97.125430",
+            "links": []
+      },
+      {
+            "year": 2018,
+            "title": "Novel Chern insulators with half-metallic edge states",
+            "authors": "Y Xue, B Zhao, Y Zhu, T Zhou, J Zhang, N Li, H Jiang, Z Yang",
+            "venue": "NPG Asia Materials 10, e467–e467 (2018)",
+            "badges": [],
+            "paperUrl": "https://www.nature.com/articles/am2017240",
+            "links": []
+      },
+      {
+            "year": 2018,
+            "title": "Strong magnetization and Chern insulators in compressed van der Waals heterostructures",
+            "authors": "J Zhang, B Zhao, T Zhou, Y Xue, C Ma, Z Yang",
+            "venue": "Phys. Rev. B 97, 085401 (2018)",
+            "badges": [],
+            "paperUrl": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.97.085401",
+            "links": []
+      },
+      {
+            "year": 2018,
+            "title": "Large valley polarization in monolayer MoTe2 on a magnetic substrate",
+            "authors": "N Li, J Zhang, Y Xue, T Zhou, Z Yang*",
+            "venue": "PCCP 20, 3805–3812 (2018)",
+            "badges": [],
+            "paperUrl": "https://pubs.rsc.org/en/content/articlelanding/2018/cp/c7cp07610j/unauth",
+            "links": []
+      },
+      {
+            "year": 2017,
+            "title": "Li2TiSiO5: a low potential and large capacity Ti-based anode material for Li-ion batteries",
+            "authors": "J Liu, WK Pang, T Zhou, L Chen, Y Wang, VK Peterson*, Z Yang*, Z Guo, Y Xia*",
+            "venue": "Energy & Environmental Science 10, 1456–1464 (2017)",
+            "badges": [],
+            "paperUrl": "https://pubs.rsc.org/en/content/articlelanding/2017/ee/c7ee00763a/unauth",
+            "links": []
+      },
+      {
+            "year": 2016,
+            "title": "Quantum spin–quantum anomalous Hall effect with tunable edge states in Sb monolayer-based heterostructures",
+            "authors": "T Zhou, J Zhang, Y Xue, B Zhao, H Zhang, H Jiang, Z Yang*",
+            "venue": "Phys. Rev. B 94, 235449 (2016)",
+            "badges": [],
+            "paperUrl": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.94.235449",
+            "links": []
+      },
+      {
+            "year": 2016,
+            "title": "Quantum anomalous Hall effect in stanene on a nonmagnetic substrate",
+            "authors": "H Zhang, T Zhou, J Zhang, B Zhao, Y Yao, Z Yang*",
+            "venue": "Phys. Rev. B 94, 235409 (2016)",
+            "badges": [],
+            "paperUrl": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.94.235409",
+            "links": []
+      },
+      {
+            "year": 2016,
+            "title": "Quantum anomalous Hall effect in real materials",
+            "authors": "J Zhang, B Zhao, T Zhou, Z Yang",
+            "venue": "Chinese Physics B 25, 117308 (2016)",
+            "badges": [],
+            "paperUrl": "https://iopscience.iop.org/article/10.1088/1674-1056/25/11/117308/meta",
+            "links": []
+      },
+      {
+            "year": 2016,
+            "title": "Enhanced thermoelectric properties of the Dirac semimetal Cd3As2",
+            "authors": "T Zhou, C Zhang, H Zhang, F Xiu, Z Yang",
+            "venue": "Inorganic Chemistry Frontiers 3, 1637–1643 (2016)",
+            "badges": [],
+            "paperUrl": "https://pubs.rsc.org/en/content/articlehtml/2017/qi/c6qi00383d",
+            "links": []
+      },
+      {
+            "year": 2016,
+            "title": "Quantum anomalous Hall effect in stable dumbbell stanene",
+            "authors": "H Zhang, J Zhang, B Zhao, T Zhou, Z Yang",
+            "venue": "Applied Physics Letters 108 (8) (2016)",
+            "badges": [],
+            "paperUrl": "https://pubs.aip.org/aip/apl/article-abstract/108/8/082104/31654/Quantum-anomalous-Hall-effect-in-stable-dumbbell?redirectedFrom=fulltext",
+            "links": []
+      },
+      {
+            "year": 2015,
+            "title": "Unexpected low thermal conductivity and large power factor in Dirac semimetal Cd3As2",
+            "authors": "C Zhang, T Zhou, S Liang, J Cao, X Yuan, Y Liu, Y Shen, Q Wang, J Zhao, Z Yang, F Xiu",
+            "venue": "Chinese Physics B 25, 017202 (2015)",
+            "badges": [],
+            "paperUrl": "https://iopscience.iop.org/article/10.1088/1674-1056/25/1/017202/meta",
+            "links": []
+      },
+      {
+            "year": 2015,
+            "title": "Nanoparticle superlattices as efficient bifunctional electrocatalysts for water splitting",
+            "authors": "J Li, Y Wang, T Zhou, H Zhang, X Sun, J Tang, L Zhang, AM Al-Enizi, …",
+            "venue": "J. Am. Chem. Soc. 137, 14305–14312 (2015)",
+            "badges": [],
+            "paperUrl": "https://pubs.acs.org/doi/abs/10.1021/jacs.5b07756",
+            "links": []
+      },
+      {
+            "year": 2015,
+            "title": "Quantum Spin-Quantum Anomalous Hall Insulators and Topological Transitions in Functionalized Sb(111) Monolayers",
+            "authors": "T Zhou, J Zhang, B Zhao, H Zhang, Z Yang*",
+            "venue": "Nano Letters 15, 5149–5155 (2015)",
+            "badges": [],
+            "paperUrl": "https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.5b01373",
+            "links": []
+      },
+      {
+            "year": 2015,
+            "title": "Bio‐Inspired Leaf‐Mimicking Nanosheet/Nanotube Heterostructure as a Highly Efficient Oxygen Evolution Catalyst",
+            "authors": "Yongcheng Wang, Kun Jiang, Hui Zhang, Tong Zhou, Jiwei Wang, Wei Wei, Zhongqin Yang, Xuhui Sun, Wen-Bin Cai, Gengfeng Zheng",
+            "venue": "Advanced Science 2, 1500003 (2015)",
+            "badges": [],
+            "paperUrl": "https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.201500003",
+            "links": []
+      },
+      {
+            "year": 2014,
+            "title": "Reversible chemical tuning of charge carriers for enhanced photoelectrochemical conversion and probing of living cells",
+            "authors": "Y Wang#, J Tang#, T Zhou#, P Da, J Li, B Kong, Z Yang, G Zheng",
+            "venue": "Small 10, 4967–4974 (2014)",
+            "badges": [],
+            "paperUrl": "https://onlinelibrary.wiley.com/doi/full/10.1002/smll.201401059",
+            "links": []
+      },
+      {
+            "year": 2014,
+            "title": "Electrocatalysis: Reduced Mesoporous Co3O4 Nanowires as Efficient Water Oxidation Electrocatalysts and Supercapacitor Electrodes (Adv. Energy Mater. 16/2014)",
+            "authors": "Yongcheng Wang, Tong Zhou, Kun Jiang, Peimei Da, Zheng Peng, Jing Tang, Biao Kong, Wen-Bin Cai, Zhongqin Yang, Gengfeng Zheng",
+            "venue": "Advanced Energy Materials 4 (16) (2014)",
+            "badges": [],
+            "paperUrl": "https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/aenm.201470082",
+            "links": []
+      },
+      {
+            "year": 2014,
+            "title": "Reduced Mesoporous Co3O4 Nanowires as Efficient Water Oxidation Electrocatalysts and Supercapacitor Electrodes",
+            "authors": "Y Wang, T Zhou, K Jiang, P Da, Z Peng, J Tang, B Kong, WB Cai, Z Yang, G Zheng",
+            "venue": "Advanced Energy Materials 4 (16), 1400696 (2014)",
+            "badges": [],
+            "paperUrl": "https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aenm.201400696",
+            "links": []
+      },
+      {
+            "year": 2012,
+            "title": "Comparison of the structural and magnetic properties of ground-state SrTcO3 and CaTcO3 from first principles",
+            "authors": "CL Ma, T Zhou",
+            "venue": "Physica B: Condensed Matter 407, 218–221 (2012)",
+            "badges": [],
+            "paperUrl": "https://www.sciencedirect.com/science/article/abs/pii/S0921452611010854",
+            "links": []
       }
-    ];
+];
     /*
       =========================
       1) De-duplicate by title (case-insensitive)
@@ -1154,22 +1189,32 @@
               }).join("")}</div>`
             : "";
 
+          const titleHref = (p.pdfUrl || "").trim();
+          const articleHref = (p.paperUrl || "").trim();
+          const venueHTML = p.venue
+            ? `<div class="pub-venue">${
+                articleHref
+                  ? `<a href="${escapeHTML(articleHref)}" target="_blank" rel="noopener">${escapeHTML(p.venue)}</a>`
+                  : escapeHTML(p.venue)
+              }</div>`
+            : "";
+
           return `
             <li class="pub-item" data-text="${escapeHTML(dataText)}">
               <div><div class="pub-no"></div></div>
               <div>
                 <p class="pub-title">
-                  ${p.paperUrl
-                    ? `<a class="pub-title-link" href="${escapeHTML(p.paperUrl)}" target="_blank" rel="noopener">${escapeHTML(p.title)}</a>`
+                  ${titleHref
+                    ? `<a class="pub-title-link" href="${escapeHTML(titleHref)}" target="_blank" rel="noopener">${escapeHTML(p.title)}</a>`
                     : `${escapeHTML(p.title)}`
                   }
                 </p>
                 
                 ${p.authors ? `<div class="pub-authors">${highlightAuthors(p.authors)}  </div>` : ""}
                 
-                ${p.venue ? `<div class="pub-venue">${escapeHTML(p.venue)}</div>` : ""}
+                ${venueHTML}
                 ${badgesHTML}
-                ${linksHTML && !badgesHTML ? linksHTML : (linksHTML ? linksHTML : "")}
+                ${linksHTML}
               </div>
             </li>
           `;
