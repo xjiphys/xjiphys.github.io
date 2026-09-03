@@ -5,6 +5,7 @@ This is a test website for zhou group.
 Log:
 
 ```
+2026-09-03: add Advanced Materials publication "Giant-Exchange-Driven Vectorial Control of a Minimal Topological Magnet in Eu3In2As4" with local PDF Chen2026VectorialControl.pdf.
 2026-07-04: update Non-Hermitian higher-order topological insulators entry from arXiv to Phys. Rev. B; replace PDF with Ji2026NonHermitianTopology.pdf and remove old arXiv link.
 2026-07-04: replace Cui2026SymmetryDriven.pdf with the updated Advanced Science article PDF and confirm publications.html link.
 2026-07-04: compare publications with Google Scholar profile and add articles/scholar_missing_review.md with 13 candidate entries for approval.
