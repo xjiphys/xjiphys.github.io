@@ -1,8 +1,8 @@
 # Publications without local PDF
 
-Generated from `publications.html` on 2026-07-03.
+Updated from `publications.html` on 2026-09-21.
 
-Total missing local PDFs: 21
+Total missing local PDFs: 20
 
 ## 2025
 
@@ -61,8 +61,6 @@ Total missing local PDFs: 21
 
 ## 2015
 
-- Unexpected low thermal conductivity and large power factor in Dirac semimetal Cd3As2
-  - Venue: Chinese Physics B 25, 017202 (2015)
 - Nanoparticle superlattices as efficient bifunctional electrocatalysts for water splitting
   - Venue: J. Am. Chem. Soc. 137, 14305-14312 (2015)
 - Bio-Inspired Leaf-Mimicking Nanosheet/Nanotube Heterostructure as a Highly Efficient Oxygen Evolution Catalyst
