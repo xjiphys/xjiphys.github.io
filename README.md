@@ -9,6 +9,7 @@ PDF import sources and remaining items: [补录记录](articles/pdf_import_log.m
 Log:
 
 ```
+2026-11-15: update both PhD admissions links on the Openings page to the EIT graduate admissions information page.
 2026-11-15: update the Openings page from the supplied recruitment document, including team development, research interests, joint PhD programs, positions, compensation, and application details; improve narrow-screen link wrapping.
 2026-10-28: synchronize 5 missing 2026 publications from Google Scholar; add 4 verified local PDFs and dated news on both pages; correct PRL authors, ACS Nano citation and publication-news date, and remove the published Advanced Science article's arXiv links. NSR PDF download returned 403; its title links to the DOI page. Sources are recorded in articles/pdf_import_log.md.
 2026-10-08: import 4 verified public-source PDFs; link each new publication title and venue to its local PDF, retain DOI links, and update the missing-PDF list to 14 entries. Sources and manuscript versions are recorded in articles/pdf_import_log.md.
