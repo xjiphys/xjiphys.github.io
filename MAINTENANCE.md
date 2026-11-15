@@ -72,7 +72,7 @@ flowchart TD
 | `title` | 论文标题，也是去重依据 |
 | `authors` | 作者字符串，渲染时按名单高亮 |
 | `venue` | 期刊、卷页、年份或预印本信息 |
-| `paperUrl` | 点击期刊信息跳转的文章/DOI 页面 |
+| `paperUrl` | 点击期刊信息跳转的目标，通常是文章/DOI 页面；也可按需指定本地 PDF，并将原期刊网页保留在 `links` 中 |
 | `pdfUrl` | 点击标题打开的本地 PDF 相对路径；没有此字段时标题为普通文本 |
 | `badges` | Editors' Suggestion 等纯文字标记数组 |
 | `links` | 额外链接数组，每项使用 `label` 和 `href` |
@@ -128,12 +128,12 @@ flowchart TD
 
 ## 6. 已发现的问题与维护注意点
 
-以下是现状记录，本次未修复页面：
+以下为首次梳理的问题记录；后续修复在表内注明：
 
 | 问题 | 位置与影响 |
 | --- | --- |
 | 联系页缺失 | 7 个页脚均链接 `contact-us.html`，仓库中没有该文件 |
-| 两处 PRL 链接与显示信息互换 | `research.html` 的 Topics 1、3：显示 124, 137001 的链接指向 125, 157402，显示 125, 157402 的链接指向 124, 137001；与 Publications 的对应关系也不一致 |
+| 两处 PRL 链接与显示信息互换（已修复，2026-10-08） | Research 全部 5 篇引用已按显示文字核对 PDF 并改为仓库相对路径；124, 137001 对应 `Zhou2020XJunction.pdf`，125, 157402 对应 `Xu2020OpticallyProbing.pdf` |
 | People 缺少 viewport | `people.html` 的 `<head>` 没有 viewport meta，手机可能按桌面视口缩放；该页面还缺少 `lang` 属性 |
 | 缺失背景图片 | `css/style.css` 的 `.Leaderp1` 引用了不存在的 `image/groupleader.jpg`；People 内实际头像文件仍存在 |
 | CSS 变量自引用 | `photos.html` 中 `--surface: var(--surface)`、`--text: var(--text)`、`--muted: var(--muted)` 构成循环引用，需要改为继承或不同变量名 |
@@ -146,6 +146,8 @@ flowchart TD
 `articles/scholar_missing_review.md` 记录了 2026-07-04 的 13 个候选条目，含可能重复项、会议摘要等，不能当作已确认待发表列表批量加入。
 
 ## 7. 本地预览、检查与发布
+
+临时文件和预览中间产物放在仓库外的临时目录（例如 `/private/tmp/temp/`），不要放入网站仓库。
 
 在仓库根目录可用 Python 标准库启动本地预览，不需要安装网站依赖：
 

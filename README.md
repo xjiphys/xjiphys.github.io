@@ -4,9 +4,17 @@ This is a test website for zhou group.
 
 Architecture and maintenance guide: [网站架构与维护说明](MAINTENANCE.md).
 
+PDF import sources and remaining items: [补录记录](articles/pdf_import_log.md).
+
 Log:
 
 ```
+2026-11-15: update the Openings page from the supplied recruitment document, including team development, research interests, joint PhD programs, positions, compensation, and application details; improve narrow-screen link wrapping.
+2026-10-28: synchronize 5 missing 2026 publications from Google Scholar; add 4 verified local PDFs and dated news on both pages; correct PRL authors, ACS Nano citation and publication-news date, and remove the published Advanced Science article's arXiv links. NSR PDF download returned 403; its title links to the DOI page. Sources are recorded in articles/pdf_import_log.md.
+2026-10-08: import 4 verified public-source PDFs; link each new publication title and venue to its local PDF, retain DOI links, and update the missing-PDF list to 14 entries. Sources and manuscript versions are recorded in articles/pdf_import_log.md.
+2026-10-08: add Zhang2016DumbbellStanene.pdf for Applied Physics Letters 108, 082104 (2016); link the journal name and title to the local PDF, retain a DOI link, and update the missing-PDF list to 18 entries.
+2026-10-08: add Zhang2016StaneneQAH.pdf for Phys. Rev. B 94, 235409 (2016); link the publication's journal name and title to the local PDF, preserve the publisher page as a DOI link, and update the missing-PDF list to 19 entries.
+2026-10-08: point all five Research page publication citations to existing repository PDFs; correct the swapped PRL 124, 137001 and PRL 125, 157402 targets based on the displayed citations and PDF contents.
 2026-09-21: link Zhang2016LowThermalConductivity.pdf to the existing Cd3As2 thermal conductivity publication, correct its journal year to 2016, and update the missing-PDF list to 20 entries. PDF sourced from the Fudan Jun Zhao group website because the supplied WeChat temporary path was unavailable.
 2026-09-03: correct Xunkai Duan award news date to 2026.07.31 on the home and news pages.
 2026-09-03: add Advanced Materials publication "Giant-Exchange-Driven Vectorial Control of a Minimal Topological Magnet in Eu3In2As4" with local PDF Chen2026VectorialControl.pdf.
