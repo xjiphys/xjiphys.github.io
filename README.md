@@ -9,6 +9,7 @@ PDF import sources and remaining items: [补录记录](articles/pdf_import_log.m
 Log:
 
 ```
+2026-11-15: synchronize punctuation and wording on the Openings page with the revised recruitment document and standardize the PDF format label.
 2026-11-15: standardize VASP, WIEN2k and k·p model terminology on the Openings page.
 2026-11-15: synchronize the faculty profile links on People and the Google Scholar metrics on Publications with the November recruitment information.
 2026-11-15: correct OOMMF and MuMax3 names and update the Hong Kong Polytechnic University PhD admissions link.
