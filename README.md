@@ -9,6 +9,9 @@ PDF import sources and remaining items: [补录记录](articles/pdf_import_log.m
 Log:
 
 ```
+2026-11-15: standardize VASP, WIEN2k and k·p model terminology on the Openings page.
+2026-11-15: synchronize the faculty profile links on People and the Google Scholar metrics on Publications with the November recruitment information.
+2026-11-15: correct OOMMF and MuMax3 names and update the Hong Kong Polytechnic University PhD admissions link.
 2026-11-15: update both PhD admissions links on the Openings page to the EIT graduate admissions information page.
 2026-11-15: update the Openings page from the supplied recruitment document, including team development, research interests, joint PhD programs, positions, compensation, and application details; improve narrow-screen link wrapping.
 2026-10-28: synchronize 5 missing 2026 publications from Google Scholar; add 4 verified local PDFs and dated news on both pages; correct PRL authors, ACS Nano citation and publication-news date, and remove the published Advanced Science article's arXiv links. NSR PDF download returned 403; its title links to the DOI page. Sources are recorded in articles/pdf_import_log.md.
